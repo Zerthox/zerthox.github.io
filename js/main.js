@@ -6,13 +6,13 @@ $(document).ready(function() {
                 g = result.response.games;
                 for (i = 0; i < g.length; i++) {
                     if (g[i].appid === 730) {
-                        $(".csgo").append('<div class="ghost-text">' + Math.round(g[i].playtime_forever/60) + 'h</div>');
+                        $(".csgo .ghost-text").text(Math.round(g[i].playtime_forever/60) + 'h');
                     }
                     else if (g[i].appid === 386360) {
-                        $(".smite").append('<div class="ghost-text">' + Math.round(g[i].playtime_forever/60) + 'h</div>');
+                        $(".smite .ghost-text").text(Math.round(g[i].playtime_forever/60) + 'h');
                     } 
                     else if (g[i].appid === 365590) {
-                        $(".division").append('<div class="ghost-text">' + Math.round(g[i].playtime_forever/60) + 'h</div>');
+                        $(".division .ghost-text").text(Math.round(g[i].playtime_forever/60) + 'h');
                     }
                 }
             }
