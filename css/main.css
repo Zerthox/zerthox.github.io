@@ -3,6 +3,26 @@
     --dark-bg: #2f3537;
     --light-bg: #3b4344;
 }
+@font-face {
+	font-family: "Orion Pax";
+	src: url(https://cdn.rawgit.com/Zerthox/zerthox.github.io/master/fonts/Orion%20Pax/Orion%20Pax.otf);
+}
+@font-face {
+	font-family: "Orion Pax";
+	font-weight: bold;
+	src: url(https://cdn.rawgit.com/Zerthox/zerthox.github.io/master/fonts/Orion%20Pax/Orion%20Pax%20Bold.otf);
+}
+@font-face {
+	font-family: "Orion Pax";
+	font-style: italic;
+	src: url(https://cdn.rawgit.com/Zerthox/zerthox.github.io/master/fonts/Orion%20Pax/Orion%20Pax%20Italic.otf);
+}
+@font-face {
+	font-family: "Orion Pax";
+	font-style: italic;
+	font-weight: bold;
+	src: url(https://cdn.rawgit.com/Zerthox/zerthox.github.io/master/fonts/Orion%20Pax/Orion%20Pax%20Bold%20Italic.otf);
+}
 body {
     background: var(--light-bg);
     height: 100vh;
@@ -33,6 +53,7 @@ body {
 .site-header .header-name {
     height: 200px;
     color: var(--main-color);
+    font-family: "Orion Pax";
     font-size: 100px;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, .5);
     line-height: 200px;
