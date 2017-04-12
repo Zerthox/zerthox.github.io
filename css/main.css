@@ -31,7 +31,8 @@ body {
 }
 .site-body {
     width: 50%;
-   	margin: auto;
+    max-width: 750px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     flex: 1;
