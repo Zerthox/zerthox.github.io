@@ -134,6 +134,24 @@ body {
 	color: hsla(0, 0%, 100%, .1);
 	font-size: 50px;
 	font-weight: 600;
+	-webkit-animation: fadein .3s ease-in-out;
+	animation: fadein .3s ease-in-out;
+}
+@-webkit-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	top {
+		opacity: 1;
+	}
+}
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	top {
+		opacity: 1;
+	}
 }
 .site-footer {
 	width: 100vw;
