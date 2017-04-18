@@ -35,11 +35,8 @@ body {
     flex-direction: column;
     color: hsla(0, 0%, 100%, .7);
 }
+::selection,
 ::-moz-selection {
-    color: var(--dark-bg);
-    background: hsla(0, 0%, 100%, .7);
-}
-::selection {
     color: var(--dark-bg);
     background: hsla(0, 0%, 100%, .7);
 }
@@ -130,6 +127,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, .3) inset;
     border-radius: 3px;
 }
+.content.build {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
 .list {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -144,6 +149,32 @@ body {
 .list.links {
     width: 50%;
     margin: auto;
+}
+.build-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+    flex: 1;
+}
+.list.builds li {
+    position: relative;
+    margin-left: 20px;
+    padding: 5px;
+}
+.list.builds li::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    top: calc(50% - 2px);
+    left: -10px;
+    background: hsla(0, 0%, 100%, .7);
 }
 .list a {
     text-decoration: none;
