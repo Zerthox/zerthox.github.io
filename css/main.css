@@ -169,6 +169,11 @@ body {
     width: 36px;
 	bottom: 5px;
     right: 5px;
+    color: hsla(0, 0%, 100%, .5);
+	-webkit-transition: color .3s ease-in-out;
+	transition: color .3s ease-in-out;
+}
+.back-button:hover {
     color: hsla(0, 0%, 100%, .7);
 }
 .back-button i {
