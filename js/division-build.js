@@ -29,7 +29,7 @@ $(document).ready(function() {
                                     else if (key === "type")
                                         $(".build-content ." + p + " ." + k + " .icon").addClass(value);
                                     else if (key === "icon")
-                                        $(".build-content ." + p + " ." + k + "> ." + key).addClass(value);
+                                        $(".build-content ." + p + " ." + k + ">." + key).addClass(value);
                                     else
                                         $(".build-content ." + p + " ." + k + " ." + key).text(value);
                                 });
