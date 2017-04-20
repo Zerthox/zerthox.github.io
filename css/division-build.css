@@ -1,0 +1,744 @@
+:root {
+    --main-color: #ff7f00;
+    --green: rgb(145, 255, 66);
+    --red: rgb(255, 48, 0);
+    --background-blur: 5px;
+    --background-brightness: 30%;
+}
+@font-face {
+    font-family: Borda;
+    src: url(https://cdn.rawgit.com/Zerthox/font-hosting/master/Borda/Borda%20Medium.ttf) format("truetype");
+}
+@font-face {
+    font-family: Borda;
+    src: url(https://cdn.rawgit.com/Zerthox/font-hosting/master/Borda/Borda%20DemiBold.ttf) format("truetype");
+    font-weight: 600;
+}
+@font-face {
+    font-family: Borda;
+    src: url(https://cdn.rawgit.com/Zerthox/font-hosting/master/Borda/Borda%20Bold.ttf) format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: Borda;
+    src: url(https://cdn.rawgit.com/Zerthox/font-hosting/master/Borda/Borda%20Bold.ttf) format("truetype");
+    font-weight: bold;
+}
+body {
+    background: var(--light-bg);
+    height: 100vh;
+    width: 100vw;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: Borda;
+    color: hsla(0, 0%, 100%, .5);
+    text-shadow: 0 0 3px rgba(0, 0, 0, .3), 3px 3px 0 rgba(150, 150, 150, .1);
+    overflow: hidden;
+    cursor: default;
+}
+body::after {
+    content: "";
+    position: absolute;
+    top: -1%;
+    left: -1%;
+    width: 102%;
+    height: 102%;
+    background-image: url(https://images7.alphacoders.com/602/602603.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -9999;
+    -webkit-filter: blur(var(--background-blur)) brightness(var(--background-brightness));
+    filter: blur(var(--background-blur)) brightness(var(--background-brightness));
+}
+::selection,
+::-moz-selection {
+    color: var(--dark-bg);
+    background: hsla(0, 0%, 100%, .5);
+}
+.main {
+    width: 90%;
+    min-width: 500px;
+    max-height: 90%;
+    margin: auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.build-header {
+    padding: 0 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.build-header > * {
+    margin: 3px;
+}
+.build-header .title {
+    height: 100%;
+    color: var(--main-color);
+    font-size: 4em;
+    line-height: 40px;
+    font-weight: bold;
+}
+.build-header .info {
+    font-size: 1.25em;
+    margin-left: 8px;
+}
+.build-header .author {
+    color: hsla(0, 0%, 100%, .7);
+    font-weight: bold;
+}
+.build-header .date {
+    margin-left: .5em;
+    font-size: .75em;
+    opacity: .3;
+}
+.tab-bar {
+    height: 78px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.5em;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: .4px;
+}
+.tab-bar .tab-bar-item {
+    position: relative;
+    min-width: 200px;
+    padding: 6px 16px 4px;
+    margin: 0 8px;
+    background: hsla(0, 0%, 100%, .1);
+    border-radius: 0;
+    line-height: 18px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    -webkit-transition-delay: .15s;
+    transition-delay: .15s;
+}
+.tab-bar .tab-bar-item:hover {
+    background-color: hsla(0, 0%, 100%, .3);
+}
+.tab-bar .tab-bar-item.selected {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.tab-bar .tab-bar-item:hover,
+.tab-bar .tab-bar-item.selected {
+    transition-delay: 0s;
+}
+.tab-bar .tab-bar-item::before,
+.tab-bar .tab-bar-item::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    left: 50%;
+    bottom: 100%;
+    margin-bottom: 2px;
+    background: hsla(0, 0%, 100%, .3);
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    -webkit-transition-delay: .15s;
+    transition-delay: .15s;
+}
+.tab-bar .tab-bar-item:hover::before,
+.tab-bar .tab-bar-item.selected::before,
+.tab-bar .tab-bar-item.selected::after {
+    width: 100%;
+    left: 0;
+    transition-delay: 0s;
+}
+.tab-bar .tab-bar-item.selected::after {
+    background: var(--main-color) !important;
+}
+.build-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex: 1;
+    margin: 0 40px;
+}
+.build-content > :not(.visible) {
+    display: none;
+}
+.build-content > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.build-content > * > * {
+    margin: 5px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.build-content > * > * > * {
+    margin: 5px;
+}
+.build-content .info {
+    font-size: 1.125em;
+}
+.build-content .info .name {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.build-content .icon {
+    opacity: .7;
+    height: 100px;
+}
+.build-content .weapons .icon {
+    -webkit-filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .15)));
+    filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .15));
+}
+.build-content .gear {
+    height: 720px;
+}
+.build-content .gear .icon::after {
+    -webkit-filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .3)));
+    filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .3));
+}
+.build-content .weapons .info {
+    width: 250px;
+}
+.build-content .weapons .talents {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.build-content .gear > * {
+    margin: 0;
+}
+.build-content .gear .icon {
+    position: relative;
+    width: 120px;
+    height: 110px;
+    padding: 5px 30px 5px 10px;
+    background: linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) top right no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom left no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom right no-repeat;
+    background-size: 3px 3px;
+}
+.build-content .gear .icon.he {
+    background-color: rgb(180, 139, 55);
+}
+.build-content .gear .icon.exotic {
+    background-color: rgb(208, 92, 60);
+}
+.build-content .gear .icon.gearset {
+    background-color: rgb(15, 211, 129);
+}
+.build-content .gear .icon::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    bottom: 5px;
+    left: 10px;
+    background-size: 800px;
+}
+.build-content > :not(.weapons) .icon {
+    margin-right: 30px;
+}
+
+/* ERRORS */
+.error {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    flex: 1;
+}
+.error .error-title {
+    color: var(--main-color);
+    font-size: 4em;
+    line-height: 40px;
+    font-weight: bold;
+}
+.error .error-content {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+/* WEAPON ICONS */
+.build-content .weapons .icon.weapon {
+    background-image: url(https://i.imgur.com/EUTS0iM.png);
+    width: 250px;
+    background-size: 1000px;
+}
+.build-content .weapons .icon.m4 {
+    background-position: 0 -15px;
+}
+.build-content .weapons .icon.acr {
+    background-position: -250px -15px;
+}
+.build-content .weapons .icon.m870 {
+    background-position: -500px -15px;
+}
+.build-content .weapons .icon.super90 {
+    background-position: -750px -15px;
+}
+.build-content .weapons .icon.mp5 {
+    background-position: 0 -135px;
+}
+.build-content .weapons .icon.tec9 {
+    background-position: -250px -135px;
+}
+.build-content .weapons .icon.vector {
+    background-position: -500px -135px;
+}
+.build-content .weapons .icon.m1a {
+    background-position: -750px -135px;
+}
+.build-content .weapons .icon.m60 {
+    background-position: 0 -260px;
+}
+.build-content .weapons .icon.m249 {
+    background-position: -250px -260px;
+}
+.build-content .weapons .icon.px4 {
+    background-position: -500px -260px;
+}
+.build-content .weapons .icon.m9 {
+    background-position: -750px -260px;
+}
+.build-content .weapons .icon.pf45 {
+    background-position: 0 -385px;
+}
+
+/* WEAPON TALENT ICONS */
+.build-content .weapons .icon.weapon-talent {
+    background-image: url(https://i.imgur.com/ZmcOWXV.png);
+    background-size: 800px;
+    width: 100px;
+    margin: 0 5px;
+}
+.build-content .weapons .icon.ferocious {
+    background-position: 0 0;
+}
+.build-content .weapons .icon.destructive {
+    background-position: -100px 0;
+}
+.build-content .weapons .icon.harmful {
+    background-position: -200px 0;
+}
+.build-content .weapons .icon.responsive {
+    background-position: -300px 0;
+}
+.build-content .weapons .icon.deadly {
+    background-position: -400px 0;
+}
+.build-content .weapons .icon.fierce {
+    background-position: -500px 0;
+}
+.build-content .weapons .icon.self-preserved {
+    background-position: -600px 0;
+}
+.build-content .weapons .icon.trained {
+    background-position: -700px 0;
+}
+.build-content .weapons .icon.competent {
+    background-position: -500px -300px;
+}
+.build-content .weapons .icon.unforgiving {
+    background-position: 0 -100px;
+}
+.build-content .weapons .icon.prepared {
+    background-position: -100px -100px;
+}
+.build-content .weapons .icon.swift {
+    background-position: -200px -100px;
+}
+.build-content .weapons .icon.intense {
+    background-position: -300px -100px;
+}
+.build-content .weapons .icon.vicious {
+    background-position: -400px -100px;
+}
+.build-content .weapons .icon.toxic {
+    background-position: -500px -100px;
+}
+.build-content .weapons .icon.brutal {
+    background-position: -600px -100px;
+}
+.build-content .weapons .icon.skilled {
+    background-position: -700px -100px;
+}
+/*.build-content .weapons .icon. {
+     background-position: 0 -200px; 
+}*/
+.build-content .weapons .icon.coolheaded {
+    background-position: -100px -200px;
+}
+.build-content .weapons .icon.talented {
+    background-position: -200px -200px;
+}
+.build-content .weapons .icon.meticulous {
+    background-position: -300px -200px;
+}
+/*.build-content .weapons .icon. {
+    background-position: -400px -200px;
+}*/
+.build-content .weapons .icon.determined {
+    background-position: -500px -200px;
+}
+.build-content .weapons .icon.predatory {
+    background-position: -600px -200px;
+}
+.build-content .weapons .icon.sustained {
+    background-position: -700px -200px;
+}
+.build-content .weapons .icon.provident {
+    background-position: 0 -300px;
+}
+.build-content .weapons .icon.proficient {
+    background-position: -100px -300px;
+}
+.build-content .weapons .icon.balanced {
+    background-position: -200px -300px;
+}
+.build-content .weapons .icon.adept {
+    background-position: -300px -300px;
+}
+.build-content .weapons .icon.capable {
+    background-position: -400px -300px;
+}
+.build-content .weapons .icon.competent {
+    background-position: -500px -300px;
+}
+.build-content .weapons .icon.stable {
+    background-position: -600px -300px;
+}
+.build-content .weapons .icon.accurate {
+    background-position: -700px -300px;
+}
+.build-content .weapons .icon.commanding {
+    background-position: 0 -400px;
+}
+.build-content .weapons .icon.dominant {
+    background-position: -100px -400px;
+}
+/*.build-content .weapons .icon. {
+    background-position: -200px -400px;
+}
+.build-content .weapons .icon. {
+    background-position: -300px -400px;
+}
+.build-content .weapons .icon. {
+    background-position: -400px -400px;
+}
+.build-content .weapons .icon. {
+    background-position: -500px -400px;
+}
+.build-content .weapons .icon. {
+    background-position: -600px -400px;
+}*/
+.build-content .weapons .icon.expert {
+    background-position: -700px -400px;
+}
+.build-content .weapons .icon.disciplined {
+    background-position: 0 -500px;
+}
+/*.build-content .weapons .icon. {
+    background-position: -100px -100px;
+}
+.build-content .weapons .icon. {
+    background-position: -200px -100px;
+}
+.build-content .weapons .icon. {
+    background-position: -300px -100px;
+}*/
+.build-content .weapons .icon.hurried {
+    background-position: -400px -100px;
+}
+.build-content .weapons .icon.distracted {
+    background-position: -500px -100px;
+}
+.build-content .weapons .icon.focused {
+    background-position: -600px -100px;
+}
+
+/* GEAR ICONS */
+.build-content .gear .icon.he::after,
+.build-content .gear .icon.exotic::after {
+    background-image: url(https://i.imgur.com/kSRwMzM.png);
+}
+.build-content .gear .icon.holster::after {
+    background-position: 0 -413px;
+}
+.build-content .gear .icon.chest::after {
+    background-position: -103px -413px;
+}
+.build-content .gear .icon.nomad::after {
+    background-position: -200px -413px;
+}
+.build-content .gear .icon.backpack::after {
+    background-position: -206px -413px;
+}
+.build-content .gear .icon.mask::after {
+    background-position: -310px -413px;
+}
+.build-content .gear .icon.gloves::after {
+    background-position: -516px -413px;
+}
+.build-content .gear .icon.kneepads::after {
+    background-position: -618px -413px;
+}
+
+/* GEAR SET ICONS */
+.build-content .gear .icon.gearset::after {
+    background-image: url(https://i.imgur.com/FSnyjig.png);
+}
+.build-content .gear .icon.striker::after {
+    background-position: 0 0;
+}
+.build-content .gear .icon.hunters-faith::after {
+    background-position: -100px 0;
+}
+.build-content .gear .icon.nomad::after {
+    background-position: -200px 0;
+}
+.build-content .gear .icon.sentry::after {
+    background-position: -300px 0;
+}
+.build-content .gear .icon.tactician::after {
+    background-position: -400px 0;
+}
+.build-content .gear .icon.predators-mark::after {
+    background-position: -500px 0;
+}
+.build-content .gear .icon.final-measures::after {
+    background-position: -600px 0;
+}
+.build-content .gear .icon.lone-star::after {
+    background-position: -700px 0;
+}
+/*.build-content .gear .icon.::after {
+    background-position: 0 -100px;
+}*/
+.build-content .gear .icon.defence::after {
+    background-position: -100px -100px;
+}
+/*.build-content .gear .icon.::after {
+    background-position: -200px -100px;
+}
+.build-content .gear .icon.::after {
+    background-position: -300px -100px;
+}*/
+.build-content .gear .icon.banshee::after {
+    background-position: -400px -100px;
+}
+/*.build-content .gear .icon.::after {
+    background-position: -500px -100px;
+}*/
+.build-content .gear .icon.reclaimer::after {
+    background-position: -600px -100px;
+}
+.build-content .gear .icon.firecrest::after {
+    background-position: -700px -100px;
+}
+.build-content .gear .icon.alphabridge::after {
+    background-position: 0 -200px;
+}
+.build-content .gear .icon.deadeye::after {
+    background-position: -100px -200px;
+}
+
+/* SKILL ICONS */
+.build-content .skills .icon {
+    width: 100px;
+    background-image: url(../sprites/skills.png);
+    background-size: 500px;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+.build-content .skills .icon.pulse {
+    background-position: 0 0;
+}
+.build-content .skills .icon.recon-pack,
+.build-content .skills .icon.recon-pulse {
+    background-position: -100px 0;
+}
+.build-content .skills .icon.scrambler,
+.build-content .skills .icon.conceal-pulse {
+    background-position: -200px 0;
+}
+.build-content .skills .icon.tactical-scanner,
+.build-content .skills .icon.tactical-pulse,
+.build-content .skills .icon.damage-pulse {
+    background-position: -300px 0;
+}
+.build-content .skills .icon.first-aid {
+    background-position: 0 -100px;
+}
+.build-content .skills .icon.defibrillator {
+    background-position: -100px -100px;
+}
+.build-content .skills .icon.overdose {
+    background-position: -200px -100px;
+}
+.build-content .skills .icon.booster-shot {
+    background-position: -300px -100px;
+}
+.build-content .skills .icon.support-station,
+.build-content .skills .icon.heal-station {
+    background-position: 0 -200px;
+}
+.build-content .skills .icon.life-support,
+.build-content .skills .icon.revive-station {
+    background-position: -100px -200px;
+}
+.build-content .skills .icon.immunizer {
+    background-position: -200px -200px;
+}
+.build-content .skills .icon.ammo-cache,
+.build-content .skills .icon.ammo-station {
+    background-position: -300px -200px;
+}
+.build-content .skills .icon.green-link,
+.build-content .skills .icon.recovery-link {
+    background-position: 0 -300px;
+}
+.build-content .skills .icon.sticky,
+.build-content .skills .icon.sticky-bomb {
+    background-position: 0 -400px;
+}
+.build-content .skills .icon.bfb,
+.build-content .skills .icon.damage-sticky {
+    background-position: -100px -400px;
+}
+.build-content .skills .icon.flashbang,
+.build-content .skills .icon.flash-sticky,
+.build-content .skills .icon.disrupt-sticky {
+    background-position: -200px -400px;
+}
+.build-content .skills .icon.proximity-fuse {
+    background-position: -300px -400px;
+}
+.build-content .skills .icon.turret {
+    background-position: 0 -500px;
+}
+.build-content .skills .icon.active-sensor,
+.build-content .skills .icon.pulse-turret {
+    background-position: -100px -500px;
+}
+.build-content .skills .icon.dragonbreath,
+.build-content .skills .icon.fire-turret {
+    background-position: -200px -500px;
+}
+.build-content .skills .icon.zapper,
+.build-content .skills .icon.shock-turret {
+    background-position: -300px -500px;
+}
+.build-content .skills .icon.seeker,
+.build-content .skills .icon.seeker-mine {
+    background-position: 0 -600px;
+}
+.build-content .skills .icon.ariburst,
+.build-content .skills .icon.fire-seeker {
+    background-position: -100px -600px;
+}
+.build-content .skills .icon.gas-charge {
+    background-position: -200px -600px;
+}
+.build-content .skills .icon.cluster {
+    background-position: -300px -600px;
+}
+.build-content .skills .icon.tactical-link,
+.build-content .skills .icon.orange-link {
+    background-position: 0 -700px;
+}
+.build-content .skills .icon.shield,
+.build-content .skills .icon.ballistic-shield {
+    background-position: 0 -800px;
+}
+.build-content .skills .icon.pulse-shield,
+.build-content .skills .icon.reactive-targeting {
+    background-position: -100px -800px;
+}
+.build-content .skills .icon.assault-shield {
+    background-position: -200px -800px;
+}
+.build-content .skills .icon.kinetic-breaker {
+    background-position: -300px -800px;
+}
+.build-content .skills .icon.smart-cover {
+    background-position: 0 -900px;
+}
+.build-content .skills .icon.trapper {
+    background-position: -100px -900px;
+}
+.build-content .skills .icon.recharger {
+    background-position: -200px -900px;
+}
+.build-content .skills .icon.concealment {
+    background-position: -300px -900px;
+}
+.build-content .skills .icon.mobile-cover {
+    background-position: 0 -1000px;
+}
+.build-content .skills .icon.extension {
+    background-position: -100px -1000px;
+}
+.build-content .skills .icon.blast-shield {
+    background-position: -200px -1000px;
+}
+.build-content .skills .icon.countermeasures {
+    background-position: -300px -1000px;
+}
+.build-content .skills .icon.survivor-link,
+.build-content .skills .icon.blue-link {
+    background-position: 0 -1100px;
+}
+
+/* MEDIA ADJUSTEMENTS */
+@media (max-width: 950px) {
+    .build-content .weapons .talents {
+        display: none;
+    }
+}
