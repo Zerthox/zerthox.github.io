@@ -6,7 +6,7 @@
 	"build": {
 		"weapons": {
 			"primary": {
-				"name": "Lightweight M4 / LVOA-C",
+				"name": "Lightweight M4",
 				"text": "Talented, Competent, Skilled",
 				"icon": "m4",
 				"talent1": "talented",
@@ -16,7 +16,7 @@
 			"secondary": {
 				"name": "Tenebrae",
 				"text": "Talented, Coolheaded, Lights Out",
-				"icon": "m1a",
+				"icon": "tenebrae",
 				"talent1": "talented",
 				"talent2": "coolheaded",
 				"talent3": "lights-out"
