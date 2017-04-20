@@ -24,19 +24,14 @@ $(document).ready(function() {
                             $.each(this, function(key) {
                                 var k = key;
                                 $.each(this, function(key, value) {
-                                    if (key.startsWith("talent")) {
+                                    if (key.startsWith("talent"))
                                         $(".build-content ." + p + " ." + k + " .talents .icon:eq(" + (key.slice(-1) - 1) + ")").addClass(value);
-                                    }
-                                    else if (key === "type") {
+                                    else if (key === "type")
                                         $(".build-content ." + p + " ." + k + " .icon").addClass(value);
-                                    }
-                                    else {
-                                        var e = $(".build-content ." + p + " ." + k + "> ." + key);
-                                        if (e.hasClass("icon"))
-                                            e.addClass(value);
-                                        else
-                                            e.text(value);
-                                    }
+                                    else if (key === "icon")
+                                        $(".build-content ." + p + " ." + k + "> ." + key).addClass(value);
+                                    else
+                                        $(".build-content ." + p + " ." + k + "." + key).text(value);
                                 });
                             });
                         });
