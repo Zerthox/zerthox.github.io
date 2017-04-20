@@ -90,5 +90,5 @@ core.showpage = function(page) {
     }
 };
 core.alert = function(title, msg) {
-    $(".main").html("<div class='error'><div class='error-title'>" + title + "</div><div class='error-content'>" + content + "</div></div>");
+    $(".main").html("<div class='error'><div class='error-title'>" + title + "</div><div class='error-content'>" + msg + "</div></div>");
 };
