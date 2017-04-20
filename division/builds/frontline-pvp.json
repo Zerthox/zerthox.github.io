@@ -6,9 +6,9 @@
 	"build": {
 		"weapons": {
 			"primary": {
-				"name": "MP5 / MP7",
+				"name": "MP7",
 				"text": "Competent, Fierce, Unforgiving",
-				"icon": "mp5",
+				"icon": "mp7",
 				"talent1": "competent",
 				"talent2": "fierce",
 				"talent3": "unforgiving"
@@ -16,7 +16,7 @@
 			"secondary": {
 				"name": "PP-19",
 				"text": "Competent, Fierce, Hurried",
-				"icon": "mp5",
+				"icon": "pp-19",
 				"talent1": "competent",
 				"talent2": "fierce",
 				"talent3": "hurried"
