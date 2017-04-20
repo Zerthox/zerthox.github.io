@@ -236,12 +236,29 @@ body::after {
     -ms-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+.build-content .weapons .icon::before,
+.build-content .skills .icon::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -3px;
+    bottom: -3px;
+    left: 3px;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    opacity: .1;
+}
+.build-content .weapons .icon::before {
+	right: 3px;
+	left: -3px;
+}
 .build-content .gear {
     height: 720px;
 }
 .build-content .gear .icon::after {
-    -webkit-filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .3));
-    filter: drop-shadow(3px 3px 0 rgba(150, 150, 150, .3));
+    -webkit-filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
+    filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
 }
 .build-content .weapons .info {
     width: 250px;
