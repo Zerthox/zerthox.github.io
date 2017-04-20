@@ -31,7 +31,7 @@ $(document).ready(function() {
                                     else if (key === "icon")
                                         $(".build-content ." + p + " ." + k + "> ." + key).addClass(value);
                                     else
-                                        $(".build-content ." + p + " ." + k + "." + key).text(value);
+                                        $(".build-content ." + p + " ." + k + " ." + key).text(value);
                                 });
                             });
                         });
