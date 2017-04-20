@@ -13,7 +13,10 @@ $(document).ready(function() {
                         var d = JSON.parse(result);
                         $(".build-header .title").text(d.title);
                         $(".build-header .author").text(d.author);
-                        $(".build-header .date").text("Last updated: " + d.date);
+                        if (d.hasOwnProperty("link"))
+                            $(".build-header .info a").attr("href", d.link);
+                        if (d.hasOwnProperty("date"))
+                            $(".build-header .date").text("Last updated: " + d.date);
                         $.each(d.build, function(key) {
                             var p = key;
                             $.each(this, function(key) {
