@@ -6,7 +6,7 @@
 	"build": {
 		"weapons": {
 			"primary": {
-				"name": "Lightweight M4 / LVOA-C",
+				"name": "Lightweight M4",
 				"text": "Competent, Brutal, Destructive",
 				"icon": "m4",
 				"talent1": "competent",
@@ -16,7 +16,7 @@
 			"secondary": {
 				"name": "M700",
 				"text": "Brutal, Prepared, Destructive",
-				"icon": "m1a",
+				"icon": "m700",
 				"talent1": "brutal",
 				"talent2": "prepared",
 				"talent3": "destructive"
