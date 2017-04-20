@@ -322,7 +322,7 @@ body::after {
     width: 250px;
     background-size: 1000px;
 }
-.build-content .weapons .icon.m4 {
+.build-content .weapons .icon.lvoa {
     background-position: 0 -15px;
 }
 .build-content .weapons .icon.acr {
@@ -360,6 +360,56 @@ body::after {
 }
 .build-content .weapons .icon.pf45 {
     background-position: 0 -385px;
+}
+.build-content .weapons .icon.aug,
+.build-content .weapons .icon.g36,
+.build-content .weapons .icon.historian,
+.build-content .weapons .icon.m4,
+.build-content .weapons .icon.m700,
+.build-content .weapons .icon.mp7,
+.build-content .weapons .icon.pp-19,
+.build-content .weapons .icon.svd,
+.build-content .weapons .icon.showstopper,
+.build-content .weapons .icon.tenebrae,
+.build-content .weapons .icon.ump,
+.build-content .weapons .icon.urban-mdr {
+	background-position: 0 -15px;
+}
+.build-content .weapons .icon.aug {
+	background-image: url(../division/sprites/weapons/aug.png);
+}
+.build-content .weapons .icon.g36 {
+	background-image: url(../division/sprites/weapons/g36.png);
+}
+.build-content .weapons .icon.historian {
+	background-image: url(../division/sprites/weapons/historian.png);
+}
+.build-content .weapons .icon.m4 {
+	background-image: url(../division/sprites/weapons/m4.png);
+}
+.build-content .weapons .icon.m700 {
+	background-image: url(../division/sprites/weapons/m700.png);
+}
+.build-content .weapons .icon.mp7 {
+	background-image: url(../division/sprites/weapons/mp7.png);
+}
+.build-content .weapons .icon.pp-19 {
+	background-image: url(../division/sprites/weapons/pp-19.png);
+}
+.build-content .weapons .icon.svd {
+	background-image: url(../division/sprites/weapons/svd.png);
+}
+.build-content .weapons .icon.showstopper {
+	background-image: url(../division/sprites/weapons/showstopper.png);
+}
+.build-content .weapons .icon.tenebrae {
+	background-image: url(../division/sprites/weapons/tenebrae.png);
+}
+.build-content .weapons .icon.u,p {
+	background-image: url(../division/sprites/weapons/ump.png);
+}
+.build-content .weapons .icon.urban-mdr {
+	background-image: url(../division/sprites/weapons/urban-mdr.png);
 }
 
 /* WEAPON TALENT ICONS */
