@@ -1,0 +1,79 @@
+{
+	"title": "Skulls PvP DPS",
+	"author": "Zerthox",
+	"date": "19/04/2017",
+	"build": {
+		"weapons": {
+			"primary": {
+				"name": "Lightweight M4 / LVOA-C",
+				"text": "Competent, Brutal, Unforgiving",
+				"icon": "m4",
+				"talent1": "competent",
+				"talent2": "brutal",
+				"talent3": "unforgiving"
+			},
+			"secondary": {
+				"name": "MP5 / MP7",
+				"text": "Competent, Fierce, Unforgiving",
+				"icon": "mp5",
+				"talent1": "competent",
+				"talent2": "fierce",
+				"talent3": "unforgiving"
+			}
+		},
+		"gear": {
+			"chest": {
+				"name": "Vigorous Chest",
+				"text": "Health, Skill Haste, Burn Resistance",
+				"type": "he",
+				"icon": "chest"
+			},
+			"backpack": {
+				"name": "Specialized Backpack",
+				"text": "Health, Burn Resistance",
+				"type": "he",
+				"icon": "backpack"
+			},
+			"mask": {
+				"name": "Tenacious Mask",
+				"text": "",
+				"type": "he",
+				"icon": "mask"
+			},
+			"gloves": {
+				"name": "Skulls MC Gloves",
+				"text": "",
+				"type": "exotic",
+				"icon": "gloves"
+			},
+			"holster": {
+				"name": "Nimble Holster",
+				"text": "Health",
+				"type": "he",
+				"icon": "holster"
+			},
+			"knee-pads": {
+				"name": "Shortbow Championship Knee Pads",
+				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+				"type": "exotic",
+				"icon": "knee-pads"
+			}
+		},
+		"skills": {
+			"1": {
+				"name": "First Aid",
+				"text": "Booster Shot",
+				"icon": "booster-shot"
+			},
+			"2": {
+				"name": "Pulse",
+				"text": "Scrambler",
+				"icon": "scrambler"
+			},
+			"link": {
+				"name": "Survivor Link",
+				"icon": "survivor-link"
+			},
+		}
+	}
+}
