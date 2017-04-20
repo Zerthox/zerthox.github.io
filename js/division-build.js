@@ -31,7 +31,7 @@ $(document).ready(function() {
                                         $(".build-content ." + p + " ." + k + " .icon").addClass(value);
                                     }
                                     else {
-                                        var e = $(".build-content ." + p + " ." + k + " ." + key);
+                                        var e = $(".build-content ." + p + " ." + k + "> ." + key);
                                         if (e.hasClass("icon"))
                                             e.addClass(value);
                                         else
