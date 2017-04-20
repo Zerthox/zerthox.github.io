@@ -105,9 +105,17 @@ body::after {
     font-size: 1.25em;
     margin-left: 8px;
 }
+.build-header .info a:hover {
+	text-decoration: none;
+}
 .build-header .author {
     color: hsla(0, 0%, 100%, .7);
     font-weight: bold;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.build-header .author:hover {
+	color: #fff;
 }
 .build-header .date {
     margin-left: .5em;
