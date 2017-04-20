@@ -232,8 +232,6 @@ body::after {
     height: 100px;
 }
 .build-content .weapons .icon {
-    -webkit-filter: drop-shadow(-3px 3px 0 rgba(150, 150, 150, .15));
-    filter: drop-shadow(-3px 3px 0 rgba(150, 150, 150, .15));
     -webkit-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -375,6 +373,9 @@ body::after {
 .build-content .weapons .icon.urban-mdr {
 	background-size: auto;
 	background-position: 0 -15px;
+	-webkit-mix-blend-mode: screen;
+	-ms-mix-blend-mode: screen;
+	mix-blend-mode: screen;
 }
 .build-content .weapons .icon.aug {
 	background-image: url(../division/sprites/weapons/aug.png);
