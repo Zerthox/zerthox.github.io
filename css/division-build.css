@@ -307,7 +307,7 @@ body::after {
 
 /* WEAPON ICONS */
 .build-content .weapons .icon.weapon {
-    background-image: url(../division/builds/sprites/weapons.png);
+    background-image: url(../division/sprites/weapons.png);
     width: 250px;
     background-size: 1000px;
 }
@@ -353,7 +353,7 @@ body::after {
 
 /* WEAPON TALENT ICONS */
 .build-content .weapons .icon.weapon-talent {
-    background-image: url(../division/builds/sprites/weapon-talents.png);
+    background-image: url(../division/sprites/weapon-talents.png);
     background-size: 800px;
     width: 100px;
     margin: 0 5px;
@@ -485,28 +485,77 @@ body::after {
     background-position: 0 -500px;
 }
 /*.build-content .weapons .icon. {
-    background-position: -100px -100px;
+    background-position: -100px -500px;
 }
 .build-content .weapons .icon. {
-    background-position: -200px -100px;
-}
-.build-content .weapons .icon. {
-    background-position: -300px -100px;
+    background-position: -200px -500px;
 }*/
+.build-content .weapons .icon.weapon-talent.showstopper {
+    background-position: -300px -500px;
+}
 .build-content .weapons .icon.hurried {
-    background-position: -400px -100px;
+    background-position: -400px -500px;
 }
 .build-content .weapons .icon.distracted {
-    background-position: -500px -100px;
+    background-position: -500px -500px;
 }
 .build-content .weapons .icon.focused {
-    background-position: -600px -100px;
+    background-position: -600px -500px;
+}
+.build-content .weapons .icon.carefree {
+    background-position: -700px -500px;
+}
+.build-content .weapons .icon.ambusher {
+    background-position: -100px -600px;
+}
+.build-content .weapons .icon.elevated {
+    background-position: -200px -600px;
+}
+.build-content .weapons .icon.uncomplicated {
+    background-position: -300px -600px;
+}
+.build-content .weapons .icon.weapon-talent.caduceus {
+    background-position: -600px -600px;
+}
+.build-content .weapons .icon.glutton {
+    background-position: -600px -600px;
+}
+.build-content .weapons .icon.valkyrie {
+    background-position: 0 -700px;
+}
+.build-content .weapons .icon.lights-out {
+    background-position: -100px -700px;
+}
+.build-content .weapons .icon.center-mass {
+    background-position: -200px -700px;
+}
+.build-content .weapons .icon.boomstick {
+    background-position: -300px -700px;
+}
+.build-content .weapons .icon.quickdraw {
+    background-position: -400px -700px;
+}
+.build-content .weapons .icon.weapon-talent.pakhan {
+    background-position: -500px -700px;
+}
+.build-content .weapons .icon.weapon-talent.midas {
+    background-position: -700px -700px;
+}
+.build-content .weapons .icon.free-republic,
+.build-content .weapons .icon.history-repeats {
+    background-image: url(../division/sprites/weapon-talents2.png);
+}
+.build-content .weapons .icon.free-republic {
+    background-position: 0 0;
+}
+.build-content .weapons .icon.history-repeats {
+    background-position: -300px 0;
 }
 
 /* GEAR ICONS */
 .build-content .gear .icon.he::after,
 .build-content .gear .icon.exotic::after {
-    background-image: url(../division/builds/sprites/items.png);
+    background-image: url(../division/sprites/items.png);
 }
 .build-content .gear .icon.holster::after {
     background-position: 0 -413px;
@@ -532,7 +581,7 @@ body::after {
 
 /* GEAR SET ICONS */
 .build-content .gear .icon.gearset::after {
-    background-image: url(../division/builds/sprites/gearsets.png);
+    background-image: url(../division/sprites/gearsets.png);
 }
 .build-content .gear .icon.striker::after {
     background-position: 0 0;
