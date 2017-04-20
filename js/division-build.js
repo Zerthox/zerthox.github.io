@@ -11,8 +11,9 @@ $(document).ready(function() {
                     url: "https://raw.githubusercontent.com/Zerthox/zerthox.github.io/master/division/builds/" + this.split("=")[1] + ".json",
                     success: function(result) {
                         var d = JSON.parse(result);
-                        $(".build-header .title").text(d.title);
                         document.title = d.title + " - " + document.title;
+                        $("meta[name=description]").attr("content", d.title + " by " + d.author;
+                        $(".build-header .title").text(d.title);
                         $(".build-header .author").text(d.author);
                         if (d.hasOwnProperty("link"))
                             $(".build-header .info a").attr("href", d.link);
