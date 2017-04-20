@@ -592,7 +592,7 @@ body::after {
 /* SKILL ICONS */
 .build-content .skills .icon {
     width: 100px;
-    background-image: url(../sprites/skills.png);
+    background-image: url(../division/sprites/skills.png);
     background-size: 500px;
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
