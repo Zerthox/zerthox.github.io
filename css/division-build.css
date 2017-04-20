@@ -307,7 +307,7 @@ body::after {
 
 /* WEAPON ICONS */
 .build-content .weapons .icon.weapon {
-    background-image: url(https://i.imgur.com/EUTS0iM.png);
+    background-image: url(../division/builds/sprites/weapons.png);
     width: 250px;
     background-size: 1000px;
 }
@@ -353,7 +353,7 @@ body::after {
 
 /* WEAPON TALENT ICONS */
 .build-content .weapons .icon.weapon-talent {
-    background-image: url(https://i.imgur.com/ZmcOWXV.png);
+    background-image: url(../division/builds/sprites/weapon-talents.png);
     background-size: 800px;
     width: 100px;
     margin: 0 5px;
@@ -506,7 +506,7 @@ body::after {
 /* GEAR ICONS */
 .build-content .gear .icon.he::after,
 .build-content .gear .icon.exotic::after {
-    background-image: url(https://i.imgur.com/kSRwMzM.png);
+    background-image: url(../division/builds/sprites/items.png);
 }
 .build-content .gear .icon.holster::after {
     background-position: 0 -413px;
@@ -532,7 +532,7 @@ body::after {
 
 /* GEAR SET ICONS */
 .build-content .gear .icon.gearset::after {
-    background-image: url(https://i.imgur.com/FSnyjig.png);
+    background-image: url(../division/builds/sprites/gearsets.png);
 }
 .build-content .gear .icon.striker::after {
     background-position: 0 0;
