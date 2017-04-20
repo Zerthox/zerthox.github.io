@@ -12,6 +12,7 @@ $(document).ready(function() {
                     success: function(result) {
                         var d = JSON.parse(result);
                         $(".build-header .title").text(d.title);
+                        document.title += " - " + d.title;
                         $(".build-header .author").text(d.author);
                         if (d.hasOwnProperty("link"))
                             $(".build-header .info a").attr("href", d.link);
