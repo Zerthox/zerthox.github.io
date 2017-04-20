@@ -5,20 +5,20 @@
 	"build": {
 		"weapons": {
 			"primary": {
-				"name": "Lightweight M4 / LVOA-C",
-				"text": "Competent, Brutal, Destructive",
-				"icon": "m4",
+				"name": "Surplus SVD",
+				"text": "Competent, Deadly, Unforgiving",
+				"icon": "ma1",
 				"talent1": "competent",
-				"talent2": "brutal",
-				"talent3": "destructive"
+				"talent2": "deadly",
+				"talent3": "unforgiving"
 			},
 			"secondary": {
-				"name": "M700",
-				"text": "Brutal, Prepared, Destructive",
-				"icon": "ma1",
-				"talent1": "brutal",
-				"talent2": "prepared",
-				"talent3": "destructive"
+				"name": "MP5 / MP7",
+				"text": "Competent, Fierce, Unforgiving",
+				"icon": "mp5",
+				"talent1": "competent",
+				"talent2": "fierce",
+				"talent3": "unforgiving"
 			}
 		},
 		"gear": {
