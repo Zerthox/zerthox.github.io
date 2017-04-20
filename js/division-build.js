@@ -12,7 +12,7 @@ $(document).ready(function() {
                     success: function(result) {
                         var d = JSON.parse(result);
                         document.title = d.title + " - " + document.title;
-                        $("meta[name=description]").attr("content", d.title + " by " + d.author;
+                        $("meta[name=description]").attr("content", d.title + " by " + d.author);
                         $(".build-header .title").text(d.title);
                         $(".build-header .author").text(d.author);
                         if (d.hasOwnProperty("link"))
