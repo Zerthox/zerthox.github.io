@@ -610,7 +610,8 @@ body::after {
 /*.build-content .gear .icon.::after {
     background-position: 0 -100px;
 }*/
-.build-content .gear .icon.defence::after {
+.build-content .gear .icon.defence::after,
+.build-content .gear .icon.frontline::after {
     background-position: -100px -100px;
 }
 /*.build-content .gear .icon.::after {
