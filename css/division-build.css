@@ -226,17 +226,23 @@ body::after {
     font-weight: bold;
 }
 .build-content .icon {
+	position: relative;
     opacity: .7;
     height: 100px;
+}
+.build-content .weapons .icon {
+	-webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 .build-content .weapons .icon::before,
 .build-content .skills .icon::before {
     content: "";
     position: absolute;
     top: 3px;
-    right: -3px;
+    right: 3px;
     bottom: -3px;
-    left: 3px;
+    left: -3px;
     background-image: inherit;
     background-size: inherit;
     background-position: inherit;
@@ -379,9 +385,9 @@ body::after {
 .build-content .weapons .icon.urban-mdr {
 	background-size: auto;
 	background-position: 0 -15px;
-    -webkit-transform: scaleX(-1);
-    -ms-transform: scaleX(-1);
-    transform: scaleX(-1);
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
 	-webkit-mix-blend-mode: screen;
 	-ms-mix-blend-mode: screen;
 	mix-blend-mode: screen;
@@ -398,8 +404,8 @@ body::after {
 .build-content .weapons .icon.tenebrae::before,
 .build-content .weapons .icon.ump::before,
 .build-content .weapons .icon.urban-mdr::before {
-	right: 3px;
-	left: -3px;
+	right: -3px;
+	left: 3px;
 }
 .build-content .weapons .icon.aug {
 	background-image: url(../division/sprites/weapons/aug.png);
