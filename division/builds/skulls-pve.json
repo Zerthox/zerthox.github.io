@@ -1,0 +1,79 @@
+{
+	"title": "Skulls PvE DPS",
+	"author": "Zerthox",
+	"date": "19/04/2017",
+	"build": {
+		"weapons": {
+			"primary": {
+				"name": "Lightweight M4 / LVOA-C",
+				"text": "Competent, Brutal, Destructive",
+				"icon": "m4",
+				"talent1": "competent",
+				"talent2": "brutal",
+				"talent3": "destructive"
+			},
+			"secondary": {
+				"name": "M700",
+				"text": "Brutal, Prepared, Destructive",
+				"icon": "ma1",
+				"talent1": "brutal",
+				"talent2": "prepared",
+				"talent3": "destructive"
+			}
+		},
+		"gear": {
+			"chest": {
+				"name": "Vigorous Chest",
+				"text": "Health, Skill Haste, Burn Resistance",
+				"type": "he",
+				"icon": "chest"
+			},
+			"backpack": {
+				"name": "Specialized Backpack",
+				"text": "Health, Burn Resistance",
+				"type": "he",
+				"icon": "backpack"
+			},
+			"mask": {
+				"name": "Refreshed Mask",
+				"text": "Health, Burn Resistance",
+				"type": "he",
+				"icon": "mask"
+			},
+			"gloves": {
+				"name": "Skulls MC Gloves",
+				"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
+				"type": "exotic",
+				"icon": "gloves"
+			},
+			"holster": {
+				"name": "Nimble Holster",
+				"text": "Health",
+				"type": "he",
+				"icon": "holster"
+			},
+			"knee-pads": {
+				"name": "Accomplished Knee Pads",
+				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+				"type": "he",
+				"icon": "knee-pads"
+			}
+		},
+		"skills": {
+			"1": {
+				"name": "First Aid",
+				"text": "Booster Shot",
+				"icon": "booster-shot"
+			},
+			"2": {
+				"name": "Pulse",
+				"text": "Tactical Scanner",
+				"icon": "tactical-scanner"
+			},
+			"link": {
+				"name": "Recovery Link",
+				"icon": "recovery-link"
+			}
+		}
+	}
+}
