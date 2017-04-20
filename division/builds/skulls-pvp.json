@@ -36,13 +36,13 @@
 			},
 			"mask": {
 				"name": "Tenacious Mask",
-				"text": "",
+				"text": "Health, Burn Resistance",
 				"type": "he",
 				"icon": "mask"
 			},
 			"gloves": {
 				"name": "Skulls MC Gloves",
-				"text": "",
+				"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
 				"type": "exotic",
 				"icon": "gloves"
 			},
