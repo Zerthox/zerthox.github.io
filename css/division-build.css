@@ -739,148 +739,168 @@ body::after {
 /* SKILL ICONS */
 .build-content .skills .icon {
     width: 100px;
-    background-image: url(../division/sprites/skills.png);
-    background-size: 500px;
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
+    background-image: url(http://i.imgur.com/4cP0J28.png);
+    background-size: 800px;
+}
+.build-content .skills .icon.shield,
+.build-content .skills .icon.ballistic-shield {
+    background-position: 0 0;
+}
+.build-content .skills .icon.pulse-shield,
+.build-content .skills .icon.reactive-targeting {
+    background-position: -103px 0;
+}
+.build-content .skills .icon.assault-shield {
+    background-position: -206px 0;
+}
+.build-content .skills .icon.kinetic-breaker {
+    background-position: -309px 0;
 }
 .build-content .skills .icon.pulse {
-    background-position: 0 0;
+    background-position: 0 -103px;
 }
 .build-content .skills .icon.recon-pack,
 .build-content .skills .icon.recon-pulse {
-    background-position: -100px 0;
+    background-position: -103px -103px;
 }
 .build-content .skills .icon.scrambler,
 .build-content .skills .icon.conceal-pulse {
-    background-position: -200px 0;
+    background-position: -206px -103px;
 }
 .build-content .skills .icon.tactical-scanner,
 .build-content .skills .icon.tactical-pulse,
 .build-content .skills .icon.damage-pulse {
-    background-position: -300px 0;
-}
-.build-content .skills .icon.first-aid {
-    background-position: 0 -100px;
-}
-.build-content .skills .icon.defibrillator {
-    background-position: -100px -100px;
-}
-.build-content .skills .icon.overdose {
-    background-position: -200px -100px;
-}
-.build-content .skills .icon.booster-shot {
-    background-position: -300px -100px;
-}
-.build-content .skills .icon.support-station,
-.build-content .skills .icon.heal-station {
-    background-position: 0 -200px;
-}
-.build-content .skills .icon.life-support,
-.build-content .skills .icon.revive-station {
-    background-position: -100px -200px;
-}
-.build-content .skills .icon.immunizer {
-    background-position: -200px -200px;
-}
-.build-content .skills .icon.ammo-cache,
-.build-content .skills .icon.ammo-station {
-    background-position: -300px -200px;
-}
-.build-content .skills .icon.green-link,
-.build-content .skills .icon.recovery-link {
-    background-position: 0 -300px;
-}
-.build-content .skills .icon.sticky,
-.build-content .skills .icon.sticky-bomb {
-    background-position: 0 -400px;
-}
-.build-content .skills .icon.bfb,
-.build-content .skills .icon.damage-sticky {
-    background-position: -100px -400px;
-}
-.build-content .skills .icon.flashbang,
-.build-content .skills .icon.flash-sticky {
-    background-position: -200px -400px;
-}
-.build-content .skills .icon.disruptor,
-.build-content .skills .icon.disrupt-sticky {
-    background-position: -300px -400px;
-}
-.build-content .skills .icon.turret {
-    background-position: 0 -500px;
-}
-.build-content .skills .icon.active-sensor,
-.build-content .skills .icon.pulse-turret {
-    background-position: -100px -500px;
-}
-.build-content .skills .icon.dragonbreath,
-.build-content .skills .icon.fire-turret {
-    background-position: -200px -500px;
-}
-.build-content .skills .icon.zapper,
-.build-content .skills .icon.shock-turret {
-    background-position: -300px -500px;
+    background-position: -309px -103px;
 }
 .build-content .skills .icon.seeker,
 .build-content .skills .icon.seeker-mine {
-    background-position: 0 -600px;
+    background-position: 0 -206px;
 }
 .build-content .skills .icon.ariburst,
 .build-content .skills .icon.fire-seeker {
-    background-position: -100px -600px;
+    background-position: -103px -206px;
 }
 .build-content .skills .icon.gas-charge {
-    background-position: -200px -600px;
+    background-position: -206px -206px;
 }
 .build-content .skills .icon.cluster {
-    background-position: -300px -600px;
+    background-position: -309px -206px;
+}
+.build-content .skills .icon.first-aid {
+    background-position: 0 -309px;
+}
+.build-content .skills .icon.defibrillator {
+    background-position: -103px -309px;
+}
+.build-content .skills .icon.overdose {
+    background-position: -206px -309px;
+}
+.build-content .skills .icon.booster-shot {
+    background-position: -309px -309px;
+}
+.build-content .skills .icon.smart-cover {
+    background-position: 0 -412px;
+}
+.build-content .skills .icon.trapper {
+    background-position: -103px -412px;
+}
+.build-content .skills .icon.recharger {
+    background-position: -206px -412px;
+}
+.build-content .skills .icon.concealment {
+    background-position: -309px -412px;
+}
+.build-content .skills .icon.mobile-cover {
+    background-position: 0 -515px;
+}
+.build-content .skills .icon.extension {
+    background-position: -103px -515px;
+}
+.build-content .skills .icon.blast-shield {
+    background-position: -206px -515px;
+}
+.build-content .skills .icon.countermeasures {
+    background-position: -309px -515px;
+}
+.build-content .skills .icon.sticky,
+.build-content .skills .icon.sticky-bomb {
+    background-position: 0 -618px;
+}
+.build-content .skills .icon.bfb,
+.build-content .skills .icon.damage-sticky {
+    background-position: -103px -618px;
+}
+.build-content .skills .icon.flashbang,
+.build-content .skills .icon.flash-sticky {
+    background-position: -206px -618px;
+}
+.build-content .skills .icon.disruptor,
+.build-content .skills .icon.disrupt-sticky {
+    background-position: -309px -618px;
+}
+.build-content .skills .icon.support-station,
+.build-content .skills .icon.heal-station,
+.build-content .skills .icon.life-support,
+.build-content .skills .icon.revive-station,
+.build-content .skills .icon.immunizer,
+.build-content .skills .icon.ammo-cache,
+.build-content .skills .icon.ammo-station,
+.build-content .skills .icon.turret,
+.build-content .skills .icon.active-sensor,
+.build-content .skills .icon.pulse-turret,
+.build-content .skills .icon.dragonbreath,
+.build-content .skills .icon.fire-turret,
+.build-content .skills .icon.zapper,
+.build-content .skills .icon.shock-turret,
+.build-content .skills .icon.green-link,
+.build-content .skills .icon.recovery-link,
+.build-content .skills .icon.tactical-link,
+.build-content .skills .icon.orange-link,
+.build-content .skills .icon.survivor-link,
+.build-content .skills .icon.blue-link {
+    background-image: url(http://i.imgur.com/2XoEElm.png);
+}
+.build-content .skills .icon.support-station,
+.build-content .skills .icon.heal-station {
+    background-position: 0 0;
+}
+.build-content .skills .icon.life-support,
+.build-content .skills .icon.revive-station {
+    background-position: -103px 0;
+}
+.build-content .skills .icon.immunizer {
+    background-position: -206px 0;
+}
+.build-content .skills .icon.ammo-cache,
+.build-content .skills .icon.ammo-station {
+    background-position: -309px 0;
+}
+.build-content .skills .icon.turret {
+    background-position: 0 -309px;
+}
+.build-content .skills .icon.active-sensor,
+.build-content .skills .icon.pulse-turret {
+    background-position: -103px -309px;
+}
+.build-content .skills .icon.dragonbreath,
+.build-content .skills .icon.fire-turret {
+    background-position: -206px -309px;
+}
+.build-content .skills .icon.zapper,
+.build-content .skills .icon.shock-turret {
+    background-position: -309px -309px;
+}
+.build-content .skills .icon.green-link,
+.build-content .skills .icon.recovery-link {
+    background-position: 0 -515px;
 }
 .build-content .skills .icon.tactical-link,
 .build-content .skills .icon.orange-link {
-    background-position: 0 -700px;
-}
-.build-content .skills .icon.shield,
-.build-content .skills .icon.ballistic-shield {
-    background-position: 0 -800px;
-}
-.build-content .skills .icon.pulse-shield,
-.build-content .skills .icon.reactive-targeting {
-    background-position: -100px -800px;
-}
-.build-content .skills .icon.assault-shield {
-    background-position: -200px -800px;
-}
-.build-content .skills .icon.kinetic-breaker {
-    background-position: -300px -800px;
-}
-.build-content .skills .icon.smart-cover {
-    background-position: 0 -900px;
-}
-.build-content .skills .icon.trapper {
-    background-position: -100px -900px;
-}
-.build-content .skills .icon.recharger {
-    background-position: -200px -900px;
-}
-.build-content .skills .icon.concealment {
-    background-position: -300px -900px;
-}
-.build-content .skills .icon.mobile-cover {
-    background-position: 0 -1000px;
-}
-.build-content .skills .icon.extension {
-    background-position: -100px -1000px;
-}
-.build-content .skills .icon.blast-shield {
-    background-position: -200px -1000px;
-}
-.build-content .skills .icon.countermeasures {
-    background-position: -300px -1000px;
+    background-position: -103px -515px;
 }
 .build-content .skills .icon.survivor-link,
 .build-content .skills .icon.blue-link {
-    background-position: 0 -1100px;
+    background-position: -206px -515px;
 }
 
 /* MEDIA ADJUSTEMENTS */
