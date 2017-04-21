@@ -42,9 +42,9 @@ body::after {
     content: "";
     position: absolute;
     top: -1%;
+    right: -1%;
+    bottom: -1%;
     left: -1%;
-    width: 102%;
-    height: 102%;
     background-image: url(https://images7.alphacoders.com/602/602603.jpg);
     background-size: cover;
     background-position: center;
