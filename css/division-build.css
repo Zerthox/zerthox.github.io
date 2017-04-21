@@ -800,11 +800,11 @@ body::after {
     background-position: -100px -400px;
 }
 .build-content .skills .icon.flashbang,
-.build-content .skills .icon.flash-sticky,
-.build-content .skills .icon.disrupt-sticky {
+.build-content .skills .icon.flash-sticky {
     background-position: -200px -400px;
 }
-.build-content .skills .icon.proximity-fuse {
+.build-content .skills .icon.disruptor,
+.build-content .skills .icon.disrupt-sticky {
     background-position: -300px -400px;
 }
 .build-content .skills .icon.turret {
