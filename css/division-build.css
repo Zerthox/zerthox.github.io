@@ -368,33 +368,8 @@ body::after {
 
 /* WEAPON ICONS */
 .build-content .weapons .icon.weapon {
-    background-image: url(../division/sprites/weapons.png);
     width: 250px;
     background-size: 1000px;
-}
-.build-content .weapons .icon.lvoa {
-    background-position: 0 -15px;
-}
-.build-content .weapons .icon.acr {
-    background-position: -250px -15px;
-}
-.build-content .weapons .icon.m870 {
-    background-position: -500px -15px;
-}
-.build-content .weapons .icon.super90 {
-    background-position: -750px -15px;
-}
-.build-content .weapons .icon.mp5 {
-    background-position: 0 -135px;
-}
-.build-content .weapons .icon.tec9 {
-    background-position: -250px -135px;
-}
-.build-content .weapons .icon.vector {
-    background-position: -500px -135px;
-}
-.build-content .weapons .icon.m1a {
-    background-position: -750px -135px;
 }
 .build-content .weapons .icon.m60 {
     background-position: 0 -260px;
@@ -402,17 +377,27 @@ body::after {
 .build-content .weapons .icon.m249 {
     background-position: -250px -260px;
 }
-.build-content .weapons .icon.px4 {
-    background-position: -500px -260px;
+.build-content .weapons .icon.acr {
+    background-image: url(../division/sprites/weapons/acr.png);
 }
-.build-content .weapons .icon.m9 {
-    background-position: -750px -260px;
-}
-.build-content .weapons .icon.pf45 {
-    background-position: 0 -385px;
+.build-content .weapons .icon.ak,
+.build-content .weapons .icon.ak47,
+.build-content .weapons .icon.ak-47 {
+    background-image: url(../division/sprites/weapons/ak-47.png);
 }
 .build-content .weapons .icon.aug {
 	background-image: url(../division/sprites/weapons/aug.png);
+}
+.build-content .weapons .icon.bullfrog,
+.build-content .weapons .icon.famas {
+    background-image: url(../division/sprites/weapons/bullfrog.png);
+}
+.build-content .weapons .icon.double-barrel,
+.build-content .weapons .icon.double-barrel-shotgun {
+    background-image: url(../division/sprites/weapons/double-barrel.png);
+}
+.build-content .weapons .icon.fal {
+    background-image: url(../division/sprites/weapons/fal.png);
 }
 .build-content .weapons .icon.g36 {
 	background-image: url(../division/sprites/weapons/g36.png);
@@ -420,32 +405,99 @@ body::after {
 .build-content .weapons .icon.historian {
 	background-image: url(../division/sprites/weapons/historian.png);
 }
+.build-content .weapons .icon.l86 {
+    background-image: url(../division/sprites/weapons/l86.png);
+}
+.build-content .weapons .icon.m1a {
+    background-image: url(../division/sprites/weapons/m1a.png);
+}
 .build-content .weapons .icon.m4 {
 	background-image: url(../division/sprites/weapons/m4.png);
+}
+.build-content .weapons .icon.m44 {
+    background-image: url(../division/sprites/weapons/m44.png);
+}
+.build-content .weapons .icon.m60 {
+    background-image: url(../division/sprites/weapons/m60.png);
+}
+.build-content .weapons .icon.m249 {
+    background-image: url(../division/sprites/weapons/m249.png);
 }
 .build-content .weapons .icon.m700 {
 	background-image: url(../division/sprites/weapons/m700.png);
 }
+.build-content .weapons .icon.m870 {
+    background-image: url(../division/sprites/weapons/m870.png);
+}
+.build-content .weapons .icon.mg5 {
+    background-image: url(../division/sprites/weapons/mg5.png);
+}
+.build-content .weapons .icon.mp5 {
+    background-image: url(../division/sprites/weapons/mp5.png);
+}
 .build-content .weapons .icon.mp7 {
 	background-image: url(../division/sprites/weapons/mp7.png);
 }
+.build-content .weapons .icon.p416 {
+    background-image: url(../division/sprites/weapons/p416.png);
+}
+.build-content .weapons .icon.pp19,
 .build-content .weapons .icon.pp-19 {
 	background-image: url(../division/sprites/weapons/pp-19.png);
+}
+.build-content .weapons .icon.rpk,
+.build-content .weapons .icon.rpk-74 {
+    background-image: url(../division/sprites/weapons/rpk.png);
+}
+.build-content .weapons .icon.sa58,
+.build-content .weapons .icon.sa-58 {
+    background-image: url(../division/sprites/weapons/sa-58.png);
+}
+.build-content .weapons .icon.sasg,
+.build-content .weapons .icon.sasg12,
+.build-content .weapons .icon.sasg-12 {
+    background-image: url(../division/sprites/weapons/sasg-12.png);
+}
+.build-content .weapons .icon.scarh,
+.build-content .weapons .icon.scar-h {
+    background-image: url(../division/sprites/weapons/scar-h.png);
+}
+.build-content .weapons .icon.scarl,
+.build-content .weapons .icon.scar-l {
+    background-image: url(../division/sprites/weapons/scar-l.png);
+}
+.build-content .weapons .icon.showstopper {
+    background-image: url(../division/sprites/weapons/showstopper.png);
+}
+.build-content .weapons .icon.srs {
+    background-image: url(../division/sprites/weapons/srs.png);
+}
+.build-content .weapons .icon.super90,
+.build-content .weapons .icon.super-90 {
+    background-image: url(../division/sprites/weapons/super-90.png);
 }
 .build-content .weapons .icon.svd {
 	background-image: url(../division/sprites/weapons/svd.png);
 }
-.build-content .weapons .icon.showstopper {
-	background-image: url(../division/sprites/weapons/showstopper.png);
+.build-content .weapons .icon.t821 {
+    background-image: url(../division/sprites/weapons/t821.png);
+}
+.build-content .weapons .icon.tec9,
+.build-content .weapons .icon.tec-9 {
+    background-image: url(../division/sprites/weapons/tec-9.png);
 }
 .build-content .weapons .icon.tenebrae {
 	background-image: url(../division/sprites/weapons/tenebrae.png);
 }
-.build-content .weapons .icon.u,p {
+.build-content .weapons .icon.ump {
 	background-image: url(../division/sprites/weapons/ump.png);
 }
+.build-content .weapons .icon.mdr,
 .build-content .weapons .icon.urban-mdr {
 	background-image: url(../division/sprites/weapons/urban-mdr.png);
+}
+.build-content .weapons .icon.vector {
+    background-image: url(../division/sprites/weapons/vector.png);
 }
 
 /* WEAPON TALENT ICONS */
