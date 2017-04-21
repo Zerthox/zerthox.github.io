@@ -789,10 +789,10 @@ body::after {
 .build-content .skills .icon.first-aid {
     background-position: 0 -309px;
 }
-.build-content .skills .icon.defibrillator {
+.build-content .skills .icon.overdose {
     background-position: -103px -309px;
 }
-.build-content .skills .icon.overdose {
+.build-content .skills .icon.defibrillator {
     background-position: -206px -309px;
 }
 .build-content .skills .icon.booster-shot {
@@ -816,10 +816,10 @@ body::after {
 .build-content .skills .icon.extension {
     background-position: -103px -515px;
 }
-.build-content .skills .icon.blast-shield {
+.build-content .skills .icon.countermeasures {
     background-position: -206px -515px;
 }
-.build-content .skills .icon.countermeasures {
+.build-content .skills .icon.blast-shield {
     background-position: -309px -515px;
 }
 .build-content .skills .icon.sticky,
@@ -864,11 +864,11 @@ body::after {
 .build-content .skills .icon.heal-station {
     background-position: 0 0;
 }
-.build-content .skills .icon.life-support,
-.build-content .skills .icon.revive-station {
+.build-content .skills .icon.immunizer {
     background-position: -103px 0;
 }
-.build-content .skills .icon.immunizer {
+.build-content .skills .icon.life-support,
+.build-content .skills .icon.revive-station {
     background-position: -206px 0;
 }
 .build-content .skills .icon.ammo-cache,
@@ -878,16 +878,16 @@ body::after {
 .build-content .skills .icon.turret {
     background-position: 0 -309px;
 }
+.build-content .skills .icon.zapper,
+.build-content .skills .icon.shock-turret {
+    background-position: -103px -309px;
+}
 .build-content .skills .icon.active-sensor,
 .build-content .skills .icon.pulse-turret {
-    background-position: -103px -309px;
+    background-position: -206px -309px;
 }
 .build-content .skills .icon.dragonbreath,
 .build-content .skills .icon.fire-turret {
-    background-position: -206px -309px;
-}
-.build-content .skills .icon.zapper,
-.build-content .skills .icon.shock-turret {
     background-position: -309px -309px;
 }
 .build-content .skills .icon.green-link,
