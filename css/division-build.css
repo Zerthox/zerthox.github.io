@@ -24,7 +24,8 @@
 }
 body {
     background: var(--light-bg);
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -129,6 +130,8 @@ body::after {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-size: 1.5em;
     line-height: 16px;
@@ -190,6 +193,8 @@ body::after {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     margin: 0 40px;
 }
@@ -212,7 +217,12 @@ body::after {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
 }
 .build-content > * > * > * {
     margin: 5px;
@@ -228,11 +238,6 @@ body::after {
 	position: relative;
     opacity: .7;
     height: 100px;
-}
-.build-content .weapons .icon.weapon {
-	-webkit-transform: scaleX(-1);
-    -ms-transform: scaleX(-1);
-    transform: scaleX(-1);
 }
 .build-content .weapons .icon::before,
 .build-content .skills .icon::before {
@@ -257,9 +262,6 @@ body::after {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-}
-.build-content .gear {
-    height: 720px;
 }
 .build-content .gear > * {
     margin: 0;
@@ -312,6 +314,8 @@ body::after {
     -webkit-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 .error .error-title {
@@ -330,9 +334,6 @@ body::after {
     width: 250px;
     background-size: auto;
     background-position: 0 -15px;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
     -webkit-mix-blend-mode: screen;
     -ms-mix-blend-mode: screen;
     mix-blend-mode: screen;
