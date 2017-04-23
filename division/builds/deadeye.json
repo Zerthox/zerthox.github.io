@@ -65,14 +65,14 @@
 				"main-stat": {
 					"5x": {
 						"icon": "firearms",
-						"name": "Firearms",
+						"name": "Firearms Mod",
 						"text": "Health"
 					}
 				},
 				"performance": {
 					"4x": {
 						"icon": "first-aid",
-						"name": "First Aid Self Heal"
+						"name": "First Aid Self Heal Mod"
 					}
 				}
 			}
