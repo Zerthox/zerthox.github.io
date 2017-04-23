@@ -217,8 +217,6 @@ body::after {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     -webkit-flex-shrink: 0;
     -ms-flex-shrink: 0;
@@ -263,20 +261,19 @@ body::after {
     -ms-flex-align: center;
     align-items: center;
 }
-.build-content .gear > * {
-    margin: 0;
-}
 .build-content .gear .icon {
     position: relative;
     width: 120px;
     height: 110px;
     padding: 5px 30px 5px 10px;
-    background: linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) top right no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom left no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom right no-repeat;
-    background-size: 3px 3px;
 }
 .build-content .gear .icon::after {
     -webkit-filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
     filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
+}
+.build-content .gear .items .icon {
+    background: linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) top right no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom left no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom right no-repeat;
+    background-size: 3px 3px;
 }
 .build-content .gear .icon.he {
     background-color: rgb(180, 139, 55);
@@ -294,7 +291,47 @@ body::after {
     right: 10px;
     bottom: 5px;
     left: 10px;
-    background-size: 800px;
+}
+.build-content .gear {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.build-content .gear > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: initial;
+    -ms-flex-align: initial;
+    align-items: initial;
+    -webkit-flex-shrink: initial;
+    -ms-flex-shrink: initial;
+    flex-shrink: initial;
+    margin: 0 auto;
+}
+.build-content .gear > * > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-shrink: initial;
+    -ms-flex-shrink: initial;
+    flex-shrink: initial;
+    margin: 0;
+}
+.build-content .gear > * > * > * {
+    margin: 5px;
+}
+.build-content .gear .mods .icon {
+    margin-right: 10px;
+}
+.build-content .gear .mods .amount {
+    font-size: 2.5em;
 }
 .build-content > :not(.weapons) .icon {
     margin-right: 30px;
@@ -668,10 +705,29 @@ body::after {
     background-position: -300px 0;
 }
 
+/* MAIN STAT ICONS */
+.build-content .gear .mods .main-stat .icon::after {
+    background-image: url(../division/sprites/stats.png);
+    width: 64px;
+    height: 64px;
+    top: 23px;
+    left: 28px;
+}
+.build-content .gear .mods .icon.firearms::after {
+    background-position: 0 0;
+}
+.build-content .gear .mods .icon.stamina::after {
+    background-position: -64px 0;
+}
+.build-content .gear .mods .icon.electronics::after {
+    background-position: -128px 0;
+}
+
 /* GEAR ICONS */
-.build-content .gear .icon.he::after,
-.build-content .gear .icon.exotic::after {
+.build-content .gear .items .icon.he::after,
+.build-content .gear .items .icon.exotic::after {
     background-image: url(../division/sprites/items.png);
+        background-size: 800px;
 }
 .build-content .gear .icon.holster::after {
     background-position: 0 -413px;
@@ -698,6 +754,7 @@ body::after {
 /* GEAR SET ICONS */
 .build-content .gear .icon.gearset::after {
     background-image: url(../division/sprites/gearsets.png);
+    background-size: 800px;
 }
 .build-content .gear .icon.striker::after {
     background-position: 0 0;
@@ -756,13 +813,23 @@ body::after {
 }
 
 /* SKILL ICONS */
-.build-content .skills .icon {
+.build-content .skills .icon,
+.build-content .gear .mods .performance .icon::after {
     width: 100px;
     background-image: url(http://i.imgur.com/4cP0J28.png);
     background-size: 800px;
 }
+.build-content .gear .mods .performance .icon::after {
+    width: 75px;
+    height: 75px;
+    top: 17.5px;
+    left: 22.5px;
+    background-size: 600px;
+}
 .build-content .skills .icon.shield,
-.build-content .skills .icon.ballistic-shield {
+.build-content .skills .icon.ballistic-shield,
+.build-content .gear .mods .performance .icon.shield::after,
+.build-content .gear .mods .performance .icon.ballistic-shield::after, {
     background-position: 0 0;
 }
 .build-content .skills .icon.pulse-shield,
@@ -777,6 +844,9 @@ body::after {
 }
 .build-content .skills .icon.pulse {
     background-position: 0 -103px;
+}
+.build-content .gear .mods .performance .icon.pulse::after {
+    background-position: 0 -77.25px;
 }
 .build-content .skills .icon.recon-pack,
 .build-content .skills .icon.recon-pulse {
@@ -795,6 +865,10 @@ body::after {
 .build-content .skills .icon.seeker-mine {
     background-position: 0 -206px;
 }
+.build-content .gear .mods .performance .icon.seeker::after,
+.build-content .gear .mods .performance .icon.seeker-mine::after {
+    background-position: 0 -154.5px;
+}
 .build-content .skills .icon.ariburst,
 .build-content .skills .icon.fire-seeker {
     background-position: -103px -206px;
@@ -808,6 +882,9 @@ body::after {
 .build-content .skills .icon.first-aid {
     background-position: 0 -309px;
 }
+.build-content .gear .mods .performance .icon.first-aid::after {
+    background-position: 0 -231.75px;
+}
 .build-content .skills .icon.overdose {
     background-position: -103px -309px;
 }
@@ -819,6 +896,9 @@ body::after {
 }
 .build-content .skills .icon.smart-cover {
     background-position: 0 -412px;
+}
+.build-content .gear .mods .performance .icon.smart-cover::after {
+    background-position: 0 -309px;
 }
 .build-content .skills .icon.trapper {
     background-position: -103px -412px;
@@ -832,6 +912,9 @@ body::after {
 .build-content .skills .icon.mobile-cover {
     background-position: 0 -515px;
 }
+.build-content .gear .mods .performance .icon.mobile-cover::after {
+    background-position: 0 -386.25px;
+}
 .build-content .skills .icon.extension {
     background-position: -103px -515px;
 }
@@ -844,6 +927,10 @@ body::after {
 .build-content .skills .icon.sticky,
 .build-content .skills .icon.sticky-bomb {
     background-position: 0 -618px;
+}
+.build-content .gear .mods .performance .icon.sticky::after,
+.build-content .gear .mods .performance .icon.sticky-bomb::after {
+    background-position: 0 -463.5px;
 }
 .build-content .skills .icon.bfb,
 .build-content .skills .icon.damage-sticky {
@@ -876,11 +963,22 @@ body::after {
 .build-content .skills .icon.tactical-link,
 .build-content .skills .icon.orange-link,
 .build-content .skills .icon.survivor-link,
-.build-content .skills .icon.blue-link {
+.build-content .skills .icon.blue-link,
+.build-content .gear .mods .performance .icon.support-station::after,
+.build-content .gear .mods .performance .icon.heal-station::after,
+.build-content .gear .mods .performance .icon.turret::after,
+.build-content .gear .mods .performance .icon.green-link::after,
+.build-content .gear .mods .performance .icon.recovery-link::after,
+.build-content .gear .mods .performance .icon.tactical-link::after,
+.build-content .gear .mods .performance .icon.orange-link::after,
+.build-content .gear .mods .performance .icon.survivor-link::after,
+.build-content .gear .mods .performance .icon.blue-link::after {
     background-image: url(http://i.imgur.com/2XoEElm.png);
 }
 .build-content .skills .icon.support-station,
-.build-content .skills .icon.heal-station {
+.build-content .skills .icon.heal-station,
+.build-content .gear .mods .performance .icon.support-station::after,
+.build-content .gear .mods .performance .icon.heal-station::after {
     background-position: 0 0;
 }
 .build-content .skills .icon.immunizer {
@@ -896,6 +994,9 @@ body::after {
 }
 .build-content .skills .icon.turret {
     background-position: 0 -309px;
+}
+.build-content .gear .mods .performance .icon.turret::after {
+    background-position: 0 -231.75px;
 }
 .build-content .skills .icon.zapper,
 .build-content .skills .icon.shock-turret {
@@ -914,11 +1015,11 @@ body::after {
     background-position: 0 -515px;
 }
 .build-content .skills .icon.tactical-link,
-.build-content .skills .icon.orange-link {
+.build-content .skills .icon.orange-link  {
     background-position: -103px -515px;
 }
 .build-content .skills .icon.survivor-link,
-.build-content .skills .icon.blue-link {
+.build-content .skills .icon.blue-link  {
     background-position: -206px -515px;
 }
 
