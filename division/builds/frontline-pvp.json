@@ -2,7 +2,7 @@
 	"title": "Frontline PvP DPS",
 	"author": "Zerthox",
 	"link": "https://github.com/Zerthox",
-	"date": "19/04/2017",
+	"date": "23/04/2017",
 	"build": {
 		"weapons": {
 			"primary": {
@@ -23,6 +23,7 @@
 			}
 		},
 		"gear": {
+			"items": {
 			"chest": {
 				"name": "Vigorous Chest",
 				"text": "Health, Skill Haste, Burn Resistance",
@@ -57,7 +58,22 @@
 				"name": "D3-FNC Knee Pads",
 				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
 				"type": "gearset",
-				"icon": "frontline"
+			}
+		},
+			"mods": {
+				"main-stat": {
+					"5x": {
+						"icon": "firearms",
+						"name": "Firearms",
+						"text": "Health"
+					}
+				},
+				"performance": {
+					"4x": {
+						"icon": "ballistic-shield",
+						"name": "Ballistic Shield Damage Resiliance"
+					}
+				}
 			}
 		},
 		"skills": {
