@@ -7,17 +7,17 @@
 		"weapons": {
 			"primary": {
 				"name": "MP7",
-				"text": "Competent, Fierce, Unforgiving",
+				"text": "Responsive, Fierce, Unforgiving",
 				"icon": "mp7",
-				"talent1": "competent",
+				"talent1": "responsive",
 				"talent2": "fierce",
 				"talent3": "unforgiving"
 			},
 			"secondary": {
 				"name": "PP-19",
-				"text": "Competent, Fierce, Hurried",
+				"text": "Responsive, Fierce, Hurried",
 				"icon": "pp-19",
-				"talent1": "competent",
+				"talent1": "responsive",
 				"talent2": "fierce",
 				"talent3": "hurried"
 			}
@@ -63,9 +63,14 @@
 			},
 			"mods": {
 				"main-stat": {
-					"5x": {
+					"4x": {
 						"icon": "firearms",
 						"name": "Firearms Mod",
+						"text": "Health"
+					},
+					"1x": {
+						"icon": "stamina",
+						"name": "Stamina Mod",
 						"text": "Health"
 					}
 				},
