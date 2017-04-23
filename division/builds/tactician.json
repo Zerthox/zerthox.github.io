@@ -65,19 +65,19 @@
 				"main-stat": {
 					"4x": {
 						"icon": "electronics",
-						"name": "Electronics",
+						"name": "Electronics Mod",
 						"text": "Health"
 					},
 					"1x": {
 						"icon": "electronics",
-						"name": "Electronics",
+						"name": "Electronics Mod",
 						"text": "Skill Haste"
 					}
 				},
 				"performance": {
 					"4x": {
 						"icon": "first-aid",
-						"name": "First Aid Ally Heal"
+						"name": "First Aid Ally Heal Mod"
 					}
 				}
 			}
