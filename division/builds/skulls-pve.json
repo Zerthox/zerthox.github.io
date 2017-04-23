@@ -2,7 +2,7 @@
 	"title": "Skulls PvE DPS",
 	"author": "Zerthox",
 	"link": "https://github.com/Zerthox",
-	"date": "19/04/2017",
+	"date": "23/04/2017",
 	"build": {
 		"weapons": {
 			"primary": {
@@ -37,7 +37,7 @@
 			},
 			"mask": {
 				"name": "Refreshed Mask",
-				"text": "Health, Burn Resistance",
+				"text": "Health, Increased Kill XP",
 				"type": "he",
 				"icon": "mask"
 			},
@@ -55,7 +55,7 @@
 			},
 			"knee-pads": {
 				"name": "Accomplished Knee Pads",
-				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+				"text": "Health, Damage to Elites, Increased Kill XP, Shock Resistance",
 				"type": "he",
 				"icon": "knee-pads"
 			}
