@@ -2,7 +2,7 @@
 	"title": "Skulls PvP DPS",
 	"author": "Zerthox",
 	"link": "https://github.com/Zerthox",
-	"date": "19/04/2017",
+	"date": "23/04/2017",
 	"build": {
 		"weapons": {
 			"primary": {
@@ -23,41 +23,63 @@
 			}
 		},
 		"gear": {
-			"chest": {
-				"name": "Vigorous Chest",
-				"text": "Health, Skill Haste, Burn Resistance",
-				"type": "he",
-				"icon": "chest"
+			"items": {
+				"chest": {
+					"name": "Vigorous Chest",
+					"text": "Health, Skill Haste, Burn Resistance",
+					"type": "he",
+					"icon": "chest"
+				},
+				"backpack": {
+					"name": "Specialized Backpack",
+					"text": "Health, Burn Resistance",
+					"type": "he",
+					"icon": "backpack"
+				},
+				"mask": {
+					"name": "Tenacious Mask",
+					"text": "Health, Burn Resistance",
+					"type": "he",
+					"icon": "mask"
+				},
+				"gloves": {
+					"name": "Skulls MC Gloves",
+					"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
+					"type": "exotic",
+					"icon": "gloves"
+				},
+				"holster": {
+					"name": "Nimble Holster",
+					"text": "Health",
+					"type": "he",
+					"icon": "holster"
+				},
+				"knee-pads": {
+					"name": "Shortbow Championship Knee Pads",
+					"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+					"type": "exotic",
+					"icon": "knee-pads"
+				}
 			},
-			"backpack": {
-				"name": "Specialized Backpack",
-				"text": "Health, Burn Resistance",
-				"type": "he",
-				"icon": "backpack"
-			},
-			"mask": {
-				"name": "Tenacious Mask",
-				"text": "Health, Burn Resistance",
-				"type": "he",
-				"icon": "mask"
-			},
-			"gloves": {
-				"name": "Skulls MC Gloves",
-				"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
-				"type": "exotic",
-				"icon": "gloves"
-			},
-			"holster": {
-				"name": "Nimble Holster",
-				"text": "Health",
-				"type": "he",
-				"icon": "holster"
-			},
-			"knee-pads": {
-				"name": "Shortbow Championship Knee Pads",
-				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
-				"type": "exotic",
-				"icon": "knee-pads"
+			"mods": {
+				"main-stat": {
+					"3x": {
+						"icon": "firearms",
+						"name": "Firearms",
+						"text": "Health"
+					},
+					"2x": {
+						"icon": "firearms",
+						"name": "Firearms",
+						"text": "Skill Haste"
+					}
+				},
+				"performance": {
+					"4x": {
+						"icon": "first-aid",
+						"name": "First Aid Self Heal"
+					}
+				}
 			}
 		},
 		"skills": {
