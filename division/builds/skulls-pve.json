@@ -23,41 +23,58 @@
 			}
 		},
 		"gear": {
-			"chest": {
-				"name": "Vigorous Chest",
-				"text": "Health, Skill Haste, Burn Resistance",
-				"type": "he",
-				"icon": "chest"
+			"items": {
+				"chest": {
+					"name": "Vigorous Chest",
+					"text": "Health, Skill Haste, Burn Resistance",
+					"type": "he",
+					"icon": "chest"
+				},
+				"backpack": {
+					"name": "Specialized Backpack",
+					"text": "Health, Burn Resistance",
+					"type": "he",
+					"icon": "backpack"
+				},
+				"mask": {
+					"name": "Refreshed Mask",
+					"text": "Health, Increased Kill XP",
+					"type": "he",
+					"icon": "mask"
+				},
+				"gloves": {
+					"name": "Skulls MC Gloves",
+					"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
+					"type": "exotic",
+					"icon": "gloves"
+				},
+				"holster": {
+					"name": "Nimble Holster",
+					"text": "Health",
+					"type": "he",
+					"icon": "holster"
+				},
+				"knee-pads": {
+					"name": "Accomplished Knee Pads",
+					"text": "Health, Damage to Elites, Increased Kill XP, Shock Resistance",
+					"type": "he",
+					"icon": "knee-pads"
+				}
 			},
-			"backpack": {
-				"name": "Specialized Backpack",
-				"text": "Health, Burn Resistance",
-				"type": "he",
-				"icon": "backpack"
-			},
-			"mask": {
-				"name": "Refreshed Mask",
-				"text": "Health, Increased Kill XP",
-				"type": "he",
-				"icon": "mask"
-			},
-			"gloves": {
-				"name": "Skulls MC Gloves",
-				"text": "Assault Rifle Damage, SMG Damage, Critical Hit Chance",
-				"type": "exotic",
-				"icon": "gloves"
-			},
-			"holster": {
-				"name": "Nimble Holster",
-				"text": "Health",
-				"type": "he",
-				"icon": "holster"
-			},
-			"knee-pads": {
-				"name": "Accomplished Knee Pads",
-				"text": "Health, Damage to Elites, Increased Kill XP, Shock Resistance",
-				"type": "he",
-				"icon": "knee-pads"
+			"mods": {
+				"main-stat": {
+					"5x": {
+						"icon": "firearms",
+						"name": "Firearms",
+						"text": "Health"
+					}
+				},
+				"performance": {
+					"4x": {
+						"icon": "first-aid",
+						"name": "First Aid Self Heal"
+					}
+				}
 			}
 		},
 		"skills": {
