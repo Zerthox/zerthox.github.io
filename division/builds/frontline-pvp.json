@@ -24,42 +24,42 @@
 		},
 		"gear": {
 			"items": {
-			"chest": {
-				"name": "Vigorous Chest",
-				"text": "Health, Skill Haste, Burn Resistance",
-				"type": "he",
-				"icon": "chest"
+				"chest": {
+					"name": "Vigorous Chest",
+					"text": "Health, Skill Haste, Burn Resistance",
+					"type": "he",
+					"icon": "chest"
+				},
+				"backpack": {
+					"name": "Specialized Backpack",
+					"text": "Health, Burn Resistance",
+					"type": "he",
+					"icon": "backpack"
+				},
+				"mask": {
+					"name": "D3-FNC Mask",
+					"text": "Health, Burn Resistance",
+					"type": "gearset",
+					"icon": "frontline"
+				},
+				"gloves": {
+					"name": "D3-FNC Gloves",
+					"text": "SMG Damage, Critical Hit Chance, Critical Hit Damage",
+					"type": "gearset",
+					"icon": "frontline"
+				},
+				"holster": {
+					"name": "D3-FNC Holster",
+					"text": "Health",
+					"type": "gearset",
+					"icon": "frontline"
+				},
+				"knee-pads": {
+					"name": "D3-FNC Knee Pads",
+					"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+					"type": "gearset",
+				}
 			},
-			"backpack": {
-				"name": "Specialized Backpack",
-				"text": "Health, Burn Resistance",
-				"type": "he",
-				"icon": "backpack"
-			},
-			"mask": {
-				"name": "D3-FNC Mask",
-				"text": "Health, Burn Resistance",
-				"type": "gearset",
-				"icon": "frontline"
-			},
-			"gloves": {
-				"name": "D3-FNC Gloves",
-				"text": "SMG Damage, Critical Hit Chance, Critical Hit Damage",
-				"type": "gearset",
-				"icon": "frontline"
-			},
-			"holster": {
-				"name": "D3-FNC Holster",
-				"text": "Health",
-				"type": "gearset",
-				"icon": "frontline"
-			},
-			"knee-pads": {
-				"name": "D3-FNC Knee Pads",
-				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
-				"type": "gearset",
-			}
-		},
 			"mods": {
 				"main-stat": {
 					"5x": {
