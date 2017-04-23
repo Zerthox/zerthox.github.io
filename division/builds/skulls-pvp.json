@@ -63,15 +63,10 @@
 			},
 			"mods": {
 				"main-stat": {
-					"3x": {
+					"5x": {
 						"icon": "firearms",
 						"name": "Firearms",
 						"text": "Health"
-					},
-					"2x": {
-						"icon": "firearms",
-						"name": "Firearms",
-						"text": "Skill Haste"
 					}
 				},
 				"performance": {
