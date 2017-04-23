@@ -301,7 +301,9 @@ body::after {
     margin-right: 10px;
 }
 .build-content .gear .mods .amount {
+    width: 35px;
     font-size: 2.5em;
+    text-align: center;
 }
 .build-content .gear .icon {
     position: relative;
