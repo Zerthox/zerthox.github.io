@@ -23,41 +23,63 @@
 			}
 		},
 		"gear": {
-			"chest": {
-				"name": "Vigorous Chest",
-				"text": "Health, Skill Haste, Burn Resistance",
-				"type": "he",
-				"icon": "chest"
+			"items": {
+				"chest": {
+					"name": "Vigorous Chest",
+					"text": "Health, Skill Haste, Burn Resistance",
+					"type": "he",
+					"icon": "chest"
+				},
+				"backpack": {
+					"name": "Inventive Backpack",
+					"text": "Health, Burn Resistance",
+					"type": "he",
+					"icon": "backpack"
+				},
+				"mask": {
+					"name": "Tactician's Authority Mask",
+					"text": "Health, Burn Resistance",
+					"type": "gearset",
+					"icon": "tactician"
+				},
+				"gloves": {
+					"name": "Tactician's Authority Gloves",
+					"text": "Assault Rifle Damage, Skill Haste, Critical Hit Chance",
+					"type": "gearset",
+					"icon": "tactician"
+				},
+				"holster": {
+					"name": "Tactician's Authority Holster",
+					"text": "Skill Haste",
+					"type": "gearset",
+					"icon": "tactician"
+				},
+				"knee-pads": {
+					"name": "Tactician's Authority Knee Pads",
+					"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
+					"type": "gearset",
+					"icon": "tactician"
+				}
 			},
-			"backpack": {
-				"name": "Inventive Backpack",
-				"text": "Health, Burn Resistance",
-				"type": "he",
-				"icon": "backpack"
-			},
-			"mask": {
-				"name": "Tactician's Authority Mask",
-				"text": "Health, Burn Resistance",
-				"type": "gearset",
-				"icon": "tactician"
-			},
-			"gloves": {
-				"name": "Tactician's Authority Gloves",
-				"text": "Assault Rifle Damage, Skill Haste, Critical Hit Chance",
-				"type": "gearset",
-				"icon": "tactician"
-			},
-			"holster": {
-				"name": "Tactician's Authority Holster",
-				"text": "Skill Haste",
-				"type": "gearset",
-				"icon": "tactician"
-			},
-			"knee-pads": {
-				"name": "Tactician's Authority Knee Pads",
-				"text": "Health, Burn Resistance, Shock Resistance, Disrupt Resistance",
-				"type": "gearset",
-				"icon": "tactician"
+			"mods": {
+				"main-stat": {
+					"4x": {
+						"icon": "electronics",
+						"name": "Electronics",
+						"text": "Health"
+					},
+					"1x": {
+						"icon": "electronics",
+						"name": "Electronics",
+						"text": "Skill Haste"
+					}
+				},
+				"performance": {
+					"4x": {
+						"icon": "first-aid",
+						"name": "First Aid Ally Heal"
+					}
+				}
 			}
 		},
 		"skills": {
