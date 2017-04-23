@@ -23,16 +23,41 @@ $(document).ready(function() {
                             var p = key;
                             $.each(this, function(key) {
                                 var k = key;
-                                $.each(this, function(key, value) {
-                                    if (key.startsWith("talent"))
-                                        $(".build-content ." + p + " ." + k + " .talents .icon:eq(" + (key.slice(-1) - 1) + ")").addClass(value);
-                                    else if (key === "type")
-                                        $(".build-content ." + p + " ." + k + " .icon").addClass(value);
-                                    else if (key === "icon")
-                                        $(".build-content ." + p + " ." + k + ">." + key).addClass(value);
-                                    else
-                                        $(".build-content ." + p + " ." + k + " ." + key).text(value);
-                                });
+                                if (k === "items") {
+                                    $.each(this, function(key, value) {
+                                        var t = key;
+                                        $.each(this, function(key, value) {
+                                            if (key === "type")
+                                                $(".build-content .gear .items ." + t + " .icon").addClass(value);
+                                            else if (key === "icon")
+                                                $(".build-content .gear .items ." + t + "> .icon").addClass(value);
+                                            else
+                                                $(".build-content .gear .items ." + t + " ." + key).text(value);
+                                        });
+                                    });
+                                }
+                                else if (k === "mods") {
+                                    $.each(this, function(key, value) {
+                                        var t = key;
+                                        $.each(this, function(key, value) {
+                                            var s = '<div class="' + t + '"><div class="amount">' + key + '</div><div class="icon ' + value.icon + '"></div><div class="info"><div class="name">' + value.name + '</div>';
+                                            if (value.hasOwnProperty("text"))
+                                                s += '<div class="text">' + value.text + '</div>';
+                                            s += '</div></div>';
+                                            $(".build-content .gear .mods").append(s);
+                                        });
+                                    });
+                                }
+                                else {
+                                    $.each(this, function(key, value) {
+                                        if (key.startsWith("talent"))
+                                            $(".build-content ." + p + " ." + k + " .talents .icon:eq(" + (key.slice(-1) - 1) + ")").addClass(value);
+                                        else if (key === "icon")
+                                            $(".build-content ." + p + " ." + k + "> .icon").addClass(value);
+                                        else
+                                            $(".build-content ." + p + " ." + k + " ." + key).text(value);
+                                    });
+                                }
                             });
                         });
                     },
