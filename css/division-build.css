@@ -35,7 +35,8 @@ body {
     font-family: Borda;
     color: hsla(0, 0%, 100%, .5);
     text-shadow: 0 0 3px rgba(0, 0, 0, .3), 3px 3px 0 rgba(150, 150, 150, .1);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     cursor: default;
 }
 body::after {
@@ -104,7 +105,7 @@ body::after {
     margin-left: 8px;
 }
 .build-header .info a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 .build-header .author {
     color: hsla(0, 0%, 100%, .7);
@@ -113,7 +114,7 @@ body::after {
     transition: all .15s ease-in-out;
 }
 .build-header .author:hover {
-	color: #fff;
+    color: #fff;
 }
 .build-header .date {
     margin-left: .5em;
@@ -233,7 +234,7 @@ body::after {
     font-weight: bold;
 }
 .build-content .icon {
-	position: relative;
+    position: relative;
     opacity: .7;
     height: 100px;
 }
@@ -260,6 +261,47 @@ body::after {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+}
+.build-content .gear {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.build-content .gear > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: initial;
+    -ms-flex-align: initial;
+    align-items: initial;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    margin: 0 auto;
+}
+.build-content .gear > * > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    margin: 0;
+}
+.build-content .gear > * > * > * {
+    margin: 5px;
+}
+.build-content .gear .mods .icon {
+    margin-right: 10px;
+}
+.build-content .gear .mods .amount {
+    font-size: 2.5em;
 }
 .build-content .gear .icon {
     position: relative;
@@ -294,47 +336,6 @@ body::after {
     right: 10px;
     bottom: 5px;
     left: 10px;
-}
-.build-content .gear {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-}
-.build-content .gear > * {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: initial;
-    -ms-flex-align: initial;
-    align-items: initial;
-    -webkit-flex-shrink: initial;
-    -ms-flex-shrink: initial;
-    flex-shrink: initial;
-    margin: 0 auto;
-}
-.build-content .gear > * > * {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-flex-shrink: initial;
-    -ms-flex-shrink: initial;
-    flex-shrink: initial;
-    margin: 0;
-}
-.build-content .gear > * > * > * {
-    margin: 5px;
-}
-.build-content .gear .mods .icon {
-    margin-right: 10px;
-}
-.build-content .gear .mods .amount {
-    font-size: 2.5em;
 }
 .build-content > :not(.weapons) .icon {
     margin-right: 30px;
@@ -393,7 +394,7 @@ body::after {
     background-image: url(../division/sprites/weapons/ak-47.png);
 }
 .build-content .weapons .icon.aug {
-	background-image: url(../division/sprites/weapons/aug.png);
+    background-image: url(../division/sprites/weapons/aug.png);
 }
 .build-content .weapons .icon.bullfrog,
 .build-content .weapons .icon.famas {
@@ -407,10 +408,10 @@ body::after {
     background-image: url(../division/sprites/weapons/fal.png);
 }
 .build-content .weapons .icon.g36 {
-	background-image: url(../division/sprites/weapons/g36.png);
+    background-image: url(../division/sprites/weapons/g36.png);
 }
 .build-content .weapons .icon.historian {
-	background-image: url(../division/sprites/weapons/historian.png);
+    background-image: url(../division/sprites/weapons/historian.png);
 }
 .build-content .weapons .icon.l86 {
     background-image: url(../division/sprites/weapons/l86.png);
@@ -419,7 +420,7 @@ body::after {
     background-image: url(../division/sprites/weapons/m1a.png);
 }
 .build-content .weapons .icon.m4 {
-	background-image: url(../division/sprites/weapons/m4.png);
+    background-image: url(../division/sprites/weapons/m4.png);
 }
 .build-content .weapons .icon.m44 {
     background-image: url(../division/sprites/weapons/m44.png);
@@ -431,7 +432,7 @@ body::after {
     background-image: url(../division/sprites/weapons/m249.png);
 }
 .build-content .weapons .icon.m700 {
-	background-image: url(../division/sprites/weapons/m700.png);
+    background-image: url(../division/sprites/weapons/m700.png);
 }
 .build-content .weapons .icon.m870 {
     background-image: url(../division/sprites/weapons/m870.png);
@@ -443,14 +444,14 @@ body::after {
     background-image: url(../division/sprites/weapons/mp5.png);
 }
 .build-content .weapons .icon.mp7 {
-	background-image: url(../division/sprites/weapons/mp7.png);
+    background-image: url(../division/sprites/weapons/mp7.png);
 }
 .build-content .weapons .icon.p416 {
     background-image: url(../division/sprites/weapons/p416.png);
 }
 .build-content .weapons .icon.pp19,
 .build-content .weapons .icon.pp-19 {
-	background-image: url(../division/sprites/weapons/pp-19.png);
+    background-image: url(../division/sprites/weapons/pp-19.png);
 }
 .build-content .weapons .icon.rpk,
 .build-content .weapons .icon.rpk-74 {
@@ -484,7 +485,7 @@ body::after {
     background-image: url(../division/sprites/weapons/super-90.png);
 }
 .build-content .weapons .icon.svd {
-	background-image: url(../division/sprites/weapons/svd.png);
+    background-image: url(../division/sprites/weapons/svd.png);
 }
 .build-content .weapons .icon.t821 {
     background-image: url(../division/sprites/weapons/t821.png);
@@ -494,14 +495,14 @@ body::after {
     background-image: url(../division/sprites/weapons/tec-9.png);
 }
 .build-content .weapons .icon.tenebrae {
-	background-image: url(../division/sprites/weapons/tenebrae.png);
+    background-image: url(../division/sprites/weapons/tenebrae.png);
 }
 .build-content .weapons .icon.ump {
-	background-image: url(../division/sprites/weapons/ump.png);
+    background-image: url(../division/sprites/weapons/ump.png);
 }
 .build-content .weapons .icon.mdr,
 .build-content .weapons .icon.urban-mdr {
-	background-image: url(../division/sprites/weapons/urban-mdr.png);
+    background-image: url(../division/sprites/weapons/urban-mdr.png);
 }
 .build-content .weapons .icon.vector {
     background-image: url(../division/sprites/weapons/vector.png);
@@ -819,7 +820,7 @@ body::after {
 .build-content .skills .icon,
 .build-content .gear .mods .performance .icon::after {
     width: 100px;
-    background-image: url(http://i.imgur.com/4cP0J28.png);
+    background-image: url(../division/sprites/skills.png);
     background-size: 800px;
 }
 .build-content .gear .mods .performance .icon::after {
@@ -835,11 +836,11 @@ body::after {
 .build-content .gear .mods .performance .icon.ballistic-shield::after, {
     background-position: 0 0;
 }
-.build-content .skills .icon.pulse-shield,
-.build-content .skills .icon.reactive-targeting {
+.build-content .skills .icon.assault-shield {
     background-position: -103px 0;
 }
-.build-content .skills .icon.assault-shield {
+.build-content .skills .icon.pulse-shield,
+.build-content .skills .icon.reactive-targeting {
     background-position: -206px 0;
 }
 .build-content .skills .icon.kinetic-breaker {
@@ -976,7 +977,7 @@ body::after {
 .build-content .gear .mods .performance .icon.orange-link::after,
 .build-content .gear .mods .performance .icon.survivor-link::after,
 .build-content .gear .mods .performance .icon.blue-link::after {
-    background-image: url(http://i.imgur.com/2XoEElm.png);
+    background-image: url(../division/sprites/skills2.png);
 }
 .build-content .skills .icon.support-station,
 .build-content .skills .icon.heal-station,
@@ -1027,9 +1028,13 @@ body::after {
 }
 
 /* MEDIA ADJUSTEMENTS */
-@media (max-width: 950px) {
-    .build-content .weapons .talents,
-    .build-content .gear .mods {
+@media (max-width: 1000px) {
+    .build-content .weapons .talents {
         display: none;
+    }
+    .build-content .gear {
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     }
 }
