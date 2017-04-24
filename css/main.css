@@ -36,15 +36,17 @@ body {
 }
 a {
     color: var(--main-color);
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
 }
 a:hover {
-    background: rgba(0, 0, 0, .1);
     text-decoration: none;
 }
 p a {
-	padding: 0 2px;
+    padding: 0 2px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+p a:hover {
+    background: rgba(0, 0, 0, .1);
 }
 ::selection,
 ::-moz-selection {
