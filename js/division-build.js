@@ -36,7 +36,7 @@ $(document).ready(function() {
                                         });
                                     });
                                 }
-                                else if (k === "mods") {
+                                else if (k === "stats") {
                                     $.each(this, function(key, value) {
                                         var t = key;
                                         $.each(this, function(key, value) {
@@ -44,7 +44,7 @@ $(document).ready(function() {
                                             if (value.hasOwnProperty("text"))
                                                 s += '<div class="text">' + value.text + '</div>';
                                             s += '</div></div>';
-                                            $(".build-content .gear .mods").append(s);
+                                            $(".build-content .gear .stats").append(s);
                                         });
                                     });
                                 }
