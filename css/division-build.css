@@ -347,8 +347,8 @@ body::after {
     content: "";
     position: absolute;
     top: -2px;
-    left: 0;
-    right: 0;
+    left: 10%;
+    right: 10%;
     height: 2px;
     background: hsla(0, 0%, 100%, .3);
 }
