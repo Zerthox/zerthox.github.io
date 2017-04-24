@@ -176,22 +176,6 @@ body > * {
     justify-content: space-around;
     flex: 1;
 }
-.back-button {
-    position: absolute;
-    height: 36px;
-    width: 36px;
-	bottom: 5px;
-    right: 5px;
-    color: hsla(0, 0%, 100%, .5);
-	-webkit-transition: color .3s ease-in-out;
-	transition: color .3s ease-in-out;
-}
-.back-button:hover {
-    color: hsla(0, 0%, 100%, .7);
-}
-.back-button i {
-	font-size: 36px;
-}
 .list.builds li {
     position: relative;
     margin-left: 20px;
