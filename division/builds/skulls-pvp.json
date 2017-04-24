@@ -63,9 +63,13 @@
 			},
 			"stats": {
 				"main": {
-					"5x": {
+					"4x": {
 						"icon": "firearms",
 						"name": "Firearms Roll"
+					},
+					"1x": {
+						"icon": "electronics",
+						"name": "Electronics Roll"
 					}
 				},
 				"mods": {
