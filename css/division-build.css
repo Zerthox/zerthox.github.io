@@ -339,6 +339,19 @@ body::after {
     bottom: 5px;
     left: 10px;
 }
+.build-content .gear .stats .main-stats + .mods {
+    position: relative;
+    margin-top: 6px;
+}
+.build-content .gear .stats .main-stats + .mods::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsla(0, 0%, 100%, .3);
+}
 .build-content > :not(.weapons) .icon {
     margin-right: 30px;
 }
@@ -1031,10 +1044,12 @@ body::after {
 }
 
 /* MEDIA ADJUSTEMENTS */
-@media (max-width: 1000px) {
+@media (max-width: 950px) {
     .build-content .weapons .talents {
         display: none;
     }
+}
+@media (max-width: 1050px) {
     .build-content .gear {
         -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
