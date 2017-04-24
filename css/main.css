@@ -36,8 +36,8 @@ body {
 }
 a {
     color: var(--main-color);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 a:hover {
     background: rgba(0, 0, 0, .1);
