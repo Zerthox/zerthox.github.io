@@ -347,8 +347,8 @@ body::after {
     content: "";
     position: absolute;
     top: -2px;
-    left: 10%;
-    right: 10%;
+    left: 0;
+    right: 0;
     height: 2px;
     background: hsla(0, 0%, 100%, .3);
 }
@@ -872,13 +872,13 @@ body::after {
 .build-content .skills .icon.recon-pulse {
     background-position: -103px -103px;
 }
-.build-content .skills .icon.scrambler,
-.build-content .skills .icon.conceal-pulse {
-    background-position: -206px -103px;
-}
 .build-content .skills .icon.tactical-scanner,
 .build-content .skills .icon.tactical-pulse,
 .build-content .skills .icon.damage-pulse {
+    background-position: -103px -103px;
+}
+.build-content .skills .icon.scrambler,
+.build-content .skills .icon.conceal-pulse {
     background-position: -309px -103px;
 }
 .build-content .skills .icon.seeker,
@@ -889,14 +889,14 @@ body::after {
 .build-content .gear .stats .performance .icon.seeker-mine::after {
     background-position: 0 -154.5px;
 }
-.build-content .skills .icon.ariburst,
-.build-content .skills .icon.fire-seeker {
+.build-content .skills .icon.cluster {
     background-position: -103px -206px;
 }
 .build-content .skills .icon.gas-charge {
     background-position: -206px -206px;
 }
-.build-content .skills .icon.cluster {
+.build-content .skills .icon.ariburst,
+.build-content .skills .icon.fire-seeker {
     background-position: -309px -206px;
 }
 .build-content .skills .icon.first-aid {
