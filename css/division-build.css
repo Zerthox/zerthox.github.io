@@ -713,7 +713,7 @@ body::after {
 
 /* MAIN STAT ICONS */
 .build-content .gear .stats .main-stats .icon::after,
-.build-content .gear .stats .mod .icon::after {
+.build-content .gear .stats .mods .icon::after {
     background-image: url(../division/sprites/stats.png);
     width: 64px;
     height: 64px;
