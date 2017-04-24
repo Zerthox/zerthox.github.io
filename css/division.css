@@ -84,7 +84,6 @@ a:hover {
     width: 36px;
     top: 40px;
     right: 40px;
-    background-image: url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_arrow_back_white_24px.svg);
     opacity: .5;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
