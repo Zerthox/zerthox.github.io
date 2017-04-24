@@ -58,6 +58,9 @@ body::after {
     color: var(--dark-bg);
     background: hsla(0, 0%, 100%, .5);
 }
+a:hover {
+    text-decoration: none;
+}
 .main {
     width: 90%;
     min-width: 500px;
@@ -73,6 +76,8 @@ body::after {
     -ms-flex: 1;
     flex: 1;
 }
+
+/* HEADER */
 .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -81,6 +86,7 @@ body::after {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
+.main-header,
 .build-header {
     padding: 0 20px;
     display: -webkit-box;
@@ -90,9 +96,11 @@ body::after {
     -ms-flex-direction: column;
     flex-direction: column;
 }
+.main-header > *,
 .build-header > * {
     margin: 3px;
 }
+.main-header .title,
 .build-header .title {
     height: 100%;
     color: var(--main-color);
@@ -103,9 +111,6 @@ body::after {
 .build-header .info {
     font-size: 1.25em;
     margin-left: 8px;
-}
-.build-header .info a:hover {
-    text-decoration: none;
 }
 .build-header .author {
     color: hsla(0, 0%, 100%, .7);
@@ -121,6 +126,8 @@ body::after {
     font-size: .75em;
     opacity: .3;
 }
+
+/* TAB BAR */
 .tab-bar {
     height: 78px;
     padding: 0 20px;
@@ -190,6 +197,68 @@ body::after {
 .tab-bar .tab-bar-item.selected::after {
     background: var(--main-color) !important;
 }
+
+/* BUILD LIST */
+.build-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-top: 40px;
+}
+.build-list .list-item {
+    min-width: 350px;
+    padding: 15px 20px;
+    margin: 5px 0;
+    color: hsla(0, 0%, 100%, .7);
+    font-size: 1.25em;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.build-list .list-item:hover {
+    background: hsla(0, 0%, 100%, .1);
+}
+.build-list .list-item .title {
+    font-size: 1.275em;
+    font-weight: bold;
+}
+.build-list .list-item .author {
+    position: relative;
+    color: var(--main-color);
+}
+.build-list .list-item .author::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    border-bottom: 2px solid var(--main-color);
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.build-list .list-item .author:hover::after {
+    left: 0;
+    width: 100%;
+}
+.build-list .list-item .date {
+    margin-left: .5em;
+    float: right;
+    font-size: .75em;
+    opacity: .3;
+}
+
+/* BUILD */
 .build-content {
     display: -webkit-box;
     display: -ms-flexbox;
