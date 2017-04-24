@@ -34,6 +34,15 @@ body {
     flex-direction: column;
     color: hsla(0, 0%, 100%, .7);
 }
+a {
+    color: var(--main-color);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+a:hover {
+    background: rgba(0, 0, 0, .1);
+    text-decoration: none;
+}
 ::selection,
 ::-moz-selection {
     color: var(--dark-bg);
