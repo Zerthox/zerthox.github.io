@@ -79,8 +79,12 @@ a:hover {
 
 /* BACK BUTTON */
 .back-button {
+    position: absolute;
     height: 36px;
     width: 36px;
+    top: 40px;
+    right: 40px;
+    background-image: url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_arrow_back_white_24px.svg);
     opacity: .5;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
@@ -960,7 +964,7 @@ a:hover {
 .build-content .skills .icon.tactical-scanner,
 .build-content .skills .icon.tactical-pulse,
 .build-content .skills .icon.damage-pulse {
-    background-position: -103px -103px;
+    background-position: -206px -103px;
 }
 .build-content .skills .icon.scrambler,
 .build-content .skills .icon.conceal-pulse {
