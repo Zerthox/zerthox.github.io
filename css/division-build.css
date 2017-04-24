@@ -297,10 +297,10 @@ body::after {
 .build-content .gear > * > * > * {
     margin: 5px;
 }
-.build-content .gear .mods .icon {
+.build-content .gear .stats .icon {
     margin-right: 10px;
 }
-.build-content .gear .mods .amount {
+.build-content .gear .stats .amount {
     width: 35px;
     font-size: 2.5em;
     text-align: center;
@@ -712,20 +712,21 @@ body::after {
 }
 
 /* MAIN STAT ICONS */
-.build-content .gear .mods .main-stat .icon::after {
+.build-content .gear .stats .main .icon::after,
+.build-content .gear .stats .mod .icon::after {
     background-image: url(../division/sprites/stats.png);
     width: 64px;
     height: 64px;
     top: 23px;
     left: 28px;
 }
-.build-content .gear .mods .icon.firearms::after {
+.build-content .gear .stats .icon.firearms::after {
     background-position: 0 0;
 }
-.build-content .gear .mods .icon.stamina::after {
+.build-content .gear .stats .icon.stamina::after {
     background-position: -64px 0;
 }
-.build-content .gear .mods .icon.electronics::after {
+.build-content .gear .stats .icon.electronics::after {
     background-position: -128px 0;
 }
 
