@@ -315,12 +315,24 @@ body::after {
     flex-shrink: 0;
 }
 .build-content .gear .icon::after {
-    -webkit-filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
-    filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    bottom: 5px;
+    left: 10px;
 }
 .build-content .gear .items .icon {
     background: linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) top right no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom left no-repeat, linear-gradient(rgba(244, 255, 255, .5), rgba(244, 255, 255, .5) 0) bottom right no-repeat;
     background-size: 3px 3px;
+}
+.build-content .gear .items .icon::after {
+    -webkit-filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
+    filter: drop-shadow(3px 3px 0 rgba(200, 200, 200, .3));
+}
+.build-content .gear .stats .icon::after {
+    -webkit-filter: drop-shadow(3px 3px 0 hsla(0, 0%, 100%, .07));
+    filter: drop-shadow(3px 3px 0 hsla(0, 0%, 100%, .07));
 }
 .build-content .gear .icon.he {
     background-color: rgb(180, 139, 55);
@@ -330,14 +342,6 @@ body::after {
 }
 .build-content .gear .icon.gearset {
     background-color: rgb(15, 211, 129);
-}
-.build-content .gear .icon::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    bottom: 5px;
-    left: 10px;
 }
 .build-content .gear .stats .main-stats + .mods {
     position: relative;
