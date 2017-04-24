@@ -77,6 +77,21 @@ a:hover {
     flex: 1;
 }
 
+/* BACK BUTTON */
+.back-button {
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    top: 5%;
+    left: 35px;
+    opacity: .5;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.back-button:hover {
+    opacity: .7;
+}
+
 /* HEADER */
 .header {
     display: -webkit-box;
