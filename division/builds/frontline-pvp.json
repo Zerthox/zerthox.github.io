@@ -61,8 +61,18 @@
 					"icon": "frontline"
 				}
 			},
-			"mods": {
-				"main-stat": {
+			"stats": {
+				"main": {
+					"4x": {
+						"icon": "firearms",
+						"name": "Firearms Roll"
+					},
+					"1x": {
+						"icon": "electronics",
+						"name": "Electronics Roll"
+					}
+				},
+				"mods": {
 					"4x": {
 						"icon": "firearms",
 						"name": "Firearms Mod",
