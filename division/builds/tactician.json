@@ -62,7 +62,7 @@
 				}
 			},
 			"stats": {
-				"main": {
+				"main-stats": {
 					"4x": {
 						"icon": "electronics",
 						"name": "Electronics Roll"
