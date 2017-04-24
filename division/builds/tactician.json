@@ -61,8 +61,18 @@
 					"icon": "tactician"
 				}
 			},
-			"mods": {
-				"main-stat": {
+			"stats": {
+				"main": {
+					"4x": {
+						"icon": "electronics",
+						"name": "Electronics Roll"
+					},
+					"1x": {
+						"icon": "firearms",
+						"name": "Firearms Roll"
+					}
+				},
+				"mods": {
 					"4x": {
 						"icon": "electronics",
 						"name": "Electronics Mod",
