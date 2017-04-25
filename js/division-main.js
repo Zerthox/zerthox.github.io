@@ -35,9 +35,9 @@ $(document).ready(function() {
           }
      });
      $(".search").on("keyup", function() {
-          var v = "^(?=.*" + $(this).val().toLowerCase().replace(/ /g, ")(?=.*") + ").*$";
+          var v = new RegExp("^(?=.*\\b" + $(this).val().toLowerCase().replace(/ /g, "\\b)(?=.*\\b") + "\\b).*$");
           $(".build-list .list-item").each(function() {
-               if (new RegExp(v).test($(this).find(".title, .author, .tag").text().toLowerCase()))
+               if (v.test($(this).find(".title, .author, .tag").text().toLowerCase()))
                     $(this).css({display: ""});
                else
                     $(this).hide();
