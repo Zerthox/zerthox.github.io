@@ -232,6 +232,8 @@ a:hover {
 .logo.github {
     background-image: url(https://cdn.rawgit.com/gilbarbara/logos/master/logos/github-icon.svg);
     background-size: 100px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 .logo.ubisoft {
     background-image: url(https://ubistatic19-a.akamaihd.net/ubicomstatic/de-DE/global/css/images/ubi-mark.svg);
