@@ -310,11 +310,6 @@ a:hover {
     -ms-align-self: center;
     align-self: center;
 }
-.search-bar::before {
-    content: "Search:";
-    margin-right: 5px;
-    font-size: 1.125em;
-}
 .search-bar .search {
     padding: 3px 7px;
     background: hsla(0, 0%, 100%, .1);
