@@ -35,9 +35,9 @@ $(document).ready(function() {
           }
      });
      $(".search").on("keyup", function() {
-          var v = $(this).val();
+          var v = $(this).val().toLowerCase();
           $(".build-list .list-item").each(function() {
-               if ($(this).find(".tag").text().indexOf(v) > -1)
+               if ($(this).find(".title, .author, .tag").text().toLowerCase().indexOf(v) > -1)
                     $(this).css({display: ""});
                else
                     $(this).hide();
