@@ -156,6 +156,14 @@ a:hover {
     color: hsla(0, 0%, 100%, .7);
 }
 
+/* TEXT */
+.text-container {
+    width: 70%;
+    margin: 40px auto;
+    padding: 20px 40px;
+    background: hsla(0, 0%, 50%, .1);
+}
+
 /* TAB BAR */
 .tab-bar {
     height: 78px;
