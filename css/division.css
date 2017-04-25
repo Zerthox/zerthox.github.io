@@ -280,6 +280,27 @@ a:hover {
     opacity: .7;
 }
 
+/* SEARCH BAR */
+.search-bar {
+    margin-left: auto;
+    margin-right: 5%;
+    -webkit-align-self: center;
+    -ms-align-self: center;
+    align-self: center;
+}
+.search-bar::before {
+    content: "Search:";
+    margin-right: 5px;
+    font-size: 1.125em;
+}
+.search-bar .search {
+    padding: 3px 7px;
+    background: hsla(0, 0%, 100%, .1);
+    color: hsla(0, 0%, 100%, 7);
+    outline: none !important;
+    border: none;
+}
+
 /* BUILD */
 .build-content {
     display: -webkit-box;
