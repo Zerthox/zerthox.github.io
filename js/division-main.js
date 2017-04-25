@@ -35,7 +35,7 @@ $(document).ready(function() {
           }
      });
      $(".search").on("keyup", function() {
-          var v = new RegExp("^(?=.*\\b" + $(this).val().toLowerCase().replace(/ /g, "\\b)(?=.*\\b") + "\\b).*$");
+          var v = new RegExp("^(?=.*" + $(this).val().toLowerCase().replace(/ /g, ")(?=.*") + ").*$");
           $(".build-list .list-item").each(function() {
                if (v.test($(this).find(".title, .author, .tag").text().toLowerCase()))
                     $(this).css({display: ""});
