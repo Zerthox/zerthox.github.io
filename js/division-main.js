@@ -35,7 +35,7 @@ $(document).ready(function() {
           }
      });
      $(".search").on("keyup", function() {
-          var v = $(this).value();
+          var v = $(this).val();
           $(".build-list .list-item").each(function() {
                if ($(this).find(".tag").text().indexOf(v) > -1)
                     $(this).css({display: ""});
