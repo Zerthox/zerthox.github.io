@@ -23,7 +23,6 @@
     font-weight: bold;
 }
 body {
-    background: var(--light-bg);
     height: 100vh;
     width: 100vw;
     display: -webkit-flex;
@@ -140,6 +139,21 @@ a:hover {
     margin-left: .5em;
     font-size: .75em;
     opacity: .3;
+}
+
+/* FOOTER */
+.footer {
+    margin: 0 5px;
+    font-size: 1.125em;
+    text-align: right;
+}
+.footer a {
+    color: hsla(0, 0%, 100%, .5);
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.footer a:hover {
+    color: hsla(0, 0%, 100%, .7);
 }
 
 /* TAB BAR */
