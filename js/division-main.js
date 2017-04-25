@@ -34,4 +34,13 @@ $(document).ready(function() {
                }
           }
      });
+     $(".search").on("keyup", function() {
+          var v = $(this).value();
+          $(".build-list .list-item").each(function() {
+               if ($(this).find(".tag").text().indexOf(v) > -1)
+                    $(this).css({display: ""});
+               else
+                    $(this).hide();
+          });
+     });
 });
