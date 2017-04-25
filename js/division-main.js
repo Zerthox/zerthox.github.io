@@ -18,7 +18,7 @@ $(document).ready(function() {
                                    s += 'Author: <i>Unknown</i>';
                               if (r.hasOwnProperty("date"))
                                    s += '<span class="date">Last updated: ' + r.date + '</span>';
-                              s += '</div>'
+                              s += '</div>';
                               if (r.hasOwnProperty("tags")) {
                                    s += '<div class="tags">'
                                    for (i = 0; i < r.tags.length; i++) {
