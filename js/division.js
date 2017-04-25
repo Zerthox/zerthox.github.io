@@ -9,5 +9,5 @@ $(document).ready(function() {
 	"https://images8.alphacoders.com/527/527385.jpg",
 	"https://images2.alphacoders.com/527/527383.png",
 	"https://images.alphacoders.com/618/618045.jpg"];
-	$("head").append("<style>body::after{background-image:url(" + img[Math.floor(Math.random() * imag.length)] + ");}</style>");
+	$("head").append("<style>body::after{background-image:url(" + img[Math.floor(Math.random() * img.length)] + ");}</style>");
 });
