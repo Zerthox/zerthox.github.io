@@ -272,6 +272,13 @@ a:hover {
     font-size: .75em;
     opacity: .3;
 }
+.build-list .list-item .tag {
+    font-size: .75em;
+    margin: 3px;
+    padding: 3px 5px;
+    background: hsla(0, 0%, 100%, .1);
+    opacity: .7;
+}
 
 /* BUILD */
 .build-content {
