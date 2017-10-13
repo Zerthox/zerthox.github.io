@@ -4,18 +4,8 @@ layout: default
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
-	    <meta charset="UTF-8">
-	    <title>{% if page.title %} {{ page.title }} - {% endif %} {{ site.name }}</title>
-	    <meta name="description" content="{{site.description}}"/>
-	    <meta name="author" content="{{site.author}}"/>
-	    <link rel="icon" type="image/png" href="{{site.icon}}">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="css/normalize.css">
-	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="css/main.css">
-	    <script type="text/javascript" src="js/jquery.min.js"></script>
-	    {% if page.js %} <script type="text/javascript" src="js/{{page.js}}.js"></script> {% endif %}
+	    {% include head.html %}
+	    {% if page.js %} <script type="text/javascript" src="/js/{{page.js}}.js"></script> {% endif %}
 	</head>
   	<body>
 	    <section class="site-header">
