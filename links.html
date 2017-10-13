@@ -1,67 +1,35 @@
 ---
 layout: default
+links:
+    - title: Github
+      name: Zerthox
+      link: 'https://github.com/Zerthox'
+    - title: Discord
+      name: '@Zerthox#1999'
+      link: 'https://discord.me/clearvision'
+    - title: Steam
+      name: Zerthox
+      link: 'https://steamcommunity.com/id/Zerthox'
+    - title: YouTube
+      name: ZerthoxTV
+      link: 'https://www.youtube.com/ZerthoxTV'
+    - title: Twitch
+      name: ZerthoxTV
+      link: 'https://twitch.tv/ZerthoxTV'
+    - title: Twitter
+      name: '@Zerthox'
+      link: 'https://twitter.com/Zerthox'
 ---
 <ul class="list links">
-    <a href="https://github.com/Zerthox" target="_blank">
-        <li class="list-item github">
-            <div class="icon">
-                <svg aria-hidden="true" height="32" version="1.1" viewBox="0 0 16 16" width="32">
-                    <path fill="#FFFFFF" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-            </div>
-            <div class="info"><span class="title">Github:</span><span class="name">Zerthox</span>
-            </div>
-        </li>
-    </a>
-    <a href="https://steamcommunity.com/id/Zerthox" target="_blank">
-        <li class="list-item steam">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="23.274 22.154 55.114 25.231">
-                    <path fill="#FFFFFF" d="M74.941 29.612a4.014 4.014 0 0 1-4.012 4.013c-2.216 0-3.988-1.797-3.988-4.013a4.012 4.012 0 0 1 8.026 0h-.026zm-4.037-7.458a7.442 7.442 0 0 0-7.458 7.409l-4.652 6.671c-.196-.025-.394-.025-.566-.025a5.646 5.646 0 0 0-2.855.788l-21.07-8.468a5.57 5.57 0 0 0-5.44-4.382 5.599 5.599 0 0 0-5.587 5.588 5.6 5.6 0 0 0 5.587 5.588 5.646 5.646 0 0 0 2.855-.788l21.07 8.468a5.57 5.57 0 0 0 5.44 4.382c2.88 0 5.269-2.215 5.538-5.021l7.164-5.243a7.453 7.453 0 0 0 7.458-7.458 7.453 7.453 0 0 0-7.458-7.458l-.026-.051zm0 2.461a5 5 0 0 1 4.997 4.997 5 5 0 0 1-4.997 4.997 5 5 0 0 1-4.996-4.997 5 5 0 0 1 4.996-4.997zm-42.067.985c1.575 0 2.929.886 3.619 2.166l-2.043-.812c-1.649-.591-3.471.221-4.11 1.846-.666 1.625.097 3.471 1.697 4.184l1.723.689a3.616 3.616 0 0 1-.886.099 4.103 4.103 0 0 1-4.111-4.111 4.103 4.103 0 0 1 4.111-4.111v.05zm29.366 12.062a4.101 4.101 0 0 1 4.111 4.11 4.102 4.102 0 0 1-4.111 4.11 4.055 4.055 0 0 1-3.619-2.19c.665.271 1.354.542 2.02.812a3.302 3.302 0 0 0 4.258-1.798 3.256 3.256 0 0 0-1.821-4.233l-1.698-.688c.295-.074.59-.1.886-.1l-.026-.023z" />
-                </svg>
-            </div>
-            <div class="info"><span class="title">Steam:</span><span class="name">Zerthox</span>
+    {% for l in page.links %}
+    <a href="{{l.link}}" target="_blank">
+        <li class="list-item {{l.title | downcase}}">
+            <div class="icon logo {{l.title | downcase}}"></div>
+            <div class="info">
+                <span class="title">{{l.title}}:</span>
+                <span class="text cyan">{{l.name}}</span>
             </div>
         </li>
     </a>
-    <a href="https://www.youtube.com/ZerthoxTV" target="_blank">
-        <li class="list-item youtube">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 215.094 215.094" style="enable-background:new 0 0 215.094 215.094;" xml:space="preserve" width="32px" height="32px">
-                    <path d="M28.302,32.547C12.673,32.547,0,45.22,0,60.849v93.396c0,15.629,12.673,28.302,28.302,28.302h158.491  c15.629,0,28.301-12.673,28.301-28.302V60.849c0-15.629-12.672-28.302-28.301-28.302H28.302z M90.547,145.583V69.511l50,38.036  L90.547,145.583z" fill="#FFFFFF" />
-                </svg>
-            </div>
-            <div class="info"><span class="title">YouTube:</span><span class="name">ZerthoxTV</span>
-            </div>
-        </li>
-    </a>
-    <a href="https://twitch.tv/ZerthoxTV" target="_blank">
-        <li class="list-item twitch">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 196 200" id="twitch" version="1.1" viewBox="0 0 196 200" xml:space="preserve">
-                    <g>
-                        <path d="M32,140h44v24l24-24h46l26-26V20H32V140z M116,52c0-2.2108,1.7911-4,4-4h16c2.2087,0,4,1.7892,4,4v52   c0,2.2108-1.7913,4-4,4h-16c-2.2089,0-4-1.7892-4-4V52z M76,52c0-2.2108,1.7911-4,4-4h16c2.2087,0,4,1.7892,4,4v52   c0,2.2108-1.7913,4-4,4H80c-2.2089,0-4-1.7892-4-4V52z" fill="none" />
-                        <path d="M14,0L0,24v148h48v28h28l31.1111-28H146l50-46V0H14z M172,114l-26,26h-46l-24,24v-24H32V20h140V114z" fill="#FFFFFF" />
-                        <path d="M80,108h16c2.2087,0,4-1.7892,4-4V52c0-2.2108-1.7913-4-4-4H80c-2.2089,0-4,1.7892-4,4v52   C76,106.2108,77.7911,108,80,108z" fill="#FFFFFF" />
-                        <path d="M120,108h16c2.2087,0,4-1.7892,4-4V52c0-2.2108-1.7913-4-4-4h-16c-2.2089,0-4,1.7892-4,4v52   C116,106.2108,117.7911,108,120,108z" fill="#FFFFFF" />
-                    </g>
-                </svg>
-            </div>
-            <div class="info"><span class="title">Twitch:</span><span class="name">ZerthoxTV</span>
-            </div>
-        </li>
-    </a>
-    <a href="https://twitter.com/Zerthox" target="_blank">
-        <li class="list-item twitter">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve" width="32px" height="32px">
-                    <g>
-                        <path fill="#FFFFFF" d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411    c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513    c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101    c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104    c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194    c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485    c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z" />
-                    </g>
-                </svg>
-            </div>
-            <div class="info"><span class="title">Twitter:</span><span class="name">@Zerthox</span>
-            </div>
-        </li>
-    </a>
+    {% endfor %}
 </ul>
