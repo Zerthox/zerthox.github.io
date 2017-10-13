@@ -8,16 +8,8 @@ layout: default
 	    {% if page.js %} <script type="text/javascript" src="/js/{{page.js}}.js"></script> {% endif %}
 	</head>
   	<body>
-	    <section class="site-header">
-	    	<h1 class="header-name">ZerThoX</h1>
-	    </section>
-	    <section class="site-body">
-	    	<ul class="tab-bar">
-	      		<a href="." class="tab-bar-item"><li>Home</li></a>
-	      		<a href="info" class="tab-bar-item"><li>Info</li></a>
-			<a href="division" class="tab-bar-item"><li>Division</li></a>
-	      		<a href="links" class="tab-bar-item"><li>Links</li></a>
-	    	</ul>
+  		{% include header.html %}
+	    <div class="site-body">
 	    	<div class="content">
 	    		{{ content }}
 	    	</div>
