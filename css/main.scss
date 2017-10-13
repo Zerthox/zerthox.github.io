@@ -1,0 +1,352 @@
+---
+---
+
+// IMPORT MIXINS
+@import "css/mixins.scss";
+
+// FUNCTIONS
+@function remove-extension($string) {
+    $r: false;
+    @for $i from 1 to str-length($string) - 1 {
+        @if str-slice($string, $i, $i) == "." {
+            $r: $i;
+        }
+    }
+    @return str-slice($string, 0, $r - 1);
+}
+
+// VARIABLES
+$cyan: #0dd4f2;
+$light-bg: #404040;
+$header-bg: #f1f1f1;
+$dark-bg: #2f2f2f;
+$dark-blue: #2f3537;
+$light-blue: #3b4344;
+
+// FONTS
+@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype");
+@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold);
+@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $style: italic);
+@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold, $style: italic);
+
+// GENERAL
+body {
+    background: $dark-bg;
+    min-height: 100vh;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: hsla(0, 0%, 100%, .7);
+}
+a {
+    color: hsla(0, 0%, 100%, .7);
+    @include transition(all .15s ease-in-out);
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+h1.margin {
+    margin-top: 30px;
+}
+@each $selector in  selection, -moz-selection {
+    ::#{$selector} {
+        color: $dark-bg;
+        background: hsla(0, 0%, 100%, .7);
+    }
+}
+
+// HEADER
+.site-header {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(center);
+    background: $header-bg;
+    color: $light-bg;
+}
+
+// NAV BAR
+.nav-bar {
+    width: 75%;
+    padding: 0 40px;
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(center);
+    & > * {
+        @include display-flex;
+        @include flex-direction(row);
+    }
+    .title-container {
+        position: relative;
+        width: 320px;
+        margin: 0 10px;
+        @include flex-shrink(0);
+        font-family: "Orion Pax";
+        font-size: 50px;
+        text-shadow: rgba(0, 0, 0, 0.5) 1px 4px 10px;
+        z-index: 1;
+        .title {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: -25px;
+            left: 0;
+            @include display-flex;
+            a {
+                color: $cyan;
+                margin: auto;
+                text-align: center;
+            }
+        }
+        &::after {
+            $width: 300px;
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 250px;
+            border-top: 25px solid $header-bg;
+            border-right: 35px solid transparent;
+            border-left: 35px solid transparent;
+            z-index: -1;
+            @include transform(translateX(-50%));
+        }
+    }
+    & > .left,
+    & > .right {
+        @include flex-grow(1);
+        @include flex-basis(1px);
+    }
+    & > .left {
+        @include justify-content(end);
+    }
+    & > .right {
+        @include justify-content(start);
+    }
+    .nav-bar-item {
+        position: relative;
+        padding: 20px;
+        height: 100%;
+        color: $light-bg;
+        font-size: 20px;
+        font-weight: bold;
+        @include transition(all .15s ease-in-out);
+        z-index: 2;
+        &:hover {
+            color: $dark-bg;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 0;
+            bottom: 0;
+            left: 50%;
+            background: $light-bg;
+            @include transition(inherit);
+        }
+        &:hover::after {
+            left: 0;
+            width: 100%;
+            background: $dark-bg;
+        }
+    }
+}
+
+// CONTENT
+.site-body {
+    width: 75%;
+    min-width: 500px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 40px;
+    @include display-flex;
+    @include flex-direction(column);
+    @include flex-grow(1);
+    background: $light-bg;
+    .content {
+        @include display-flex;
+        @include flex-direction(column);
+        @include flex-grow(1);
+        margin: 10% 0;
+        .text {
+            &.small {
+                font-size: 10px;
+            }
+            &.medium {
+                font-size: 20px;
+            }
+            &.large {
+                font-size: 30px;
+            }
+        }
+        .title {
+            font-weight: 600;
+            &.large {
+                font-size: 50px;
+            }
+            &.medium {
+                font-size: 32px;
+            }
+        }
+        .text,
+        .title {
+            &.center {
+               text-align: center;
+            }
+            &.cyan {
+                color: $cyan;
+            }
+            &.shadow {
+                text-shadow: rgba(0, 0, 0, 0.5) 1px 4px 10px;
+            }
+        }
+        .container {
+            &.center {
+                margin: auto;
+            }
+        }
+    }
+}
+
+// LIST
+.list {
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+    &.links {
+        width: 50%;
+        margin: auto;
+    }
+    a {
+        text-decoration: none;
+    }
+    .list-item {
+        position: relative;
+        padding: 20px;
+        margin: 5px;
+        @include display-flex;
+        @include flex-direction(row);
+        @include align-items(center);
+        color: hsla(0, 0%, 100%, .7);
+        border-radius: 3px;
+        @include transition(all .3s ease-in-out);
+        &:hover {
+            background: rgba(0, 0, 0, .1);
+        }
+        .icon {
+            height: 52px;
+            width: 52px;
+            padding: 10px;
+            margin-right: 10px;
+            background-color: rgba(0, 0, 0, .1);
+            opacity: .7;
+        }
+        .info {
+            @include display-flex;
+            @include flex-direction(column);
+            .large {
+                font-size: 20px;  
+            }
+            .name {
+                color: $cyan;
+            }
+        }
+        .ghost-text {
+            position: absolute;
+            right: 10px;
+            height: 100%;
+            color: hsla(0, 0%, 100%, .1);
+            font-size: 50px;
+            font-weight: 600;
+        }
+    }
+}
+
+// FOOTER
+.site-footer {
+    @include display-flex;
+    padding: 5px 20px;
+    background: #373737;
+    color: hsla(0, 0%, 100%, .7);
+    font-size: 13px;
+    @include user-select(none);
+    & > .left {
+        margin-right: auto;
+    }
+    & > .right {
+        margin-left: auto;
+    }
+    & > * > * {
+        margin: 0 5px;
+    }
+    a {
+        color: hsla(0, 0%, 100%, .7);
+        @include transition(all .15s ease-in-out);
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+// MEDIA QUERIES
+@media (max-width: 1100px) {
+    .nav-bar {
+        & > * {
+            @include flex-basis(auto !important);
+        }
+        .title-container {
+            position: absolute;
+            left: 0;
+            height: 70px;
+            .title  {
+                width: 70px;
+                padding: 0 15px;
+                bottom: 0;
+                a {
+                    line-height: 70px;
+                    visibility: hidden;
+                    &::first-letter {
+                        visibility: visible;
+                    }
+                }
+            }
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    .nav-bar .title-container  {
+        display: none;
+    }
+}
+
+// ICONS
+{% assign a = '|' | split: '|' %}
+{% assign path = '/assets/icons/' %}
+{% assign pathlength = path | size %}
+{% for f in site.static_files %}
+    {% assign p = f.path | slice: 0, pathlength %}
+    {% if p == path %}
+        {% assign a = a | push: f.name %}
+    {% endif %}
+{% endfor %}
+$icons: "{{a | join: '", "'}}";
+.icon {
+    &.logo {
+        background-size: auto 32px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    @each $icon in $icons {
+        &.#{remove-extension($icon)} {
+            background-image: url(quote(/assets/icons/#{$icon}));
+        }
+    }
+}
