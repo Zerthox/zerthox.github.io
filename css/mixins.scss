@@ -24,6 +24,11 @@
     -ms-flex-shrink: $a;
     flex-shrink: $a;
 }
+@mixin flex-basis($a) {
+    -webkit-flex-basis: $a;
+    -ms-flex-basis: $a;
+    flex-basis: $a;
+}
 @mixin flex-wrap($a) {
     -webkit-flex-wrap: $a;
     -ms-flex-wrap: $a;
@@ -31,8 +36,13 @@
 }
 @mixin justify-content($a) {
     -webkit-justify-content: $a;
-    -ms-justify-content: $a;
-    justify-content: $a;
+    -ms-flex-pack: $a;
+    @if $a == start or $a == end {
+        justify-content: flex- + $a;
+    }
+    @else {
+        justify-content: $a;
+    }
 }
 @mixin align-items($a) {
     -webkit-box-align: $a;
