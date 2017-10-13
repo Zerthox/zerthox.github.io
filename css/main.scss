@@ -24,10 +24,10 @@ $dark-blue: #2f3537;
 $light-blue: #3b4344;
 
 // FONTS
-@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype");
-@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold);
-@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $style: italic);
-@include font("Orion Pax", "/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold, $style: italic);
+@include font("Orion Pax", "/assets/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype");
+@include font("Orion Pax", "/assets/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold);
+@include font("Orion Pax", "/assets/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $style: italic);
+@include font("Orion Pax", "/assets/fonts/Orion%20Pax/Orion%20Pax.otf", "opentype", $weight: bold, $style: italic);
 
 // GENERAL
 body {
