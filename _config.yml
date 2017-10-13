@@ -1,3 +1,12 @@
-title: Zerthox
+name: Zerthox
 description: German Dev, Gamer and Editor
+author: Zerthox
 icon: https://avatars1.githubusercontent.com/u/19844016
+
+exclude:
+    - README.md
+    - Gemfile
+
+sass:
+    sass_dir: /
+    style: expanded
