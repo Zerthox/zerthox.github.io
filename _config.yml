@@ -9,4 +9,4 @@ exclude:
 
 sass:
     sass_dir: /
-    style: expanded
+    style: compressed
