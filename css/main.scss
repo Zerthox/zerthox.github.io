@@ -24,7 +24,7 @@ body {
 }
 a {
     color: hsla(0, 0%, 100%, .7);
-    @include transition(all .15s ease-in-out);
+    transition: all .15s ease-in-out;
     &:hover {
         color: #fff;
         text-decoration: none;
@@ -98,7 +98,7 @@ h1.margin {
     }
     a {
         color: hsla(0, 0%, 100%, .7);
-        @include transition(all .15s ease-in-out);
+        transition: all .15s ease-in-out;
         &:hover {
             color: #fff;
             text-decoration: none;
