@@ -1,0 +1,26 @@
+@use "colors";
+
+.footer {
+    padding: 5px 20px;
+    display: flex;
+    background-color: colors.$gray-dark;
+    font-size: 13px;
+    user-select: none;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.link {
+    color: hsla(0, 0%, 100%, .7);
+    transition: all .15s ease-in-out;
+    text-decoration: none;
+    &:hover {
+        color: #fff;
+    }
+}

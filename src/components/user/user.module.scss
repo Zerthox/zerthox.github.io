@@ -1,0 +1,24 @@
+.container {
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: hsla(0, 0%, 100%, .7);
+    &:hover {
+        .name {
+            color: #fff;
+        }
+        .avatar {
+            opacity: 1;
+        }
+    }
+}
+
+.name {
+    margin-left: 5px;
+}
+
+.avatar {
+    opacity: .7;
+}

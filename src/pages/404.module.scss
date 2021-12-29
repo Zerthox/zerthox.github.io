@@ -1,0 +1,27 @@
+.container {
+    margin-top: 10vh;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title {
+    font-size: 75px;
+    color: #fff;
+    text-shadow: 0 0 20px hsla(0, 0%, 100%, .3);
+}
+.subtitle {
+    font-size: 30px;
+    color: hsla(0, 0%, 100%, .7);
+    text-shadow: 0 0 20px hsla(0, 0%, 100%, .3);
+}
+.link {
+    margin-top: 5px;
+    font-size: 18px;
+    color: hsla(0, 0%, 100%, .7);
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+        color: #fff;
+    }
+}

@@ -1,0 +1,29 @@
+@use "colors";
+
+.banner {
+    padding: 10px;
+    margin: 20px -20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &.info {
+        background-color: colors.$blue-dark;
+        .icon {
+            background-color: colors.$blue-light;
+        }
+    }
+    &.warn {
+        background-color: colors.$orange-dark;
+        .icon {
+            background-color: colors.$orange-light;
+        }
+    }
+}
+.icon {
+    margin: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+.content {
+    margin: 0 10px;
+}
