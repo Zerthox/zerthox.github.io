@@ -1,18 +1,17 @@
 import React from "react";
 import {PageProps} from "gatsby";
-import {MDXProvider} from "@mdx-js/react";
+import {MDXProvider, MDXProviderComponents} from "@mdx-js/react";
 import {Layout} from "../components/layout";
-import {Anchor, Paragraph, Heading} from "../components/markdown";
+import {Anchor, Paragraph, Heading, Codeblock, InlineCode} from "../components/markdown";
 import {List} from "../components/list";
 import {Banner} from "../components/banner";
 import {useSiteMeta, usePosts, Frontmatter} from "../hooks";
-import "prismjs/themes/prism-tomorrow.css";
 
 interface PageContext {
     frontmatter: Frontmatter;
 }
 
-const components = {
+const components: MDXProviderComponents = {
     a: Anchor,
     p: Paragraph,
     h1: (props) => <Heading type={1} {...props}/>,
@@ -21,7 +20,14 @@ const components = {
     h4: (props) => <Heading type={4} {...props}/>,
     h5: (props) => <Heading type={5} {...props}/>,
     h6: (props) => <Heading type={6} {...props}/>,
+    pre: (props) => <div {...props}/>,
+    code: (props) => <Codeblock language={props.className?.replace(/^language-/, "")} {...props}/>,
+    inlineCode: InlineCode,
+    Anchor,
+    Paragraph,
     Heading,
+    Codeblock,
+    InlineCode,
     List,
     Banner
 };

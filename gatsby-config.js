@@ -1,3 +1,4 @@
+/** @type {import("gatsby").GatsbyConfig} */
 module.exports = {
     siteMetadata: {
         title: "Zerthox",
@@ -25,6 +26,8 @@ module.exports = {
                 path: "./src/data"
             }
         },
+        "gatsby-plugin-sharp",
+        "gatsby-remark-images",
         {
             resolve: "gatsby-plugin-mdx",
             options: {
@@ -32,7 +35,13 @@ module.exports = {
                     pages: require.resolve("./src/templates/markdown.tsx")
                 },
                 gatsbyRemarkPlugins: [
-                    "gatsby-remark-prismjs"
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            maxWidth: 500,
+                            wrapperStyle: "margin-left: unset; margin-right: unset;"
+                        }
+                    }
                 ]
             }
         },
