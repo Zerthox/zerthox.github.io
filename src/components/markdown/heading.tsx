@@ -11,11 +11,16 @@ export interface HeadingProps {
     children: string;
 }
 
+// TODO: highlight selected heading
 export const Heading = ({type, noLink, children}: HeadingProps) => {
     const id = kebabCase(children);
     const Element = `h${type}` as keyof JSX.IntrinsicElements;
     const ref = useRef();
-    useEffect(() => window.location.hash === `#${id}` && scrollTo(ref), [id, ref]);
+    useEffect(() => {
+        if (window.location.hash === `#${id}`) {
+            scrollTo(ref);
+        }
+    }, [id, ref]);
 
     return noLink ? (
         <Element className={styles.heading}>{children}</Element>

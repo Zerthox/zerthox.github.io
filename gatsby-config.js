@@ -9,14 +9,13 @@ module.exports = {
     plugins: [
         "gatsby-plugin-sitemap",
         "gatsby-plugin-offline",
-        "gatsby-plugin-remove-trailing-slashes",
         "gatsby-plugin-react-helmet",
         "gatsby-transformer-json",
         {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "pages",
-                path: "./src/pages/"
+                name: "blog",
+                path: "./src/pages/blog"
             }
         },
         {
@@ -32,7 +31,8 @@ module.exports = {
             resolve: "gatsby-plugin-mdx",
             options: {
                 defaultLayouts: {
-                    pages: require.resolve("./src/templates/markdown.tsx")
+                    blog: require.resolve("./src/templates/blog.tsx"),
+                    default: require.resolve("./src/templates/page.tsx")
                 },
                 gatsbyRemarkPlugins: [
                     {

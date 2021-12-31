@@ -13,7 +13,7 @@ const Blog = () => {
                 <List
                     entries={posts.map(({slug, frontmatter, excerpt}) => ({
                         name: frontmatter.title,
-                        to: `/${slug}`,
+                        to: `./${slug}`,
                         date: frontmatter.date,
                         author: frontmatter.author ?? siteMeta.author,
                         description: excerpt
