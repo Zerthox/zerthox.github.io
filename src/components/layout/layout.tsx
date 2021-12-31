@@ -7,9 +7,11 @@ import {useSiteMeta} from "../../hooks";
 import "normalize.css";
 import * as styles from "./layout.module.scss";
 
+// TODO: move to site config?
 const navBar = {
     Home: "/",
-    Blog: "/blog"
+    Blog: "/blog",
+    About: "/about"
 };
 
 const footerLinks = {
