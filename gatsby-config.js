@@ -14,8 +14,8 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "blog",
-                path: "./src/pages/blog"
+                name: "pages",
+                path: "./src/pages"
             }
         },
         {
@@ -31,8 +31,7 @@ module.exports = {
             resolve: "gatsby-plugin-mdx",
             options: {
                 defaultLayouts: {
-                    blog: require.resolve("./src/templates/blog.tsx"),
-                    default: require.resolve("./src/templates/page.tsx")
+                    default: require.resolve("./src/templates/markdown.tsx")
                 },
                 gatsbyRemarkPlugins: [
                     {

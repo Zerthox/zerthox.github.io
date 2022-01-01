@@ -13,7 +13,7 @@ interface SiteData {
 }
 
 const useSiteData = () => useStaticQuery<SiteData>(graphql`
-    query {
+    query SiteMeta{
         site {
             siteMetadata {
                 title

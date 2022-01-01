@@ -15,7 +15,7 @@ interface UserData {
 }
 
 const useUserData = () => useStaticQuery<UserData>(graphql`
-    query {
+    query UserData {
         allUsersJson {
             nodes {
                 name

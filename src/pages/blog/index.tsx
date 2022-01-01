@@ -1,11 +1,11 @@
 import React from "react";
 import {Layout} from "../../components/layout";
 import {List} from "../../components/list";
-import {usePosts, useSiteMeta} from "../../hooks";
+import {useBlogPosts} from "../../hooks";
 
 const Blog = () => {
-    const siteMeta = useSiteMeta();
-    const posts = usePosts();
+    const posts = useBlogPosts();
+    console.log(posts);
 
     return (
         <Layout title="Blog">
@@ -13,9 +13,9 @@ const Blog = () => {
                 <List
                     entries={posts.map(({slug, frontmatter, excerpt}) => ({
                         name: frontmatter.title,
-                        to: `./${slug}`,
+                        to: `/${slug}`,
                         date: frontmatter.date,
-                        author: frontmatter.author ?? siteMeta.author,
+                        author: frontmatter.author,
                         description: excerpt
                     }))}
                 />

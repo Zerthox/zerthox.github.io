@@ -3,8 +3,8 @@ import {useStaticQuery, graphql} from "gatsby";
 export interface Frontmatter {
     title: string;
     author?: string;
-    date: string;
-    tags: string[];
+    date?: string;
+    tags?: string[];
 }
 
 export interface Post {
@@ -26,13 +26,14 @@ interface PostData {
 }
 
 const usePostData = () => useStaticQuery<PostData>(graphql`
-    query {
+    query Posts {
         allMdx(sort: {fields: frontmatter___date, order: DESC}) {
             nodes {
                 slug
                 frontmatter {
                     title
                     date(formatString: "DD MMMM YYYY")
+                    author
                     tags
                 }
                 excerpt
@@ -47,4 +48,10 @@ const usePostData = () => useStaticQuery<PostData>(graphql`
     }
 `);
 
+export const trimSlashes = (path: string) => path.replace(/(^\/|\/$)/g, "");
+
 export const usePosts = () => usePostData().allMdx.nodes;
+
+export const usePost = (path: string) => usePosts().find(({slug}) => trimSlashes(slug) === trimSlashes(path));
+
+export const useBlogPosts = () => usePosts().filter(({slug}) => slug.startsWith("blog"));
