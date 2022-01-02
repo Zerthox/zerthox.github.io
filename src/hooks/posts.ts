@@ -48,10 +48,10 @@ const usePostData = () => useStaticQuery<PostData>(graphql`
     }
 `);
 
-export const trimSlashes = (path: string) => path.replace(/(^\/|\/$)/g, "");
+export const trimSlashes = (uri: string) => uri.replace(/(^\/|\/$)/g, "");
 
 export const usePosts = () => usePostData().allMdx.nodes;
 
-export const usePost = (path: string) => usePosts().find(({slug}) => trimSlashes(slug) === trimSlashes(path));
+export const usePost = (uri: string) => usePosts().find(({slug}) => trimSlashes(slug) === trimSlashes(uri));
 
 export const useBlogPosts = () => usePosts().filter(({slug}) => slug.startsWith("blog"));

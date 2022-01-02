@@ -14,6 +14,7 @@ export interface SiteMeta {
     title: string;
     description: string;
     author: string;
+    siteUrl: string;
     header: LinkEntry[];
     footer: {
         left: TextEntry[];
@@ -34,6 +35,7 @@ const useSiteData = () => useStaticQuery<SiteData>(graphql`
                 title
                 description
                 author
+                siteUrl
                 header {
                     text
                     link
