@@ -1,0 +1,33 @@
+type Frontmatter {
+    title: String!
+    author: String
+    date: Date @dateformat
+    tags: [String!]
+}
+
+extend type Mdx {
+    frontmatter: Frontmatter
+}
+
+type TextEntry {
+    text: String!
+    link: String
+}
+
+type LinkEntry {
+    text: String!
+    link: String!
+}
+
+type SiteSiteMetadataFooter {
+    left: [TextEntry!]!
+    right: [TextEntry!]!
+}
+
+type SiteSiteMetadata {
+    title: String!
+    description: String!
+    author: String!
+    header: [LinkEntry!]!
+    footer: SiteSiteMetadataFooter!
+}
