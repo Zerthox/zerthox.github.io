@@ -37,7 +37,6 @@ module.exports = {
             ]
         }
     },
-    pathPrefix: "/blog",
     plugins: [
         "gatsby-plugin-sitemap",
         "gatsby-plugin-offline",
