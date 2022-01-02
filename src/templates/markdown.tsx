@@ -8,8 +8,8 @@ interface PageContext {
     frontmatter: Frontmatter;
 }
 
-const MarkdownPage = ({path, children}: PageProps<never, PageContext>) => {
-    const {frontmatter, excerpt, timeToRead} = usePost(path);
+const MarkdownPage = ({uri, children}: PageProps<never, PageContext>) => {
+    const {frontmatter, excerpt, timeToRead} = usePost(uri);
 
     return (
         <Layout

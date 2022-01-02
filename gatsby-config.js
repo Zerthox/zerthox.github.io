@@ -4,6 +4,7 @@ module.exports = {
         title: "Zerthox",
         description: "Just a small page.",
         author: "Zerthox",
+        siteUrl: "https://zerthox.github.io",
         header: [
             {
                 text: "Home",
