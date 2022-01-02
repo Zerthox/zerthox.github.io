@@ -1,2 +1,2 @@
 # zerthox.github.io
-Just a small page.
+Just a little page.

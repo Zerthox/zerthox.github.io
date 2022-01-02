@@ -2,7 +2,7 @@
 module.exports = {
     siteMetadata: {
         title: "Zerthox",
-        description: "Just a small page.",
+        description: "Just a little page.",
         author: "Zerthox",
         siteUrl: "https://zerthox.github.io",
         header: [
