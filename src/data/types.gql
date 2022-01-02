@@ -1,12 +1,8 @@
-type Frontmatter {
+extend type MdxFrontmatter {
     title: String!
     author: String
     date: Date @dateformat
     tags: [String!]
-}
-
-extend type Mdx {
-    frontmatter: Frontmatter
 }
 
 type TextEntry {
