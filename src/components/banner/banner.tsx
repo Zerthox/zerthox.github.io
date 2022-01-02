@@ -9,10 +9,11 @@ export const enum BannerType {
 
 export interface BannerProps {
     type: BannerType;
+    bold?: boolean;
     children?: React.ReactNode;
 }
 
-export const Banner = ({type, children}: BannerProps) => (
+export const Banner = ({type, bold = false, children}: BannerProps) => (
     <div className={classNames(styles.banner, {
         [styles.info]: type === BannerType.Info,
         [styles.warn]: type === BannerType.Warn
@@ -22,6 +23,8 @@ export const Banner = ({type, children}: BannerProps) => (
         ) : type === BannerType.Warn ? (
             <div className={styles.icon}>!</div>
         ) : null}
-        <div className={styles.content}>{children}</div>
+        <div className={classNames(styles.content, {
+            [styles.bold]: bold
+        })}>{children}</div>
     </div>
 );
