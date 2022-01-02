@@ -7,31 +7,6 @@ import {useSiteMeta} from "../../hooks";
 import "normalize.css";
 import * as styles from "./layout.module.scss";
 
-// TODO: move to site config?
-const navBar = {
-    Home: "/",
-    Blog: "/blog",
-    About: "/about"
-};
-
-const footerLinks = {
-    left: [
-        {
-            text: "Copyright 2021 Zerthox"
-        }
-    ],
-    right: [
-        {
-            text: "GitHub",
-            link: "https://github.com/zerthox"
-        },
-        {
-            text: "Source",
-            link: "https://github.com/zerthox/zerthox.github.io"
-        }
-    ]
-};
-
 export interface LayoutProps {
     children?: React.ReactNode;
     title: string;
@@ -56,7 +31,7 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, des
                 author={author ?? siteMeta.author}
             />
             <div className={styles.main}>
-                <Header links={navBar}></Header>
+                <Header links={siteMeta.header}></Header>
                 <div className={styles.body}>
                     {!noTitle ? (
                         <div className={styles.title}>
@@ -84,7 +59,7 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, des
                         </div>
                     )}
                 </div>
-                <Footer {...footerLinks}/>
+                <Footer {...siteMeta.footer}/>
             </div>
         </>
     );

@@ -1,11 +1,11 @@
 import React from "react";
 import {Link} from "gatsby";
 import {Avatar} from "../user";
-import {useUser, useSiteMeta} from "../../hooks";
+import {useUser, useSiteMeta, LinkEntry} from "../../hooks";
 import * as styles from "./header.module.scss";
 
 export interface HeaderProps {
-    links: Record<string, string>;
+    links: LinkEntry[];
 }
 
 export const Header = ({links}: HeaderProps) => {
@@ -19,8 +19,8 @@ export const Header = ({links}: HeaderProps) => {
                 <span className={styles.name}>Zerthox</span>
             </Link>
             <div className={styles.bar}>
-                {Object.entries(links).map(([name, url], i) => (
-                    <Link key={i} to={url} className={styles.item} activeClassName={styles.active} partiallyActive={url !== "/"}>{name}</Link>
+                {links.map(({text, link}, i) => (
+                    <Link key={i} to={link} className={styles.item} activeClassName={styles.active} partiallyActive={link !== "/"}>{text}</Link>
                 ))}
             </div>
         </div>

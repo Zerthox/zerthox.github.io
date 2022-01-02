@@ -3,7 +3,38 @@ module.exports = {
     siteMetadata: {
         title: "Zerthox",
         description: "Just a small page.",
-        author: "Zerthox"
+        author: "Zerthox",
+        header: [
+            {
+                text: "Home",
+                link: "/"
+            },
+            {
+                text: "Blog",
+                link: "/blog"
+            },
+            {
+                text: "About",
+                link: "/about"
+            }
+        ],
+        footer: {
+            left: [
+                {
+                    text: "Copyright 2021 Zerthox"
+                }
+            ],
+            right: [
+                {
+                    text: "GitHub",
+                    link: "https://github.com/zerthox"
+                },
+                {
+                    text: "Source",
+                    link: "https://github.com/zerthox/zerthox.github.io"
+                }
+            ]
+        }
     },
     pathPrefix: "/blog",
     plugins: [
