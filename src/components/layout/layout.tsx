@@ -39,12 +39,13 @@ export interface LayoutProps {
     pageTitle?: string;
     author?: string;
     date?: string;
+    readTime?: number;
     description?: string;
     noTitle?: boolean;
     noContent?: boolean;
 }
 
-export const Layout = ({title, fullTitle, pageTitle, author, date, description, noTitle, noContent, children}: LayoutProps) => {
+export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, description, noTitle, noContent, children}: LayoutProps) => {
     const siteMeta = useSiteMeta();
 
     return (
@@ -60,14 +61,19 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, description, 
                     {!noTitle ? (
                         <div className={styles.title}>
                             <div className={styles.heading}>{pageTitle ?? title}</div>
-                            {author || date ? (
+                            {author || date || readTime ? (
                                 <div className={styles.info}>
                                     {author ? (
                                         <div className={styles.author}>
                                             by <User name={author}/>
                                         </div>
                                     ): null}
-                                    {date ? <div className={styles.date}>{date}</div> : null}
+                                    {date ? (
+                                        <div className={styles.date}>
+                                            {date}
+                                            {readTime ? ` | ${readTime}min read` : null}
+                                        </div>
+                                    ) : null}
                                 </div>
                             ) : null}
                         </div>

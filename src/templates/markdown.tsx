@@ -9,13 +9,14 @@ interface PageContext {
 }
 
 const MarkdownPage = ({path, children}: PageProps<never, PageContext>) => {
-    const {frontmatter, excerpt} = usePost(path);
+    const {frontmatter, excerpt, timeToRead} = usePost(path);
 
     return (
         <Layout
             title={frontmatter.title}
             author={frontmatter.author}
             date={frontmatter.date}
+            readTime={timeToRead}
             description={excerpt}
         >
             <Markdown>{children}</Markdown>
