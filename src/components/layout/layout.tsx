@@ -54,9 +54,7 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, des
                         </div>
                     ) : null}
                     {noContent ? children : (
-                        <div className={styles.container}>
-                            <div className={styles.content}>{children}</div>
-                        </div>
+                        <div className={styles.content}>{children}</div>
                     )}
                 </div>
                 <Footer {...siteMeta.footer}/>
