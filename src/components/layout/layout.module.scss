@@ -16,7 +16,7 @@ body {
     font-family: sans-serif;
     line-height: 1.5;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .body {
@@ -59,13 +59,15 @@ body {
 }
 
 .container {
+    min-width: 700px;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .content {
     max-width: 1000px;
-    flex: 1 1 700px;
+    min-width: 700px;
+    flex: 1 1 auto;
     padding: 30px 60px 40px;
     background-color: colors.$gray-dark;
     border-radius: 3px;
