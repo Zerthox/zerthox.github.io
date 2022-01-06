@@ -40,6 +40,13 @@ module.exports = {
     plugins: [
         "gatsby-plugin-sitemap",
         "gatsby-plugin-offline",
+        {
+            resolve: "gatsby-plugin-manifest",
+            options: {
+                name: "Zerthox",
+                icon: `${__dirname}/src/assets/icon.png`
+            }
+        },
         "gatsby-plugin-react-helmet",
         "gatsby-transformer-json",
         {
