@@ -1,13 +1,18 @@
 .anchor {
-    padding: 1px 2px;
-    background-color: hsla(0, 0%, 100%, .07);
-    border-bottom: 1px solid transparent;
     color: hsla(0, 0%, 100%, .7);
     text-decoration: none;
     transition: all .15s ease-in-out;
+    cursor: pointer;
     &:hover {
-        background-color: hsla(0, 0%, 100%, .2);
-        border-color: #fff;
         color: #fff;
+    }
+    &.text {
+        padding: 1px 2px;
+        background-color: hsla(0, 0%, 100%, .07);
+        border-bottom: 1px solid transparent;
+        &:hover {
+            background-color: hsla(0, 0%, 100%, .2);
+            border-color: #fff;
+        }
     }
 }

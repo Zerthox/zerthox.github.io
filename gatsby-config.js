@@ -76,7 +76,10 @@ module.exports = {
                         resolve: "gatsby-remark-images",
                         options: {
                             maxWidth: 700,
-                            wrapperStyle: "margin-left: unset; margin-right: unset;"
+                            wrapperStyle: `
+                                margin-left: unset;
+                                margin-right: unset;
+                            `
                         }
                     }
                 ]
@@ -116,3 +119,19 @@ module.exports = {
         }
     ]
 };
+
+/**
+ * @typedef {Object} FluidResult
+ * @property {string} base64
+ * @property {number} aspectRatio
+ * @property {string} src
+ * @property {string} srcSet
+ * @property {string} srcSetType
+ * @property {string} sizes
+ * @property {string} originalImg
+ * @property {string} originalName
+ * @property {number} density
+ * @property {number} presentationWidth
+ * @property {number} presentationHeight
+ * @property {*} tracedSVG
+ */
