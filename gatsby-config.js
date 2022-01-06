@@ -77,6 +77,8 @@ module.exports = {
                         options: {
                             maxWidth: 700,
                             wrapperStyle: `
+                                margin-top: 10px;
+                                margin-bottom: 10px;
                                 margin-left: unset;
                                 margin-right: unset;
                             `
