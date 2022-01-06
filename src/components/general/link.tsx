@@ -8,11 +8,7 @@ export interface LinkProps {
 }
 
 export const Link = ({className, to, children}: LinkProps) => {
-    if (!to || to.match(/\.(png|jpg|jpeg)$/)) {
-        return (
-            <a className={className} href={to} target="_blank" rel="noopener noreferrer">{children}</a>
-        );
-    } else if (to.match(/^\//)) {
+    if (to && to.match(/^\//) && !to.match(/\.(png|jpg|jpeg)$/)) {
         return (
             <GatsbyLink className={className} to={to}>{children}</GatsbyLink>
         );

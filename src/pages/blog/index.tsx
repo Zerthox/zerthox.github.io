@@ -5,7 +5,6 @@ import {useBlogPosts} from "../../hooks";
 
 const Blog = () => {
     const posts = useBlogPosts();
-    console.log(posts);
 
     return (
         <Layout title="Blog">
