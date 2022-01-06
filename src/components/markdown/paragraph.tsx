@@ -1,5 +1,4 @@
 import React from "react";
-
 import * as styles from "./paragraph.module.scss";
 
 export interface ParagraphProps {
