@@ -82,7 +82,7 @@ export const theme: PrismTheme = {
         {
             types: ["function"],
             style: {
-                color: colors["function"]
+                color: colors.function
             }
         },
         {

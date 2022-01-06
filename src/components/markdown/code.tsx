@@ -14,7 +14,7 @@ const processToken = (language: Language, token: Token) => {
     const {types, content} = token;
 
     // js/ts
-    if (language === "javascript" || language === "jsx" || language === "typescript" || language === "tsx") {
+    if (["javascript", "js", "jsx", "typescript", "ts", "tsx"].includes(language)) {
         if (types.includes("operator") && content === "=>") {
             // change arrow function to keyword
             types.splice(types.indexOf("operator"), 1, "keyword");
