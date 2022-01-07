@@ -40,7 +40,7 @@ export const theme: PrismTheme = {
         {
             types: ["attr-value"],
             style: {
-                color: colors.boolean
+                color: colors.string
             }
         },
         {
