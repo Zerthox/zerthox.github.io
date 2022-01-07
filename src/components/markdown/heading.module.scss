@@ -19,5 +19,6 @@
     text-decoration: none;
     transition: all .15s ease-in-out;
     opacity: 0;
+    user-select: none;
     cursor: pointer;
 }
