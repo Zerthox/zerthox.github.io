@@ -5,21 +5,22 @@
 
 .item {
     position: relative;
-    display: flex;
-}
-.link {
     padding: 20px 60px;
+    display: flex;
+    border-radius: 3px;
+    &:hover {
+        background: hsl(220, 5%, 20%);
+    }
+}
+
+.link {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border-radius: 3px;
     color: hsla(0, 0%, 100%, .7);
     text-decoration: none;
     transition: all .15s ease-in-out;
     cursor: pointer;
-    &:hover {
-        background: hsl(220, 5%, 20%);
-    }
 }
 
 .title {
@@ -39,15 +40,12 @@
     font-size: 14px;
     max-width: 600px;
 }
+
 .author {
-    position: absolute;
-    right: 20px;
-    top: 50%;
     margin-left: 1ch;
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-grow: 1;
-    transform: translateY(-50%);
     cursor: default;
 }
