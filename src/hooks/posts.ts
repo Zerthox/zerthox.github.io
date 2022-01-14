@@ -54,4 +54,4 @@ export const usePosts = () => usePostData().allMdx.nodes;
 
 export const usePost = (path: string) => usePosts().find(({slug}) => trimSlashes(slug) === trimSlashes(path));
 
-export const useBlogPosts = () => usePosts().filter(({slug}) => slug.startsWith("blog"));
+export const usePostsIn = (prefix: string) => usePosts().filter(({slug}) => slug.startsWith(prefix));

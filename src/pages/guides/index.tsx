@@ -1,13 +1,13 @@
 import React from "react";
 import {Layout} from "../../components/layout";
 import {List} from "../../components/list";
-import {useBlogPosts} from "../../hooks";
+import {usePostsIn} from "../../hooks";
 
 const Blog = () => {
-    const posts = useBlogPosts();
+    const posts = usePostsIn("guides");
 
     return (
-        <Layout title="Blog">
+        <Layout title="Guides">
             {posts.length > 0 ? (
                 <List
                     entries={posts.map(({slug, frontmatter, excerpt}) => ({

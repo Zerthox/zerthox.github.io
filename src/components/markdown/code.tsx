@@ -21,7 +21,7 @@ const processToken = (language: Language, token: Token) => {
         } else if (types.includes("keyword") && content.match(/\b(this|super)\b/)) {
             // color this & super keywords
             types.push("this");
-        } else if (types.includes("plain") && content.match(/\b(module|global|window|document)\b/)) {
+        } else if (types.includes("plain") && content.match(/\b(module|global|window|document|console)\b/)) {
             // color globals
             types.push("global");
         } else if (types.includes("spread") && types.includes("attr-value")) {
