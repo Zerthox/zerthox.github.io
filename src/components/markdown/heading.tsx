@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import {kebabCase} from "lodash";
-import {ScrollTarget, scrollToRef} from "../general";
+import {Link, ScrollTarget, scrollToRef} from "../general";
 import * as styles from "./heading.module.scss";
 
 export interface HeadingProps {
@@ -19,10 +19,11 @@ export const Heading = ({type, noLink, children}: HeadingProps) => {
         <Element className={styles.heading}>{children}</Element>
     ) : (
         <ScrollTarget ref={ref} id={id} type={Element} className={styles.heading}>
-            <span
+            <Link
+                to={`#${id}`}
                 className={styles.link}
                 onClick={() => scrollToRef(ref)}
-            >#</span>
+            >#</Link>
             {children}
         </ScrollTarget>
     );

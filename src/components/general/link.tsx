@@ -5,21 +5,36 @@ export interface LinkProps {
     to: string;
     className?: string;
     children?: React.ReactNode;
+    onClick?: () => void;
 }
 
-export const Link = ({className, to, children}: LinkProps) => {
+export const Link = ({to, className, onClick, children}: LinkProps) => {
     if (to && to.match(/^\//) && !to.match(/\.(png|jpg|jpeg)$/)) {
         return (
-            <GatsbyLink className={className} to={to}>{children}</GatsbyLink>
+            <GatsbyLink
+                to={to}
+                className={className}
+                onClick={onClick}
+            >{children}</GatsbyLink>
         );
     } else if (to.match(/^[.#]/)) {
         const {pathname} = window.location;
         return (
-            <GatsbyLink className={className} to={pathname + (pathname.endsWith("/") ? "" : "/") + to}>{children}</GatsbyLink>
+            <GatsbyLink
+                to={pathname + (pathname.endsWith("/") ? "" : "/") + to}
+                className={className}
+                onClick={onClick}
+            >{children}</GatsbyLink>
         );
     } else {
         return (
-            <a className={className} href={to} target="_blank" rel="noopener noreferrer">{children}</a>
+            <a
+                href={to}
+                className={className}
+                onClick={onClick}
+                target="_blank"
+                rel="noopener noreferrer"
+            >{children}</a>
         );
     }
 };

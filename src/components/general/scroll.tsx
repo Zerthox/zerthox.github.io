@@ -1,11 +1,6 @@
 import React, {forwardRef, useEffect} from "react";
 
-export const scrollToElement = (element: HTMLElement) => {
-    if (element.id) {
-        window.location.hash = `#${element.id}`;
-    }
-    window.scrollTo(0, element.offsetTop);
-};
+export const scrollToElement = (element: HTMLElement) => window.scrollTo(0, element.offsetTop);
 
 export const scrollToRef = <E extends HTMLElement>(ref: React.RefObject<E>) => scrollToElement(ref.current);
 
