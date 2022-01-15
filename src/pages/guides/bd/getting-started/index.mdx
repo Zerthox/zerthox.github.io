@@ -182,8 +182,8 @@ However, a very specific predicate may also break very fast when Discord changes
 
 Feel free to explore Discord's modules using the `BdApi` and the dev tools.
 You do not always have to start with the UI layer and then navigate through source code until you find what you were looking for.
-Sometimes taking a shot in the dark with generic searches can help finding the right module as well.
-For example, we could search for all modules exporting something with `"friend"` in the key:
+Sometimes taking a shot in the dark with your searches can help finding the right module as well.
+For example, we could do a generic search for all modules exporting something with `"friend"` in the key:
 
 ```js
 BdApi.findAllModules((exports) => Object.keys(exports).some((key) => key.toLowerCase().includes("friend")))
@@ -193,7 +193,7 @@ This example will **not** work if what we are looking for is not directly export
 For example the relationships store will not be included in the output since it is a class instance
 and the `isFriend()` method is defined on its [prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
 [`Object.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) simply will not include the method.
-If we know we want to look for a store instance, we could instead search through the keys of the prototype instead:
+If we know we are looking for a store instance, we could search through the keys of the prototype instead:
 
 ```js
 BdApi.findAllModules((exports) => {
