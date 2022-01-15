@@ -9,19 +9,10 @@ export interface LinkProps {
 }
 
 export const Link = ({to, className, onClick, children}: LinkProps) => {
-    if (to && to.match(/^\//) && !to.match(/\.(png|jpg|jpeg)$/)) {
+    if (to && to.match(/^[/.#]/) && !to.match(/\.(png|jpg|jpeg)$/)) {
         return (
             <GatsbyLink
                 to={to}
-                className={className}
-                onClick={onClick}
-            >{children}</GatsbyLink>
-        );
-    } else if (to.match(/^[.#]/)) {
-        const {pathname} = window.location;
-        return (
-            <GatsbyLink
-                to={pathname + (pathname.endsWith("/") ? "" : "/") + to}
                 className={className}
                 onClick={onClick}
             >{children}</GatsbyLink>
