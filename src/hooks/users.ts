@@ -5,13 +5,13 @@ export interface User {
     avatar: string;
     links: {
         github: string;
-    }
+    };
 }
 
 interface UserData {
     allUsersJson: {
-        nodes: User[]
-    }
+        nodes: User[];
+    };
 }
 
 const useUserData = () => useStaticQuery<UserData>(graphql`

@@ -33,7 +33,7 @@ module.exports = {
         "quotes": ["error", "double"],
         "no-multiple-empty-lines": ["error", {max: 1}],
         "operator-linebreak": ["error", "before"],
-        "unused-vars": "off",
+        "no-unused-vars": "off",
         "require-jsdoc": "off",
         "valid-jsdoc": "off",
         "import/extensions": ["error", {
@@ -45,6 +45,7 @@ module.exports = {
             json: "always"
         }],
         "@typescript-eslint/indent": ["error", 4],
+        "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/explicit-module-boundary-types": "error",
         "rulesdir/no-anonymous-exports-page-templates": "warn",

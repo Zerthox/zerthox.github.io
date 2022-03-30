@@ -19,13 +19,13 @@ export interface SiteMeta {
     footer: {
         left: TextEntry[];
         right: TextEntry[];
-    }
+    };
 }
 
 interface SiteData {
     site: {
         siteMetadata: SiteMeta;
-    }
+    };
 }
 
 const useSiteData = () => useStaticQuery<SiteData>(graphql`

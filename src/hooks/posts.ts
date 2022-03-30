@@ -16,13 +16,13 @@ export interface Post {
         paragraphs: number;
         sentences: number;
         words: number;
-    }
+    };
 }
 
 interface PostData {
     allMdx: {
-        nodes: Post[]
-    }
+        nodes: Post[];
+    };
 }
 
 const usePostData = () => useStaticQuery<PostData>(graphql`
