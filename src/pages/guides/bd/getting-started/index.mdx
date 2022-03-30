@@ -1,6 +1,7 @@
 ---
 title: Getting started with BetterDiscord Plugin development
 date: 2022-01-14
+updated: 2022-03-30
 author: Zerthox
 tags: [js, betterdiscord]
 ---
@@ -8,7 +9,10 @@ tags: [js, betterdiscord]
 <Banner type="warn" bold>
 
 This article assumes you are familiar with modern [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-as well as [React](https://reactjs.org) and [JSX](https://reactjs.org/docs/introducing-jsx.html)!
+like [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions),
+[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+and [Optional Chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+as well as the [React](https://reactjs.org) UI library!
 
 </Banner>
 
@@ -18,8 +22,14 @@ The UI is created using [React](https://reactjs.org) and all of the data is hand
 Their source is most likely written in [TypeScript](https://www.typescriptlang.org), however that is mostly irrelevant for plugin development.
 Everything is transpiled and then bundled together using [webpack](https://webpack.js.org).
 
-Since it is based on [Chromium](https://www.chromium.org/Home), Electron's renderer window has the [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
-You can access them by pressing `Ctrl` + `Shift` + `I` (or `Cmd` + `Opt` + `I` on a Mac).
+Thanks to being based on [Chromium](https://www.chromium.org/Home), Electron's renderer window has the [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+Since the Discord update on 25 January 2022 they are disabled by default.
+You can reenable them in BetterDiscord's developer settings.
+
+![BetterDiscord dev tools settings](./bd-devtools-setting.png)
+
+
+Afterwards you can access the dev tools by pressing `Ctrl` + `Shift` + `I` (or `Cmd` + `Opt` + `I` on a Mac).
 The dev tools will be **extremely important** for any kind of reverse engineering later on and can be used to experiment in the console.
 
 ## React Dev Tools
@@ -67,10 +77,11 @@ They are the same instances as the ones used by Discord. Always use these and **
 
 <Banner type="info" bold>
 
-Examples with React will use [JSX](https://reactjs.org/docs/introducing-jsx.html).
-When using it in a plugin, it has to be transpiled.
+When using [JSX](https://reactjs.org/docs/introducing-jsx.html) in a plugin, it has to be transpiled.
 
 </Banner>
+
+<CodeTabs names={["JSX", "JS"]}>
 
 ```jsx
 const {React, ReactDOM} = BdApi;
@@ -83,6 +94,21 @@ const MyComponent = () => (
 
 ReactDOM.render(someNode, <MyComponent/>);
 ```
+
+```jsx
+const {React, ReactDOM} = BdApi;
+
+const MyComponent = () => React.createElement(
+    "div",
+    {className: "foo"},
+    "Hello World!"
+);
+
+ReactDOM.render(someNode, React.createElement(MyComponent));
+```
+
+</CodeTabs>
+
 
 `ReactDOM` will not see much use in actual plugins, since most of the time you are rendering into already existing React element trees.
 
@@ -239,21 +265,23 @@ and `props`, which is the props passed to the HTML element or React component.
 Child nodes are found under `props.children`.
 
 If we want to render our own elements somewhere, we have to find the node we want to append them to.
-This can be done by using tree/graph traversal algorithms like DFS or BFS.
+This can be done by using tree/graph traversal algorithms like [DFS](https://en.wikipedia.org/wiki/Depth-first_search) or [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).
 You can find examples of utility functions for tree traversal in [Zere's Plugin Library](https://github.com/rauenzi/BDPluginLibrary/blob/master/src/modules/utilities.js#L123-L166) (DFS)
 or [my own plugin repo](https://github.com/Zerthox/BetterDiscord-Plugins/blob/master/discordium/utils/react.ts#L6-L29) (BFS).
 
 Assuming we have a `findNodeInTree(tree, predicate)` utility function to search the tree for a specific node, appending new elements could look like this:
 
+<CodeTabs names={["JSX", "JS"]}>
+
 ```jsx
-BdApi.Patcher.after("MyPluginName", Message.default, "type", (_, [props], returnValue) => {
+BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
     const foundNode = findNodeInTree(returnValue, (node) => node?.type === "li");
     if (foundNode) {
         foundNode.props.children = [
             foundNode.props.children,
             <div>
-                <span>Hello World!</span>
-                <span>This channel is {props.channel.isPrivate() ? "private" : "not private"}</span>
+                <span>This channel is</span>
+                <span>{props.channel.isPrivate() ? "private" : "not private"}</span>
             </div>
         ];
     } else {
@@ -261,6 +289,26 @@ BdApi.Patcher.after("MyPluginName", Message.default, "type", (_, [props], return
     }
 });
 ```
+
+```jsx
+BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
+    const foundNode = findNodeInTree(returnValue, (node) => node?.type === "li");
+    if (foundNode) {
+        foundNode.props.children = [
+            foundNode.props.children,
+            React.createElement("div", {},
+                React.createElement("span", {}, "This chanel is"),
+                React.createElement("span", {}, props.channel.isPrivate() ? "private" : "not private"),
+            )
+        ];
+    } else {
+        console.error("node was not found");
+    }
+});
+```
+
+</CodeTabs>
+
 
 Remember to undo the patches you did in `start()` when your plugin is stopped:
 
