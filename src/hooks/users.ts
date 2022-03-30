@@ -28,6 +28,6 @@ const useUserData = () => useStaticQuery<UserData>(graphql`
     }
 `);
 
-export const useUsers = () => useUserData().allUsersJson.nodes;
+export const useUsers = (): User[] => useUserData().allUsersJson.nodes;
 
-export const useUser = (name: string) => useUsers().find((user) => user.name === name);
+export const useUser = (name: string): User | null => useUsers().find((user) => user.name === name) ?? null;

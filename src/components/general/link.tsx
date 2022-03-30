@@ -8,7 +8,7 @@ export interface LinkProps {
     onClick?: () => void;
 }
 
-export const Link = ({to, className, onClick, children}: LinkProps) => {
+export const Link = ({to, className, onClick, children}: LinkProps): JSX.Element => {
     if (to && to.match(/^[/.#]/) && !to.match(/\.(png|jpg|jpeg)$/)) {
         return (
             <GatsbyLink

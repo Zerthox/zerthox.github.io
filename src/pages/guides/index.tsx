@@ -3,7 +3,7 @@ import {Layout} from "../../components/layout";
 import {List} from "../../components/list";
 import {usePostsIn} from "../../hooks";
 
-const Blog = () => {
+const Blog = (): JSX.Element => {
     const posts = usePostsIn("guides");
 
     return (

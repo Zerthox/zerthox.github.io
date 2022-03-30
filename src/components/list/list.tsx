@@ -11,7 +11,7 @@ export interface ListItemProps {
     author?: string;
 }
 
-export const ListItem = ({name, description, date, author, to}: ListItemProps) => (
+export const ListItem = ({name, description, date, author, to}: ListItemProps): JSX.Element => (
     <div className={styles.item}>
         <Link className={styles.link} to={to}>
             <div className={styles.title}>
@@ -34,7 +34,7 @@ export interface ListProps {
     entries: ListItemProps[];
 }
 
-export const List = ({entries}: ListProps) => (
+export const List = ({entries}: ListProps): JSX.Element => (
     <div className={styles.list}>
         {entries.map((props, i) => (
             <ListItem key={i} {...props}/>

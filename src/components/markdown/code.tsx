@@ -39,7 +39,7 @@ export interface CodeblockProps {
     children?: string;
 }
 
-export const Codeblock = ({language, className, children}: CodeblockProps) => (
+export const Codeblock = ({language, className, children}: CodeblockProps): JSX.Element => (
     <div className={classNames(className, styles.codeblock)}>
         <Highlight
             {...defaultProps}
@@ -68,6 +68,6 @@ export interface InlineCodeProps {
     children?: string;
 }
 
-export const InlineCode = ({className, children}: InlineCodeProps) => (
+export const InlineCode = ({className, children}: InlineCodeProps): JSX.Element => (
     <span className={classNames(className, styles.inline)}>{children}</span>
 );

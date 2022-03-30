@@ -8,7 +8,7 @@ export interface HeaderProps {
     links: LinkEntry[];
 }
 
-export const Header = ({links}: HeaderProps) => {
+export const Header = ({links}: HeaderProps): JSX.Element => {
     const siteMeta = useSiteMeta();
     const {avatar} = useUser(siteMeta.author);
 

@@ -5,6 +5,6 @@ export interface ParagraphProps {
     children?: React.ReactNode;
 }
 
-export const Paragraph = ({children}: ParagraphProps) => (
+export const Paragraph = ({children}: ParagraphProps): JSX.Element => (
     <div className={styles.paragraph}>{children}</div>
 );

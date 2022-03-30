@@ -20,7 +20,7 @@ export interface LayoutProps {
     noContent?: boolean;
 }
 
-export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, description, noTitle, noContent, children}: LayoutProps) => {
+export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, description, noTitle, noContent, children}: LayoutProps): JSX.Element => {
     const siteMeta = useSiteMeta();
 
     return (

@@ -8,7 +8,7 @@ export interface AvatarProps {
     className?: string;
 }
 
-export const Avatar = ({url, size = 30, className}: AvatarProps) => (
+export const Avatar = ({url, size = 30, className}: AvatarProps): JSX.Element => (
     <div
         className={classNames(className, styles.avatar)}
         style={{

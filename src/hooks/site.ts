@@ -55,4 +55,4 @@ const useSiteData = () => useStaticQuery<SiteData>(graphql`
     }
 `);
 
-export const useSiteMeta = () => useSiteData().site.siteMetadata;
+export const useSiteMeta = (): SiteMeta => useSiteData().site.siteMetadata;

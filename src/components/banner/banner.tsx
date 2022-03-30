@@ -13,7 +13,7 @@ export interface BannerProps {
     children?: React.ReactNode;
 }
 
-export const Banner = ({type, bold = false, children}: BannerProps) => (
+export const Banner = ({type, bold = false, children}: BannerProps): JSX.Element => (
     <div className={classNames(styles.banner, {
         [styles.info]: type === BannerType.Info,
         [styles.warn]: type === BannerType.Warn

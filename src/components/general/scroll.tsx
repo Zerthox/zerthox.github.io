@@ -1,10 +1,10 @@
 import React, {forwardRef, useEffect} from "react";
 
-export const scrollToElement = (element: HTMLElement) => window.scrollTo(0, element.offsetTop);
+export const scrollToElement = (element: HTMLElement): void => window.scrollTo(0, element.offsetTop);
 
-export const scrollToRef = <E extends HTMLElement>(ref: React.RefObject<E>) => scrollToElement(ref.current);
+export const scrollToRef = <E extends HTMLElement>(ref: React.RefObject<E>): void => scrollToElement(ref.current);
 
-export const scrollToId = (id: string) => scrollToElement(document.getElementById(id));
+export const scrollToId = (id: string): void => scrollToElement(document.getElementById(id));
 
 interface RequiredProps<E extends HTMLElement> {
     className?: string;
@@ -23,7 +23,7 @@ export interface ScrollTargetProps<E extends HTMLElement> {
 const ScrollTarget = <E extends HTMLElement>(
     {type, id, className, children}: ScrollTargetProps<E>,
     ref: React.RefObject<E>
-) => {
+): JSX.Element => {
     const Element = type;
     useEffect(() => {
         if (window.location.hash === `#${id}`) {

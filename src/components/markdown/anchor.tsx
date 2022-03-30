@@ -9,7 +9,7 @@ export interface AnchorProps {
     children?: React.ReactNode;
 }
 
-export const Anchor = ({href, className, children}: AnchorProps) => (
+export const Anchor = ({href, className, children}: AnchorProps): JSX.Element => (
     <Link className={classNames(className, styles.anchor, {
         [styles.text]: typeof children === "string"
     })} to={href}>{children}</Link>

@@ -44,8 +44,9 @@ module.exports = {
             scss: "always",
             json: "always"
         }],
-        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/indent": ["error", 4],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/explicit-module-boundary-types": "error",
         "rulesdir/no-anonymous-exports-page-templates": "warn",
         "rulesdir/limited-exports-page-templates": "warn"
     }

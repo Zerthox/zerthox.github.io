@@ -15,7 +15,7 @@ export interface FooterProps {
     right: TextEntry[];
 }
 
-export const Footer = ({left, right}: FooterProps) => (
+export const Footer = ({left, right}: FooterProps): JSX.Element => (
     <div className={styles.footer}>
         <div className={styles.left}>{processEntries(left)}</div>
         <div className={styles.right}>{processEntries(right)}</div>

@@ -32,7 +32,7 @@ export interface MarkdownProps {
     children?: React.ReactNode;
 }
 
-export const Markdown = ({children}: MarkdownProps) =>(
+export const Markdown = ({children}: MarkdownProps): JSX.Element =>(
     <MDXProvider components={mdxComponents}>
         {children}
     </MDXProvider>

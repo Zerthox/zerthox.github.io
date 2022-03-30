@@ -3,7 +3,7 @@ import {Link} from "../components/general";
 import {Layout} from "../components/layout";
 import * as styles from "./404.module.scss";
 
-const PageNotFound = () => (
+const PageNotFound = (): JSX.Element => (
     <Layout title="Page not found" noTitle noContent>
         <div className={styles.container}>
             <div className={styles.title}>404</div>

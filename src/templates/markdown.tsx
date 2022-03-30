@@ -8,7 +8,7 @@ interface PageContext {
     frontmatter: Frontmatter;
 }
 
-const MarkdownPage = ({location, children}: PageProps<never, PageContext>) => {
+const MarkdownPage = ({location, children}: PageProps<never, PageContext>): JSX.Element => {
     const {frontmatter, excerpt, timeToRead} = usePost(location.pathname);
 
     return (

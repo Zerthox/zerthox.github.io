@@ -8,7 +8,7 @@ export interface UserProps {
     name: string;
 }
 
-export const User = ({name}: UserProps) => {
+export const User = ({name}: UserProps): JSX.Element => {
     const {avatar, links} = useUser(name);
 
     return (

@@ -10,7 +10,7 @@ export interface HeadingProps {
 }
 
 // TODO: highlight selected heading
-export const Heading = ({type, noLink, children}: HeadingProps) => {
+export const Heading = ({type, noLink, children}: HeadingProps): JSX.Element => {
     const id = kebabCase(children);
     const Element: keyof JSX.IntrinsicElements = `h${type}`;
     const ref = useRef();
