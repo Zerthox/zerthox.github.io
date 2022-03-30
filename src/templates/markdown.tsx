@@ -10,12 +10,14 @@ interface PageContext {
 
 const MarkdownPage = ({location, children}: PageProps<never, PageContext>): JSX.Element => {
     const {frontmatter, excerpt, timeToRead} = usePost(location.pathname);
+    const {title, author, date, updated} = frontmatter;
 
     return (
         <Layout
-            title={frontmatter.title}
-            author={frontmatter.author}
-            date={frontmatter.date}
+            title={title}
+            author={author}
+            date={date}
+            updated={updated}
             readTime={timeToRead}
             description={excerpt}
         >

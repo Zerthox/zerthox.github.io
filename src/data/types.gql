@@ -2,6 +2,7 @@ extend type MdxFrontmatter {
     title: String!
     author: String
     date: Date @dateformat
+    updated: Date @dateformat
     tags: [String!]
 }
 

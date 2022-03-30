@@ -14,13 +14,14 @@ export interface LayoutProps {
     pageTitle?: string;
     author?: string;
     date?: string;
+    updated?: string;
     readTime?: number;
     description?: string;
     noTitle?: boolean;
     noContent?: boolean;
 }
 
-export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, description, noTitle, noContent, children}: LayoutProps): JSX.Element => {
+export const Layout = ({title, fullTitle, pageTitle, author, date, updated, readTime, description, noTitle, noContent, children}: LayoutProps): JSX.Element => {
     const siteMeta = useSiteMeta();
 
     return (
@@ -46,7 +47,13 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, readTime, des
                                     {date ? (
                                         <div className={styles.date}>
                                             {date}
-                                            {readTime ? ` | ${readTime}min read` : null}
+                                            {updated ? <span className={styles.updated}> (Updated: {updated})</span> : null}
+                                            {readTime ? (
+                                                <>
+                                                    <span className={styles.separator}>|</span>
+                                                    <span>{readTime}min read</span>
+                                                </>
+                                            ) : null}
                                         </div>
                                     ) : null}
                                 </div>

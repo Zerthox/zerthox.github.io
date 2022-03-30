@@ -56,6 +56,13 @@ body {
     font-size: 14px;
     color: hsla(0, 0%, 100%, .3);
 }
+.updated {
+    font-style: italic;
+}
+.separator {
+    font-size: 1.2em;
+    margin: 0 1ch;
+}
 
 .content {
     max-width: $max-content-size;

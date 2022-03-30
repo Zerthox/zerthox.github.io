@@ -4,6 +4,7 @@ export interface Frontmatter {
     title: string;
     author?: string;
     date?: string;
+    updated?: string;
     tags?: string[];
 }
 
@@ -33,6 +34,7 @@ const usePostData = () => useStaticQuery<PostData>(graphql`
                 frontmatter {
                     title
                     date(formatString: "DD MMMM YYYY")
+                    updated(formatString: "DD MMMM YYYY")
                     author
                     tags
                 }
