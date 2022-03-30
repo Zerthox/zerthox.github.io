@@ -6,6 +6,7 @@ import {Heading} from "./heading";
 import {Codeblock, InlineCode} from "./code";
 import {List} from "../list";
 import {Banner} from "../banner";
+import {CodeTabs} from "../codetabs";
 
 export const mdxComponents: MDXProviderComponents = {
     a: Anchor,
@@ -25,14 +26,15 @@ export const mdxComponents: MDXProviderComponents = {
     Codeblock,
     InlineCode,
     List,
-    Banner
+    Banner,
+    CodeTabs
 };
 
 export interface MarkdownProps {
     children?: React.ReactNode;
 }
 
-export const Markdown = ({children}: MarkdownProps): JSX.Element =>(
+export const Markdown = ({children}: MarkdownProps): JSX.Element => (
     <MDXProvider components={mdxComponents}>
         {children}
     </MDXProvider>

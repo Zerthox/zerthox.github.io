@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "colors";
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+.item {
+    margin: 0 5px;
+    padding: 5px 15px;
+    border-radius: 3px 3px 0 0;
+    color: hsla(0, 0%, 100%, .7);
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        color: #fff;
+        background: color.change(colors.$black, $alpha: .5);
+    }
+    &.active {
+        background: colors.$black;
+    }
+}
+
+.content > * {
+    margin: 0;
+}
