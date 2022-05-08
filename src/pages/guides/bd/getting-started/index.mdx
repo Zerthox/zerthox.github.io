@@ -234,7 +234,12 @@ This is done using the already mentioned `BdApi.Patcher`.
 It allows us to change the behaviour of existing functions at runtime, executing our own code before, after or instead of the original.
 This is commonly referred to as *"monkey patching"* or simply *"patching"*.
 
-In React components you typically want to modify the return value of the original in order to change or add rendered elements onscreen.
+There is three different kinds of patches the `BdApi.Patcher` offers.
+Typically, you will use `before` patches when you want to intercept and manipulate the incoming function arguments,
+`after` patches when you want to intercept and manipulate the resulting return value
+and `instead` patches when the behaviour should be changed completely or for other complex scenarios.
+
+In React components you typically want to modify the return value of the original in order to change or add the elements rendered onscreen.
 This means we want to create an `after` patch.
 
 Remember: in our case the function component is wrapped inside a [React memo](https://reactjs.org/docs/react-api.html#reactmemo).
