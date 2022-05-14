@@ -1,0 +1,110 @@
+---
+title: Flux and Discord
+date: 2022-05-14
+author: Zerthox
+tags: [js, discord, betterdiscord]
+---
+
+## State management in React
+When working with [React](https://reactjs.org), the UI has a state, which determines the elements rendered onscreen.
+Changing said state will cause React to rerender the affected UI components.
+React itself already comes with some tools to manage state:
+the [State API](https://reactjs.org/docs/faq-state.html),
+which can be used via the [`this.setState()`](https://reactjs.org/docs/react-component.html#setstate) method in class components
+and via the newer [`useState()`](https://reactjs.org/docs/hooks-reference.html#usestate) hook in function components.
+For managing global state React also features a lesser known [Context API](https://reactjs.org/docs/context.html) out of the box.
+
+However, in large applications state management can prove more difficult or inefficient.
+That's what resulted in the [Flux](https://facebook.github.io/flux/) architecture for managing data flow and application state in React.
+While the original Flux project by Facebook themselves is no longer actively developed, the architecture has proven useful.
+Popular state management libraries of today like [Redux](https://redux.js.org/) are built upon it.
+
+![Flux architecture](https://facebook.github.io/flux/img/overview/flux-simple-f8-diagram-with-client-action-1300w.png)
+*Source: Facebook's Flux Docs*
+
+The Flux pattern traditionally consists of central **Dispatcher**(s), which can receive so-called Actions.
+An **Action** represents a modification of the application's state and has an identifying type (kind) as well as a potential payload of additional data.
+Actions may also be viewed as events, which happen within the application.
+The dispatcher is responsible for forwarding the received data to the relevant **Stores**.
+Each store is used to store state information relevant to a specific part of the application.
+This allows to separate for example which application language the user has selected from which chatroom they are currently viewing.
+
+You can read more about the architecture in the [In-Depth Overview](https://facebook.github.io/flux/docs/in-depth-overview/) within the Flux Docs.
+
+The store data as well as the ability to dispatch actions now has to be made available for UI components.
+For the classic class-based components, this used to be typically done with wrapper components,
+which take care of updating and give the inner component access to store data via props or custom methods.
+This API is sometimes also referred to as "Connect" since the name of the function used to wrap a component usually includes the word connect.
+The alternative API for function component would be realized via the newer concept of [hooks](https://reactjs.org/docs/hooks-intro.html).
+
+<Banner type="info">
+
+The React community has been moving more and more towards **function components and hooks**.
+They make it easy to use data within a component and have it update automatically.
+Libraries like [React Redux](https://react-redux.js.org/) are now recommending usage of their hooks API over older class component APIs.
+
+</Banner>
+
+## Discord's Flux implementation
+Discord uses a (as far as we know) custom implementation of the Flux architecture.
+It forms a large part of the data layer behind the UI layer.
+
+<Banner type="warn" bold>While fairly stable in the past, Flux internals may change just like any other part of the internals.</Banner>
+
+Their implementation has both a newer hooks API they are transitioning to as well as an old connect API, which is still used in parts of the codebase.
+
+<CodeTabs names={["Hooks", "Connect"]}>
+
+```jsx
+const MyComponent = () => {
+    const currentUser = useStateFromStores([UserStore], () => UserStore.getCurrentUser());
+
+    return (
+        <div>Current user is: {currentUser.username}</div>
+    );
+};
+```
+
+```jsx
+const MyComponent = (props) => (
+    <div>Current user is: {props.currentUser.username}</div>
+);
+
+const ConnectedMyComponent = Flux.connectStores([UserStore], () => ({
+    currentUser: UserStore.getCurrentUser()
+}))(MyComponent);
+```
+
+</CodeTabs>
+
+Their stores as well as their central dispatcher also allow for listeners, which are notified of any incoming actions/events.
+This can be useful when you want to use store updates somewhere outside of the UI layer.
+
+```js
+const listener = (action) => console.log("Dispatcher received:", action);
+
+Dispatcher.subscribe("ACTION_TYPE", listener);
+Dispachter.unsubscribe("ACTION_TYPE", listener);
+```
+
+```js
+const listener = (action) => console.log("UserStore received:", action);
+
+UserStore.addChangeListener(listener);
+UserStore.removeChangeListener(listener);
+```
+
+Besides using the intended functions for dispatching specific actions, actions can also be dispatched directly on the dispatcher:
+`Dispatcher.dispatch()` is the regular way of dispatching.
+`Dispatcher.dirtyDispatch()` will put the action in a wait queue if another action is already being dispatched currently.
+`Dispatcher.maybeDispatch()` will dispatch only if no other action is currently being dispatched already.
+
+There is a massive amount of different actions.
+As of May 2022 nearly 1500 entries are listed within Discord's internal `ActionType` TypeScript enum.
+
+## Finding Stores
+As with all other internals, stores need to be found within the webpack exports cache and have to be reverse engineered.
+You can find more information in my [Getting started with BetterDiscord Plugin development](../getting-started) guide.
+Recently Discord added a `getName()` method to their store interface, which can make the process slightly easier.
+If this new method stays, plugins could find stores using their name rather than interface or other characteristics.
+Names may also help with figuring out a store's purpose when reverse engineering.
