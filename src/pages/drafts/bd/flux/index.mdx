@@ -90,7 +90,7 @@ Dispachter.unsubscribe("ACTION_TYPE", listener);
 ```
 
 ```js
-const listener = (action) => console.log("UserStore received:", action);
+const listener = () => console.log("UserStore was updated");
 
 UserStore.addChangeListener(listener);
 UserStore.removeChangeListener(listener);
