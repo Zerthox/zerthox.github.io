@@ -272,7 +272,7 @@ Child nodes are found under `props.children`.
 If we want to render our own elements somewhere, we have to find the node we want to append them to.
 This can be done by using tree/graph traversal algorithms like [DFS](https://en.wikipedia.org/wiki/Depth-first_search) or [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).
 You can find examples of utility functions for tree traversal in [Zere's Plugin Library](https://github.com/rauenzi/BDPluginLibrary/blob/master/src/modules/utilities.js#L122-L165) (DFS)
-or [my own plugin repo](https://github.com/Zerthox/BetterDiscord-Plugins/blob/master/dium/utils/react.ts#L6-L29) (BFS).
+or [my own plugin repo](https://github.com/Zerthox/BetterDiscord-Plugins/blob/master/dium/src/utils/react.ts#L6-L29) (BFS).
 
 Assuming we have a `findNodeInTree(tree, predicate)` utility function to search the tree for a specific node, appending new elements could look like this:
 
