@@ -1,5 +1,23 @@
-/** @type {import("gatsby").GatsbyConfig} */
-module.exports = {
+import path from "path";
+import {GatsbyConfig} from "gatsby";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface FluidResult {
+    base64: string;
+    aspectRatio: number;
+    src: string;
+    srcSet: string;
+    srcSetType: string;
+    sizes: string;
+    originalImg: string;
+    originalName: string;
+    density: number;
+    presentationWidth: number;
+    presentationHeight: number;
+    tracedSVG: unknown;
+}
+
+const config: GatsbyConfig = {
     siteMetadata: {
         title: "Zerthox",
         description: "Just a little page.",
@@ -44,7 +62,7 @@ module.exports = {
             resolve: "gatsby-plugin-manifest",
             options: {
                 name: "Zerthox",
-                icon: `${__dirname}/src/assets/icon.png`
+                icon: path.resolve("./src/assets/icon.png")
             }
         },
         "gatsby-plugin-react-helmet",
@@ -53,14 +71,14 @@ module.exports = {
             resolve: "gatsby-source-filesystem",
             options: {
                 name: "pages",
-                path: "./src/pages"
+                path: path.resolve("./src/pages")
             }
         },
         {
             resolve: "gatsby-source-filesystem",
             options: {
                 name: "data",
-                path: "./src/data"
+                path: path.resolve("./src/data")
             }
         },
         "gatsby-plugin-sharp",
@@ -69,7 +87,7 @@ module.exports = {
             resolve: "gatsby-plugin-mdx",
             options: {
                 defaultLayouts: {
-                    default: require.resolve("./src/templates/markdown.tsx")
+                    default: path.resolve("./src/templates/markdown.tsx")
                 },
                 gatsbyRemarkPlugins: [
                     {
@@ -99,7 +117,9 @@ module.exports = {
             resolve: "gatsby-plugin-sass",
             options: {
                 sassOptions: {
-                    includePaths: [`${__dirname}/src/styles`]
+                    includePaths: [
+                        path.resolve("./src/styles")
+                    ]
                 }
             }
         },
@@ -122,18 +142,4 @@ module.exports = {
     ]
 };
 
-/**
- * @typedef {Object} FluidResult
- * @property {string} base64
- * @property {number} aspectRatio
- * @property {string} src
- * @property {string} srcSet
- * @property {string} srcSetType
- * @property {string} sizes
- * @property {string} originalImg
- * @property {string} originalName
- * @property {number} density
- * @property {number} presentationWidth
- * @property {number} presentationHeight
- * @property {*} tracedSVG
- */
+export default config;
