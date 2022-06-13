@@ -1,14 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const rulesDirPlugin = require("eslint-plugin-rulesdir");
-rulesDirPlugin.RULES_DIR = `${__dirname}/node_modules/gatsby/dist/utils/eslint-rules`;
-
 module.exports = {
     parser: "@typescript-eslint/parser",
     env: {
         node: true
     },
     plugins: [
-        "rulesdir",
         "@typescript-eslint",
         "node",
         "import",
@@ -27,13 +22,15 @@ module.exports = {
         "google"
     ],
     rules: {
-        "comma-dangle": ["error", "never"],
-        "indent": "off",
+        indent: "off",
+        semi: "off",
+        "comma-dangle": "off",
         "max-len": "off",
-        "quotes": ["error", "double"],
+        quotes: ["error", "double"],
+        "quote-props": ["error", "as-needed"],
         "no-multiple-empty-lines": ["error", {max: 1}],
         "operator-linebreak": ["error", "before"],
-        "no-unused-vars": "off",
+        "unused-vars": "off",
         "require-jsdoc": "off",
         "valid-jsdoc": "off",
         "import/extensions": ["error", {
@@ -44,11 +41,15 @@ module.exports = {
             scss: "always",
             json: "always"
         }],
-        "@typescript-eslint/indent": ["error", 4],
+        "@typescript-eslint/indent": ["error", 4, {SwitchCase: 1}],
+        "@typescript-eslint/semi": "error",
+        "@typescript-eslint/comma-dangle": ["error", "never"],
         "@typescript-eslint/member-delimiter-style": "error",
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/explicit-module-boundary-types": "error",
-        "rulesdir/no-anonymous-exports-page-templates": "warn",
-        "rulesdir/limited-exports-page-templates": "warn"
+        "@typescript-eslint/no-unused-vars": ["error", {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+            caughtErrorsIgnorePattern: "^_"
+        }],
+        "@typescript-eslint/explicit-module-boundary-types": "error"
     }
 };
