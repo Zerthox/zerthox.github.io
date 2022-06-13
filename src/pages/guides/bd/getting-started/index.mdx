@@ -1,7 +1,7 @@
 ---
 title: Getting started with BetterDiscord Plugin development
 date: 2022-01-14
-updated: 2022-05-08
+updated: 2022-06-13
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
@@ -39,6 +39,7 @@ They will be very helpful when working with Discord's own React components.
 
 In order to use them in Discord, you will need to have a [Chrome](https://www.google.com/intl/en_us/chrome/) installation on your computer.
 Install the [React Developer Tools extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/) from the Chrome Web Store.
+*(As an alternative manually mimicking the folder structure and placing the extension files in there will also suffice.)*
 Then enable the setting in BetterDiscord's developer settings and the dev tools will automatically be loaded in Discord as well.
 
 ![React dev tools](./react-dev-tools.png)
@@ -115,8 +116,8 @@ ReactDOM.render(someNode, React.createElement(MyComponent));
 In `BdApi` we also find the `BdApi.Patcher`, which is used to modify existing functions at runtime.
 The [`BdApi.monkeyPatch()`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#monkeypatchmodule-methodname-options) function is the **old** version kept for backwards compatibility.
 As of January 2022, the Patcher itself is not documented as part of the BetterDiscord API yet.
-However, it uses the same interface as the [Zere's Plugin Library Patcher](https://rauenzi.github.io/BDPluginLibrary/docs/module-Patcher.html)
-and the there are [JSDoc](https://jsdoc.app) comments in the [source](https://github.com/BetterDiscord/BetterDiscord/blob/main/renderer/src/modules/patcher.js).
+However, it uses nearly the same interface as the [Zere's Plugin Library Patcher](https://rauenzi.github.io/BDPluginLibrary/docs/module-Patcher.html)
+and there are [JSDoc](https://jsdoc.app) comments in the [source](https://github.com/BetterDiscord/BetterDiscord/blob/main/renderer/src/modules/patcher.js).
 More details on patching will follow later on.
 
 Lastly, `BdApi` features a few functions used to search through the webpack export cache.
@@ -262,7 +263,7 @@ We should see output being logged into the console for each message that renders
 
 The first argument received is the component props just as you would expect with a function component.
 In the case of the message component those consist of the corresponding channel object, message object and some other information.
-The second argument is an empty object since the component does not forward any refs.
+The second argument is an empty object since the component does not forward any refs (or makes use of React's legacy context API).
 
 As to be expected, the return value is what a call to [`React.createElement()`](https://reactjs.org/docs/react-api.html#createelement) returns - a tree of React element nodes.
 The most interesting properties on these nodes are `type`, which indicates what kind of element or component this tree node is,
