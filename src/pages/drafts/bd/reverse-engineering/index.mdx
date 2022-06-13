@@ -10,7 +10,7 @@ tags: [js, discord, betterdiscord]
 This guide will focus on reverse engineering in a context of Discord modifications, which means parts of it will be specific to webpack.
 However, some of the points discussed here can be applied to other web applications as well.
 
-# Toolchains
+## Toolchains
 In modern web development code often goes through a non-trivial toolchain before it lands in a user's browser in production.
 These toolchains may include:
 - Type checking (e.g. [TypeScript](https://www.typescriptlang.org/), [Flow](https://flow.org/))
@@ -21,7 +21,7 @@ These toolchains may include:
 
 The resulting code often looks very different from what any human would write and can be difficult to understand without experience.
 
-# Bundling with webpack
+## Bundling with webpack
 When bundling production code with webpack, the modules are converted for webpack's runtime module system - no matter which module system the source code makes use of.
 For example let us take this very simple ES module with a single import and two exports:
 
@@ -58,7 +58,7 @@ When evaluating a module, webpack will pass `m = module`, `e = module.exports` a
 After the module function has finished, webpack will take `module.exports` and return it to whatever other module was requiring ours.
 It will also store the exports in a cache in order to avoid having to evaluate the module again.
 
-# Production code patterns
+## Production code patterns
 We have already seen one commonly used minification pattern in our example above.
 Understanding what these sometimes weird patterns are equivalent to is helpful for reverse engineering.
 Here is a table of some of the most commonly seen minification patterns:
@@ -81,34 +81,34 @@ The reason for this is `this`, as in the actual [language keyword](https://devel
 By doing `(0, obj.foo)` we are "stripping the context" from the function.
 Use of `this` within the function will now evaluate to the global [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) rather than the `obj` it is defined on.
 
-# Tips & tricks
+## Tips & tricks
 I will conclude this guide with a handful of tips for reverse engineering.
 Some of these are specific to whatever technologies are used in the web application.
 
-**1. Learn the dev tools**  
+#### 1. Learn the dev tools
 This is the most generic advice to give, but also important.
 The dev tools are your best friend for any kind of reverse engineering.
 Learning how to properly use them will improve your reverse engineering process a lot.
 
-**2. Use domain-specific dev tools extensions**  
+#### 2. Use domain-specific dev tools extensions
 When reverse engineering for example a [React](https://reactjs.org) application, you should also make use of the [React Developer Tools extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/).
 They will give you easier and extra insight into the application.
 
-**3. Use breakpoints for arguments**  
+#### 3. Use breakpoints for arguments
 You can put breakpoints on functions and then attempt to trigger a "regular" call to them in order to reverse engineer their arguments.
 The dev tools will show what arguments have been passed.
 This can be extended to investigating local variables within a specific function you are trying to understand.
 
-**4. Use scopes for captured variables**  
+#### 4. Use scopes for captured variables
 In Chrome's dev tools function values display a `[[FunctionLocation]]` as well as a `[[Scopes]]` attribute.
 The `[[Scopes]]` attribute is a list of scopes sorrounding the functions and can help quickly figure out what value captured variables have.
 
-**5. Also look at use cases**  
+#### 5. Also look at use cases
 When reverse engineering a part, also look into how it is used in or interacts with other parts of the codebase.
 It may help understanding that part as well as building a broader understanding of sections of the application.
 *(Of course this does not necessarily apply to libraries bundled in the application.)*
 
-**6. Aim to understand**  
+#### 6. Aim to understand
 Your utmost goal when reverse engineering usually should be understanding what is happening behind the scenes.
 You do not need to actually reverse engineer the source of every single little piece of code when you feel like you understand what its purpose is.
 However, be careful with attempting to just "make it work", skipping parts, trial and error etc.
