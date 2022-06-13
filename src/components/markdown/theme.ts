@@ -50,7 +50,7 @@ export const theme: PrismTheme = {
             }
         },
         {
-            types: ["property", "function-name", "constant", "symbol", "deleted"],
+            types: ["constant", "symbol", "deleted"],
             style: {
                 color: colors.primitive
             }
@@ -80,7 +80,7 @@ export const theme: PrismTheme = {
             }
         },
         {
-            types: ["function"],
+            types: ["function", "function-name", "property"],
             style: {
                 color: colors.function
             }
