@@ -1,7 +1,7 @@
 ---
 title: Getting started with BetterDiscord Plugin development
 date: 2022-01-14
-updated: 2022-06-13
+updated: 2022-08-20
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
@@ -46,10 +46,12 @@ Then enable the setting in BetterDiscord's developer settings and the dev tools 
 
 ## BetterDiscord API
 [BetterDiscord](https://betterdiscord.app)'s full API will **not** be covered here in details.
-**Read the detailed entry on [Creating Plugins](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins) in the wiki of the BetterDiscord repo.**
+You can find additional information on the [BetterDiscord documentation](https://docs.betterdiscord.app/) (still work in progress). 
 If you encounter any outdated or unclear parts, you should ask in the [BetterDiscord server](https://discord.gg/0Tmfo5ZbORCRqbAd).
 
-A basic BetterDiscord plugin template could look something like this:
+A basic BetterDiscord plugin could look something like this:
+
+<CodeTabs names={["Class", "Callback"]}>
 
 ```js
 /**
@@ -60,6 +62,9 @@ A basic BetterDiscord plugin template could look something like this:
  */
 
 module.exports = class MyPlugin {
+    constructor(meta) {
+        // do something when the plugin is loaded
+    }
     start() {
         // do something on plugin start
     }
@@ -69,11 +74,35 @@ module.exports = class MyPlugin {
 };
 ```
 
-BetterDiscord also provides the [`BdApi`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#bdapi) global, which has a few very helpful things for plugins.
+```js
+/**
+ * @name MyPlugin
+ * @author YourName
+ * @version 0.1.0
+ * @description What the plugin does.
+ */
+
+module.exports = (meta) => {
+    // do something when the plugin is loaded
+
+    return {
+        start() {
+            // do something on plugin start
+        },
+        stop() {
+            // do something on plugin stop
+        }
+    };
+};
+```
+
+</CodeTabs>
+
+BetterDiscord also provides the [`BdApi`](https://docs.betterdiscord.app/plugins/api/bdapi) global, which has a few very helpful things for plugins.
 It handles storing & loading plugin data as well as injecting & removing styles (CSS).
 
 The [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npmjs.com/package/react-dom) packages are available as
-[`BdApi.React`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#react) and [`BdApi.ReactDOM`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#reactdom).
+[`BdApi.React`](https://docs.betterdiscord.app/plugins/api/bdapi#react) and [`BdApi.ReactDOM`](https://docs.betterdiscord.app/plugins/api/bdapi#reactdom).
 They are the same instances as the ones used by Discord. Always use these and **do not** bundle your own versions.
 
 <Banner type="info" bold>
@@ -85,56 +114,48 @@ When using [JSX](https://reactjs.org/docs/introducing-jsx.html) in a plugin, it 
 <CodeTabs names={["JSX", "JS"]}>
 
 ```jsx
-const {React, ReactDOM} = BdApi;
+const {React} = BdApi;
 
 const MyComponent = () => (
     <div className="foo">
         Hello world!
     </div>
 );
-
-ReactDOM.render(someNode, <MyComponent/>);
 ```
 
 ```jsx
-const {React, ReactDOM} = BdApi;
+const {React} = BdApi;
 
 const MyComponent = () => React.createElement(
     "div",
     {className: "foo"},
     "Hello World!"
 );
-
-ReactDOM.render(someNode, React.createElement(MyComponent));
 ```
 
 </CodeTabs>
 
-
 `ReactDOM` will not see much use in actual plugins, since most of the time you are rendering into already existing React element trees.
 
-In `BdApi` we also find the `BdApi.Patcher`, which is used to modify existing functions at runtime.
-The [`BdApi.monkeyPatch()`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#monkeypatchmodule-methodname-options) function is the **old** version kept for backwards compatibility.
-As of January 2022, the Patcher itself is not documented as part of the BetterDiscord API yet.
-However, it uses nearly the same interface as the [Zere's Plugin Library Patcher](https://rauenzi.github.io/BDPluginLibrary/docs/module-Patcher.html)
-and there are [JSDoc](https://jsdoc.app) comments in the [source](https://github.com/BetterDiscord/BetterDiscord/blob/main/renderer/src/modules/patcher.js).
+In `BdApi` we also find the [`BdApi.Patcher`](https://docs.betterdiscord.app/plugins/api/patcher), which is used to modify existing functions at runtime.
 More details on patching will follow later on.
 
-Lastly, `BdApi` features a few functions used to search through the webpack export cache.
-We will take a closer look at those next.
+Lastly, [`BdApi.Webpack`](https://docs.betterdiscord.app/plugins/api/webpack) features a few utilities used to search through the webpack export cache.
+We will take a closer look at this next.
 
 ## Webpack modules
 [Webpack](https://webpack.js.org) is a **bundler**, meaning at its core it is a tool to take a collection of JS modules and merge them together into one or multiple big files for production.
 A module may import other modules and then expose some exports of its own.
 In order to avoid executing the modules multiple times, webpack keeps exports of already executed modules in a cache.
 
-`BdApi` provides us with a few functions allowing us to search through this export cache in order to find variables, functions, objects or React components internally used by Discord:
+[`BdApi.Webpack`](https://docs.betterdiscord.app/plugins/api/webpack) allows us to search through this export cache
+in order to find variables, functions, objects or React components internally used by Discord.
+[`Webpack.getModule(filter, options)`](https://docs.betterdiscord.app/plugins/api/webpack#getmodule) takes a filter function and searches through the exports of all currently cached modules.
 
-[`BdApi.findModule(filter)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findmodulefilter)  
-[`BdApi.findAllModules(filter)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findallmodulesfilter)  
-[`BdApi.findModuleByProps(...props)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findmodulebypropsprops)  
-[`BdApi.findModuleByDisplayName(name)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findmodulebydisplaynamename)  
-[`BdApi.findModuleByPrototypes(...protos)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findmodulebyprototypesprotos)
+[`Webpack.Filters`](https://docs.betterdiscord.app/plugins/api/filters) contains helpers to create commonly used search filter patterns.
+The two most used ones are [`Filters.byProps(...props)`](https://docs.betterdiscord.app/plugins/api/filters#byprops)
+and [`Filters.byDisplayName(name)`](https://docs.betterdiscord.app/plugins/api/filters#bydisplayname),
+searching by properties of `module.exports` and a specific `displayName` on the export respectively.
 
 When trying to hook into Discord's internals, searching for the relevant webpack modules is the first step.
 This may involve reading Discord's source code, inspecting components through React dev tools, experimenting in the console etc.
@@ -142,7 +163,7 @@ This may involve reading Discord's source code, inspecting components through Re
 <Banner type="warn" bold>
 
 Details in the following examples may be outdated.
-Discord's internals can change at any time.
+Discord's internals are undocumented and can change at any time.
 
 </Banner>
 
@@ -152,7 +173,8 @@ One parent component is responsible for rendering child components like the head
 
 ![Message components](./message-components.png)
 
-You can inspect a components source by clicking on the `<>` in React dev tools:
+You can inspect a components source by clicking on the `<>` in React dev tools.
+The current props & hooks as well as the component type for the currently selected component can also be accessed in the console via the `$r` global.
 
 ![View source](./view-source.png)
 
@@ -192,15 +214,15 @@ Knowing this, we can now formulate a predicate to find the module's exports in w
 We want a module whose exports have a `default`, `ThreadStarterChatMessage` and `getElementFromMessageId` entry.
 
 ```js
-BdApi.findModule((exports) => exports.default && exports.ThreadStarterChatMessage && exports.getElementFromMessageId);
+getModule((exports) => exports.default && exports.ThreadStarterChatMessage && exports.getElementFromMessageId);
 ```
 
-This type of predicate is exactly what [`BdApi.findModuleByProps(...props)`](https://github.com/BetterDiscord/BetterDiscord/wiki/Creating-Plugins#findmodulebypropsprops) can be used for:
+This type of predicate is exactly what [`Filters.byProps(...props)`](https://docs.betterdiscord.app/plugins/api/filters#byprops) can be used for:
 it searches for a module with the passed string arguments as properties/keys.
 An equivalent version would look like:
 
 ```js
-const Message = BdApi.findModuleByProps("default", "ThreadStarterChatMessage", "getElementFromMessageId");
+const Message = getModule(Filters.byProps("default", "ThreadStarterChatMessage", "getElementFromMessageId"));
 ```
 
 When formulating predicates you have to consider how specific it should be.
@@ -213,7 +235,10 @@ Sometimes taking a shot in the dark with your searches can help finding the righ
 For example, we could do a generic search for all modules exporting something with `"friend"` in the key:
 
 ```js
-BdApi.findAllModules((exports) => Object.keys(exports).some((key) => key.toLowerCase().includes("friend")))
+getModule(
+    (exports) => Object.keys(exports).some((key) => key.toLowerCase().includes("friend")),
+    {first: false}
+)
 ```
 
 This example will **not** work if what we are looking for is not directly exported from the module as either a key of the default export or a named export.
@@ -223,15 +248,15 @@ and the `isFriend()` method is defined on its [prototype](https://developer.mozi
 If we know we are looking for a store instance, we could search through the keys of the prototype instead:
 
 ```js
-BdApi.findAllModules((exports) => {
-    const proto = Object.getPrototypeOf(exports);
-    return Object.keys(proto).some((key) => key.toLowerCase().includes("friend"));
-})
+getModule(
+    (exports) => Object.keys(Object.getPrototypeOf(exports)).some((key) => key.toLowerCase().includes("friend")),
+    {first: false}
+)
 ```
 
 ## Patching
 With the module found, we can now hook into the component.
-This is done using the already mentioned `BdApi.Patcher`.
+This is done using the already mentioned [`BdApi.Patcher`](https://docs.betterdiscord.app/plugins/api/patcher).
 It allows us to change the behaviour of existing functions at runtime, executing our own code before, after or instead of the original.
 This is commonly referred to as *"monkey patching"* or simply *"patching"*.
 
@@ -240,16 +265,19 @@ Typically, you will use `before` patches when you want to intercept and manipula
 `after` patches when you want to intercept and manipulate the resulting return value
 and `instead` patches when the behaviour should be changed completely or for other complex scenarios.
 
-In React components you typically want to modify the return value of the original in order to change or add the elements rendered onscreen.
+In React components you typically want to modify the return value of the original in order to change the elements rendered.
 This means we want to create an `after` patch.
+For class components the target function is `Component.prototype.render()` usually.
+For function components it is the component itself.
 
-Remember: in our case the function component is wrapped inside a [React memo](https://reactjs.org/docs/react-api.html#reactmemo).
-We will simply leave the memo as it is and patch the contained function component.
+Remember: in our case we have a function component is wrapped inside a [React memo](https://reactjs.org/docs/react-api.html#reactmemo).
+A memo stores the wrapped component in its `type` property.
+We will simply leave the memo as it is and patch its `type` to hook into the contained function component.
 
 ```js
-const Message = BdApi.findModuleByProps("default", "ThreadStarterChatMessage", "getElementFromMessageId");
+const Message = getModule(Filters.byProps("default", "ThreadStarterChatMessage", "getElementFromMessageId"));
 
-BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, arguments, returnValue) => {
+Patcher.after("MyPluginName", Message.default, "type", (thisObject, arguments, returnValue) => {
     console.log("Original function received arguments:", arguments);
     console.log("Original function returned value:", returnValue);
 });
@@ -280,7 +308,7 @@ Assuming we have a `findNodeInTree(tree, predicate)` utility function to search 
 <CodeTabs names={["JSX", "JS"]}>
 
 ```jsx
-BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
+Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
     const foundNode = findNodeInTree(returnValue, (node) => node?.type === "li");
     if (foundNode) {
         foundNode.props.children = [
@@ -297,7 +325,7 @@ BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props
 ```
 
 ```jsx
-BdApi.Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
+Patcher.after("MyPluginName", Message.default, "type", (thisObject, [props], returnValue) => {
     const foundNode = findNodeInTree(returnValue, (node) => node?.type === "li");
     if (foundNode) {
         foundNode.props.children = [
@@ -320,13 +348,13 @@ Remember to undo the patches you did in `start()` when your plugin is stopped:
 
 ```js
 stop() {
-    BdApi.Patcher.unpatchAll("MyPluginName");
+    Patcher.unpatchAll("MyPluginName");
 }
 ```
 
 ## Further information
 Hopefully this helped you a bit while getting started with developing BetterDiscord plugins and using Discord's internals.
-Make sure to check the [BetterDiscord wiki](https://github.com/BetterDiscord/BetterDiscord/wiki/) for information on BetterDiscord's API.
+Make sure to check the [BetterDiscord documentation](https://docs.betterdiscord.app/) for information.
 Reading the source code of other plugins can also help a lot when learning.
 *(Maybe not plugins using `BDFDB` by DevilBro as they can be difficult to read.)*
 
