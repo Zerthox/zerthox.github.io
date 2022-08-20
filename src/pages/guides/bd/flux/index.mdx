@@ -1,11 +1,10 @@
 ---
 title: Flux and Discord
 date: 2022-05-14
+updated: 2022-08-20
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
-
-<Banner type="warn" bold>This is still a DRAFT with parts being subject to change!</Banner>
 
 ## State management in React
 When working with [React](https://reactjs.org), the UI has a state, which determines the elements rendered onscreen.
@@ -90,6 +89,7 @@ This can be useful when you want to use store updates somewhere outside of the U
 const listener = (action) => console.log("Dispatcher received:", action);
 
 Dispatcher.subscribe("ACTION_TYPE", listener);
+
 Dispachter.unsubscribe("ACTION_TYPE", listener);
 ```
 
@@ -97,6 +97,7 @@ Dispachter.unsubscribe("ACTION_TYPE", listener);
 const listener = () => console.log("UserStore was updated");
 
 UserStore.addChangeListener(listener);
+
 UserStore.removeChangeListener(listener);
 ```
 
@@ -106,11 +107,51 @@ Besides using the intended functions for dispatching specific actions, actions c
 `Dispatcher.maybeDispatch()` will dispatch only if no other action is currently being dispatched already.
 
 There is a massive amount of different actions.
-As of May 2022 nearly 1500 entries are listed within Discord's internal `ActionType` TypeScript enum.
+In May 2022 nearly 1500 entries were listed within Discord's internal `ActionType` TypeScript enum.
+The enum has since been removed (most likely turned into a `const enum`) in August 2022.
 
 ## Finding Stores
 As with all other internals, stores need to be found within the webpack exports cache and have to be reverse engineered.
 You can find more information in my [Getting started with BetterDiscord Plugin development](../getting-started) guide.
-Recently Discord added a `getName()` method to their store interface, which can make the process slightly easier.
-If this new method stays, plugins could find stores using their name rather than interface or other characteristics.
-Names may also help with figuring out a store's purpose when reverse engineering.
+In 2022 Discord added a `getName()` method to their store class.
+The name is also present as `displayName` property on the store constructors.
+*(Note: BetterDiscord's `byDisplayName` filter does not search constructors as of now.)*
+Theoretically you can now find stores using their name rather than interface or other characteristics.
+Store names can also prove useful when figuring out a store's purpose.
+
+<CodeTabs names={["Props", "Name"]}>
+
+```js
+const GuildStore = getModule(Filters.byProps("getGuild"));
+const ChannelStore = getModule(Filters.byProps("getChannel", "hasChannel"));
+const UserStore = getModule(Filters.byProps("getUser", "getCurrentUser"));
+```
+
+```js
+const GuildStore = getModule((exports) => exports?.constructor?.displayName === "GuildStore");
+const ChannelStore = getModule((exports) => exports?.constructor?.displayName === "ChannelStore");
+const UserStore = getModule((exports) => exports?.constructor?.displayName === "UserStore");
+```
+
+</CodeTabs>
+
+Usually a good way to start is to look at a part of the UI where data from the store you are searching for is supposedly used.
+Go up the parent chain and try to find the first "normal" component whose props do not include the data itself or children with the data already "rendered".
+The relevant stores are most likely accessed within this component.
+
+Alternatively you can attempt taking educated guesses regarding the store's name or methods - either complete or partial, like `name.toLowerCase().includes("guild")`.
+
+A list of all stores can be retreived by either checking the name or by making sure it is an instance of `Flux.Store`:
+
+```js
+getModule(
+    (exports) => typeof exports?.getName === "function" && exports.getName().endsWith("Store"),
+    {first: false}
+)
+```
+
+```js
+getModule((exports) => exports instanceof Flux.Store, {first: false})
+```
+
+Note that the first version will be missing a couple of stores which have no name set.
