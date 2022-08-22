@@ -1,7 +1,7 @@
 ---
 title: Flux and Discord
 date: 2022-05-14
-updated: 2022-08-20
+updated: 2022-08-22
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
@@ -101,10 +101,7 @@ UserStore.addChangeListener(listener);
 UserStore.removeChangeListener(listener);
 ```
 
-Besides using the intended functions for dispatching specific actions, actions can also be dispatched directly on the dispatcher:
-`Dispatcher.dispatch()` is the regular way of dispatching.
-`Dispatcher.dirtyDispatch()` will put the action in a wait queue if another action is already being dispatched currently.
-`Dispatcher.maybeDispatch()` will dispatch only if no other action is currently being dispatched already.
+Besides using the intended functions for dispatching specific actions, actions can also be dispatched directly on the dispatcher using `Dispatcher.dispatch()`.
 
 There is a massive amount of different actions.
 In May 2022 nearly 1500 entries were listed within Discord's internal `ActionType` TypeScript enum.
