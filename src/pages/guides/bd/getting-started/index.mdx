@@ -6,7 +6,17 @@ author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
 
-<Banner type="warn" bold>
+<Banner type="warn">
+
+**This guide has not been updated!**
+
+The Discord update on 27 September 2022 contained some major changes to fundamental characters of their production code.
+A lot of named exports have had their names minified and module exports became read-only properties.
+This changes the way internals can be used substantially.
+
+</Banner>
+
+<Banner type="warn">
 
 This article assumes you are familiar with modern [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 like [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions),
@@ -105,7 +115,7 @@ The [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npm
 [`BdApi.React`](https://docs.betterdiscord.app/plugins/api/bdapi#react) and [`BdApi.ReactDOM`](https://docs.betterdiscord.app/plugins/api/bdapi#reactdom).
 They are the same instances as the ones used by Discord. Always use these and **do not** bundle your own versions.
 
-<Banner type="info" bold>
+<Banner type="info">
 
 When using [JSX](https://reactjs.org/docs/introducing-jsx.html) in a plugin, it has to be transpiled.
 
@@ -160,9 +170,9 @@ searching by properties of `module.exports` and a specific `displayName` on the 
 When trying to hook into Discord's internals, searching for the relevant webpack modules is the first step.
 This may involve reading Discord's source code, inspecting components through React dev tools, experimenting in the console etc.
 
-<Banner type="warn" bold>
+<Banner type="warn">
 
-Details in the following examples may be outdated.
+Details in the following examples **are outdated**.
 Discord's internals are undocumented and can change at any time.
 
 </Banner>
