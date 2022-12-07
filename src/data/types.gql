@@ -4,6 +4,7 @@ extend type MdxFrontmatter {
     date: Date @dateformat
     updated: Date @dateformat
     tags: [String!]
+    slug: String
 }
 
 type TextEntry {

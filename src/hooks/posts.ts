@@ -6,18 +6,18 @@ export interface Frontmatter {
     date?: string;
     updated?: string;
     tags?: string[];
+    slug?: string;
+}
+
+export interface Fields {
+    slug: string;
+    timeToRead: number;
 }
 
 export interface Post {
-    slug: string;
     frontmatter: Frontmatter;
+    fields: Fields;
     excerpt: string;
-    timeToRead: number;
-    wordCount: {
-        paragraphs: number;
-        sentences: number;
-        words: number;
-    };
 }
 
 interface PostData {
@@ -28,9 +28,8 @@ interface PostData {
 
 const usePostData = () => useStaticQuery<PostData>(graphql`
     query Posts {
-        allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+        allMdx(sort: {frontmatter: {date: DESC}}) {
             nodes {
-                slug
                 frontmatter {
                     title
                     date(formatString: "DD MMMM YYYY")
@@ -39,21 +38,15 @@ const usePostData = () => useStaticQuery<PostData>(graphql`
                     tags
                 }
                 excerpt
-                timeToRead
-                wordCount {
-                    paragraphs
-                    sentences
-                    words
+                fields {
+                    slug
+                    timeToRead
                 }
             }
         }
     }
 `);
 
-export const trimSlashes = (path: string): string => path.replace(/(^\/|\/$)/g, "");
-
 export const usePosts = (): Post[] => usePostData().allMdx.nodes;
 
-export const usePost = (path: string): Post | null => usePosts().find(({slug}) => trimSlashes(slug) === trimSlashes(path)) ?? null;
-
-export const usePostsIn = (prefix: string): Post[] => usePosts().filter(({slug}) => slug.startsWith(prefix));
+export const usePostsIn = (prefix: string): Post[] => usePosts().filter(({fields}) => fields.slug.startsWith("/" + prefix));

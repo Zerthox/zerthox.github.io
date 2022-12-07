@@ -1,15 +1,19 @@
 import React from "react";
-import {PageProps} from "gatsby";
+import {graphql, PageProps} from "gatsby";
 import {Layout} from "../components/layout";
 import {Markdown} from "../components/markdown";
-import {usePost, Frontmatter} from "../hooks";
+import {Frontmatter, Fields} from "../hooks/posts";
 
-interface PageContext {
+export interface PostData {
     frontmatter: Frontmatter;
+    fields: Fields;
+    excerpt: string;
 }
 
-const MarkdownPage = ({location, children}: PageProps<never, PageContext>): JSX.Element => {
-    const {frontmatter, excerpt, timeToRead} = usePost(location.pathname);
+export type MarkdownPageProps = React.PropsWithChildren<Omit<PageProps<{mdx: PostData}>, "children">>;
+
+const MarkdownPage = ({children, data}: MarkdownPageProps): JSX.Element => {
+    const {frontmatter, fields, excerpt} = data.mdx;
     const {title, author, date, updated} = frontmatter;
 
     return (
@@ -18,7 +22,7 @@ const MarkdownPage = ({location, children}: PageProps<never, PageContext>): JSX.
             author={author}
             date={date}
             updated={updated}
-            readTime={timeToRead}
+            readTime={fields.timeToRead}
             description={excerpt}
         >
             <Markdown>{children}</Markdown>
@@ -27,3 +31,22 @@ const MarkdownPage = ({location, children}: PageProps<never, PageContext>): JSX.
 };
 
 export default MarkdownPage;
+
+export const query = graphql`
+    query MarkdownPageQuery($parentId: String) {
+        mdx(id: {eq: $parentId}) {
+            frontmatter {
+                title
+                date(formatString: "DD MMMM YYYY")
+                updated(formatString: "DD MMMM YYYY")
+                author
+                tags
+            }
+            excerpt
+            fields {
+                slug
+                timeToRead
+            }
+        }
+    }
+`;

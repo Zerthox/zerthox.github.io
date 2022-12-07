@@ -1,7 +1,7 @@
 import path from "path";
 import {GatsbyConfig} from "gatsby";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 interface FluidResult {
     base64: string;
     aspectRatio: number;
@@ -86,9 +86,6 @@ const config: GatsbyConfig = {
         {
             resolve: "gatsby-plugin-mdx",
             options: {
-                defaultLayouts: {
-                    default: path.resolve("./src/templates/markdown.tsx")
-                },
                 gatsbyRemarkPlugins: [
                     {
                         resolve: "gatsby-remark-images",
