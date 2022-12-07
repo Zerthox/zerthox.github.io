@@ -50,7 +50,7 @@ Libraries like [React Redux](https://react-redux.js.org/) are now recommending u
 Discord uses a (as far as we know) custom implementation of the Flux architecture.
 It forms a large part of the data layer behind the UI layer.
 
-<Banner type="warn" bold>While fairly stable in the past, Discord's Flux internals may change just like any other part of the internals.</Banner>
+<Banner type="warn" bold>Named exports have been mangled, which also affects the hooks mentioned below.</Banner>
 
 Their implementation has both a newer hooks API they are transitioning to as well as an old connect API, which is still used in parts of the codebase.
 Both APIs require the relevant stores in an array and a callback which computes the data and is invoked whenever a change has been detected.
