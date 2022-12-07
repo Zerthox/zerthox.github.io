@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "../general";
 import {Avatar} from "./avatar";
-import {useUser} from "../../hooks";
+import {useUser} from "../../hooks/users";
 import * as styles from "./user.module.scss";
 
 export interface UserProps {

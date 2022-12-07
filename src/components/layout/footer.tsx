@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "../general";
-import {TextEntry} from "../../hooks";
+import {TextEntry} from "../../hooks/site";
 import * as styles from "./footer.module.scss";
 
 const processEntries = (links: TextEntry[]) => links.map(({text, link}, i) => (

@@ -3,7 +3,7 @@ import {Header} from "./header";
 import {Footer} from "./footer";
 import {SEO} from "./seo";
 import {User} from "../user";
-import {useSiteMeta} from "../../hooks";
+import {useSiteMeta} from "../../hooks/site";
 import "normalize.css";
 import * as styles from "./layout.module.scss";
 
@@ -23,6 +23,7 @@ export interface LayoutProps {
 
 export const Layout = ({title, fullTitle, pageTitle, author, date, updated, readTime, description, noTitle, noContent, children}: LayoutProps): JSX.Element => {
     const siteMeta = useSiteMeta();
+    const hasInfo = author || date || readTime;
 
     return (
         <>
@@ -37,7 +38,7 @@ export const Layout = ({title, fullTitle, pageTitle, author, date, updated, read
                     {!noTitle ? (
                         <div className={styles.title}>
                             <div className={styles.heading}>{pageTitle ?? title}</div>
-                            {author || date || readTime ? (
+                            {hasInfo ? (
                                 <div className={styles.info}>
                                     {author ? (
                                         <div className={styles.author}>
