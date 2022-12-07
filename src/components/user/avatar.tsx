@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import * as styles from "./avatar.module.scss";
 
 export interface AvatarProps {
@@ -10,7 +10,7 @@ export interface AvatarProps {
 
 export const Avatar = ({url, size = 30, className}: AvatarProps): JSX.Element => (
     <div
-        className={classNames(className, styles.avatar)}
+        className={clsx(className, styles.avatar)}
         style={{
             backgroundImage: `url(${url})`,
             width: size,

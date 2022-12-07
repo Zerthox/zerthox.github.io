@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import {Link} from "../general";
 import * as styles from "./anchor.module.scss";
 
@@ -10,7 +10,7 @@ export interface AnchorProps {
 }
 
 export const Anchor = ({href, className, children}: AnchorProps): JSX.Element => (
-    <Link className={classNames(className, styles.anchor, {
+    <Link className={clsx(className, styles.anchor, {
         [styles.text]: typeof children === "string"
     })} to={href}>{children}</Link>
 );

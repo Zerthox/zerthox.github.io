@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import Highlight, {defaultProps, Language} from "prism-react-renderer";
 import {theme} from "./theme";
 import * as styles from "./code.module.scss";
@@ -40,7 +40,7 @@ export interface CodeblockProps {
 }
 
 export const Codeblock = ({language, className, children}: CodeblockProps): JSX.Element => (
-    <div className={classNames(className, styles.codeblock)}>
+    <div className={clsx(className, styles.codeblock)}>
         <Highlight
             {...defaultProps}
             code={children.trim()}
@@ -48,7 +48,7 @@ export const Codeblock = ({language, className, children}: CodeblockProps): JSX.
             theme={theme}
         >
             {({className, style, tokens, getLineProps, getTokenProps}) => (
-                <div className={classNames(className, styles.content)} style={style}>
+                <div className={clsx(className, styles.content)} style={style}>
                     {tokens.map((line, i) => (
                         <div key={i} {...getLineProps({line, key: i})}>
                             <span className={styles.number}>{i + 1}</span>
@@ -69,5 +69,5 @@ export interface InlineCodeProps {
 }
 
 export const InlineCode = ({className, children}: InlineCodeProps): JSX.Element => (
-    <span className={classNames(className, styles.inline)}>{children}</span>
+    <span className={clsx(className, styles.inline)}>{children}</span>
 );

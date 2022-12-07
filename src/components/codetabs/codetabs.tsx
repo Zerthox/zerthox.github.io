@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import {CodeblockProps} from "../markdown";
 import * as styles from "./codetabs.module.scss";
 import * as codeblockStyles from "../markdown/code.module.scss";
@@ -19,12 +19,12 @@ export const CodeTabs = ({names, children}: CodeTabsProps): JSX.Element => {
                 {children.map((_, i) => (
                     <div
                         key={i}
-                        className={classNames(styles.item, {[styles.active]: current === i})}
+                        className={clsx(styles.item, {[styles.active]: current === i})}
                         onClick={() => setCurrent(i)}
                     >{names?.[i] ?? `Tab ${i}`}</div>
                 ))}
             </div>
-            <div className={classNames(styles.content, codeblockStyles.noMargin)}>
+            <div className={clsx(styles.content, codeblockStyles.noMargin)}>
                 {tab}
             </div>
         </div>
