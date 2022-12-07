@@ -9,6 +9,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "check": "tsc --noemit",
     "lint": "npx eslint src --ext .js,.jsx,.ts,.tsx -f node_modules/eslint-friendly-formatter",
     "lint-fix": "npx eslint src --fix --ext .js,.jsx,.ts,.tsx -f node_modules/eslint-friendly-formatter"
   },
