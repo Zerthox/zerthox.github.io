@@ -43,7 +43,7 @@ export const Codeblock = ({language, className, children}: CodeblockProps): JSX.
     <div className={clsx(className, styles.codeblock)}>
         <Highlight
             {...defaultProps}
-            code={children.trim()}
+            code={children?.trim() ?? ""}
             language={language}
             theme={theme}
         >
