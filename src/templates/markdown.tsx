@@ -22,7 +22,7 @@ const MarkdownPage = ({children, data}: MarkdownPageProps): JSX.Element => {
             author={author}
             date={date}
             updated={updated}
-            readTime={fields.timeToRead}
+            readTime={Math.round(fields.timeToRead)}
             description={excerpt}
         >
             <Markdown>{children}</Markdown>
