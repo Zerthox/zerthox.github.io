@@ -133,7 +133,7 @@ const { React } = BdApi;
 
 const MyComponent = () => React.createElement(
     "div",
-    {className: "foo"},
+    { className: "foo" },
     "Hello World!"
 );
 ```
@@ -250,36 +250,36 @@ You can check how many potentially wrong modules your predicate currently matche
 The first way is the currently most common way to build search predicates for components.
 We do not any have export names or component `displayName`s to work with.
 However, the component possibly still accesses the React component props it recieves.
-We can use these to create a predicate using [`Filters.byStrings(...strings)`](https://docs.betterdiscord.app/api/filters#bystrings)
+We can use these to create a predicate using [`Filters.byStrings(...strings)`](https://docs.betterdiscord.app/api/filters#bystrings).
 Looking at the component source, we can figure out which accesssed props could be a suitable for our query.
 
-In this case `submittingStartedLabel` and `submittingFinishedLabel` are two props with fairly specific names which are accessed within the component.
+In this case `submittingStartedLabel` and `submittingFinishedLabel` are two props with fairly specific names, which are accessed within the component.
 And indeed, we only get a single match using either of them:
 
 ```js
-getModule(Filters.byStrings("submittingStartedLabel"), {searchExports: true, first: false})
+getModule(Filters.byStrings("submittingStartedLabel"), { searchExports: true, first: false })
 ```
 
 If we are afraid these props are too special and might be removed from the component in the future, we can combine multiple of the more "basic" props.
 The query below returns 12 matches:
 
 ```js
-getModule(Filters.byStrings("look", "submitting"), {searchExports: true, first: false})
+getModule(Filters.byStrings("look", "submitting"), { searchExports: true, first: false })
 ```
 
 One thing we can change is to add the `.` from accessing the property in front.
-Discord's toolchain (usually) transpiles destructuring them into regular property access operations.
+Discord's toolchain (usually) transpiles destructuring props into regular property access operations.
 This cuts down our number of matches to 2:
 
 ```js
-getModule(Filters.byStrings(".look", ".submitting"), {searchExports: true, first: false})
+getModule(Filters.byStrings(".look", ".submitting"), { searchExports: true, first: false })
 ```
 
 We can also take a look at the "wrong" matches and attempt to find code fragments that are present in our component but not the others.
 In this case the other component for example does not access an `onClick` prop, leaving us with this possible query for the button component:
 
 ```js
-const Button = getModule(Filters.byStrings(".look", ".submitting", ".onClick"), {searchExports: true});
+const Button = getModule(Filters.byStrings(".look", ".submitting", ".onClick"), { searchExports: true });
 ```
 
 The second way for formulating predicates is one that can only be applied in special cases.
@@ -288,7 +288,7 @@ These add enum-like objects and another associated function component.
 Knowing this, we can attempt to use [`Filters.byProps(...props)`](https://docs.betterdiscord.app/api/filters#byprops) and match these properties instead of matching the component source:
 
 ```js
-const Button = getModule(Filters.byProps("Link", "Colors"), {searchExports: true});
+const Button = getModule(Filters.byProps("Link", "Colors"), { searchExports: true });
 ```
 
 If a component or function is **not exported** from its module, things become a lot more complicated.
@@ -301,7 +301,8 @@ You can read more about this in [Flux and Discord](../flux).
 In the Flux architecture *Stores* hold all of the relevant state information.
 
 As an example we will attempt to find the *UserStore* by reverse engineering the component responsible for rendering the account panel below the channel list.
-Searching through the component tree for a component which does not receive the data as props from a parent brings us to a component called `Tee`.
+We start by  searching through the component tree for a component which does not receive the data as props from a parent.
+This brings us to a component called `Tee`:
 
 ```js
 function Tee() {
@@ -339,7 +340,7 @@ But let's figure out what the rest around it is.
 We can take a closer look at the component by selecting it in React devtools and typing `$r` in console.
 The `type` will contain the function, which we can help us figure out what values captured variables contain.
 If we expand the function, we see a `[[Scopes]]` entry at the bottom.
-We can look through this manually or in case one scope of captured variables is very large:
+We can look through these manually or in case one scope of captured variables is very large:
 right click, store as global variable and then access an entry like `temp1.object.s`.
 
 ![Tee scopes](./tee-scopes.png)

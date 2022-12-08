@@ -143,12 +143,12 @@ A list of all stores can be retreived by either checking the name or by making s
 ```js
 getModule(
     (exports) => typeof exports?.getName === "function" && exports.getName().endsWith("Store"),
-    {first: false}
+    { first: false }
 )
 ```
 
 ```js
-getModule((exports) => exports instanceof Flux.Store, {first: false})
+getModule((exports) => exports instanceof Flux.Store, { first: false })
 ```
 
 Note that the first version will be missing a couple of stores which have no name set.
