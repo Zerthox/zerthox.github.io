@@ -1,6 +1,6 @@
 import React from "react";
-import {graphql, PageProps} from "gatsby";
-import {Layout} from "../components/layout";
+import {graphql, PageProps, HeadProps} from "gatsby";
+import {Layout, SEO} from "../components/layout";
 import {Markdown} from "../components/markdown";
 import {Frontmatter, Fields} from "../hooks/posts";
 
@@ -10,10 +10,14 @@ export interface PostData {
     excerpt: string;
 }
 
-export type MarkdownPageProps = React.PropsWithChildren<Omit<PageProps<{mdx: PostData}>, "children">>;
+interface MarkdownPageData {
+    mdx: PostData;
+}
+
+export type MarkdownPageProps = React.PropsWithChildren<Omit<PageProps<MarkdownPageData>, "children">>;
 
 const MarkdownPage = ({children, data}: MarkdownPageProps): JSX.Element => {
-    const {frontmatter, fields, excerpt} = data.mdx;
+    const {frontmatter, fields} = data.mdx;
     const {title, author, date, updated} = frontmatter;
 
     return (
@@ -23,7 +27,6 @@ const MarkdownPage = ({children, data}: MarkdownPageProps): JSX.Element => {
             date={date}
             updated={updated}
             readTime={Math.round(fields.timeToRead)}
-            description={excerpt}
         >
             <Markdown>{children}</Markdown>
         </Layout>
@@ -31,6 +34,17 @@ const MarkdownPage = ({children, data}: MarkdownPageProps): JSX.Element => {
 };
 
 export default MarkdownPage;
+
+export const Head = ({data}: HeadProps<MarkdownPageData>): JSX.Element => {
+    const {frontmatter, excerpt} = data.mdx;
+    const {title, author} = frontmatter;
+
+    return <SEO
+        title={title}
+        author={author}
+        description={excerpt}
+    />;
+};
 
 export const query = graphql`
     query MarkdownPageQuery($parentId: String) {

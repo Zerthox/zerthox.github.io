@@ -1,5 +1,5 @@
 import React from "react";
-import {Layout} from "../../components/layout";
+import {Layout, SEO} from "../../components/layout";
 import {List} from "../../components/list";
 import {usePostsIn} from "../../hooks/posts";
 
@@ -24,3 +24,5 @@ const Blog = (): JSX.Element => {
 };
 
 export default Blog;
+
+export const Head = (): JSX.Element => <SEO title="Guides"/>;

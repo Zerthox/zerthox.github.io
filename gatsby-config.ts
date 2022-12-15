@@ -65,7 +65,6 @@ const config: GatsbyConfig = {
                 icon: path.resolve("./src/assets/icon.png")
             }
         },
-        "gatsby-plugin-react-helmet",
         "gatsby-transformer-json",
         {
             resolve: "gatsby-source-filesystem",

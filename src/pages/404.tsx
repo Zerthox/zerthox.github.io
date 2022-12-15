@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from "../components/general";
-import {Layout} from "../components/layout";
+import {Layout, SEO} from "../components/layout";
 import * as styles from "./404.module.scss";
 
 const PageNotFound = (): JSX.Element => (
-    <Layout title="Page not found" noTitle noContent>
+    <Layout noContent>
         <div className={styles.container}>
             <div className={styles.title}>404</div>
             <div className={styles.subtitle}>Page not found</div>
@@ -14,3 +14,5 @@ const PageNotFound = (): JSX.Element => (
 );
 
 export default PageNotFound;
+
+export const Head = (): JSX.Element => <SEO title="404 Page not found"/>;
