@@ -1,7 +1,7 @@
 ---
 title: Getting started with BetterDiscord plugin development
 date: 2022-01-14
-updated: 2022-12-07
+updated: 2022-12-12
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
@@ -15,6 +15,7 @@ It mostly focuses on covering topics that are not covered by other resources, li
     [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
     and [Optional Chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
     as well as the [React](https://reactjs.org) UI library!
+    You can read up on these in [The Modern JavaScript Tutorial](https://javascript.info) and [Learn React](https://beta.reactjs.org/learn).
 </Banner>
 
 ## Environment
@@ -26,7 +27,7 @@ As of September 2022, BetterDiscord polyfills a small subset of absolutely neces
 However, this is far from exhaustive.
 
 The UI is created using [React](https://reactjs.org) and all of the data is handled by a custom event system and a custom [Flux](https://facebook.github.io/flux/) implementation.
-Their source is most likely written in [TypeScript](https://www.typescriptlang.org), however that is mostly irrelevant for plugin development.
+Discord's source code is written in [TypeScript](https://www.typescriptlang.org), however that is mostly irrelevant for plugin development.
 Everything is transpiled with [SWC](https://swc.rs) and then bundled together using [webpack](https://webpack.js.org).
 
 Thanks to being based on [Chromium](https://www.chromium.org/Home), Electron's renderer window has the [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
@@ -167,19 +168,19 @@ It has nothing to do with React's props, it searches for specific properties (ke
 When trying to hook into Discord's internals, searching for the relevant webpack modules is the first step.
 This may involve reading Discord's source code, inspecting components through React dev tools, experimenting in the console etc.
 
-## Finding a component
-
-<Banner type="warn">Details in the following examples may be outed. Discord's internals are undocumented and can change at any time.</Banner>
-
 The Discord update on 27 September 2022 brought some major changes to characteristics of their production code.
 Named top-level exports have had their names "mangled" (minified).
 The module merging also became more aggressive, merging e.g. all of the channel list components into a single module.
-These changes pose additional challenges when searching modules.
+These changes pose **additional challenges when searching modules**.
+
+## Finding a component
+
+<Banner type="warn">Details in the following examples may be outdated. Discord's internals are undocumented and can change at any time.</Banner>
 
 As a first example, we will attempt to find Discord's button component in their webpack modules.
 When inspecting in React devtools, the first component we stumble upon is called `U`.
-Looking at its received props, we realize this can't be the component we are looking for:
-it's receiving the element as children, meaning those were rendered by one of its parents!
+Looking at its received props, we realize this cannot be the component we are looking for:
+it is receiving the element as children, meaning those were rendered by one of its parents!
 
 ![Button component U](./button-component-u.png)
 
@@ -247,7 +248,7 @@ When being very specific you are unlikely to accidentally find a different modul
 However, a very specific predicate may also break very fast when Discord changes something in their internals.
 You can check how many potentially wrong modules your predicate currently matches by passing `first: false` to `getModule()`.
 
-The first way is the currently most common way to build search predicates for components.
+Our first approach is the currently most common way to build search predicates for components.
 We do not any have export names or component `displayName`s to work with.
 However, the component possibly still accesses the React component props it recieves.
 We can use these to create a predicate using [`Filters.byStrings(...strings)`](https://docs.betterdiscord.app/api/filters#bystrings).
@@ -282,7 +283,7 @@ In this case the other component for example does not access an `onClick` prop, 
 const Button = getModule(Filters.byStrings(".look", ".submitting", ".onClick"), { searchExports: true });
 ```
 
-The second way for formulating predicates is one that can only be applied in special cases.
+Our second approach for finding the button component can only be applied in special cases.
 Looking at our component source code again, we happen to have a handful of assignments right below our function component.
 These add enum-like objects and another associated function component.
 Knowing this, we can attempt to use [`Filters.byProps(...props)`](https://docs.betterdiscord.app/api/filters#byprops) and match these properties instead of matching the component source:
@@ -300,8 +301,9 @@ Discord uses the [Flux](https://facebook.github.io/flux) architecture to organiz
 You can read more about this in [Flux and Discord](../flux).
 In the Flux architecture *Stores* hold all of the relevant state information.
 
-As an example we will attempt to find the *UserStore* by reverse engineering the component responsible for rendering the account panel below the channel list.
-We start by  searching through the component tree for a component which does not receive the data as props from a parent.
+As an example, we will attempt to find the `UserStore`.
+As our entry point for reverse engineering we pick the component responsible for rendering the account panel below the channel list.
+We start by searching through the component tree for a component which does not receive the data as props from a parent.
 This brings us to a component called `Tee`:
 
 ```js
