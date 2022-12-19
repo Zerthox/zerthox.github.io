@@ -59,7 +59,7 @@ Then enable the setting in BetterDiscord's developer settings and the dev tools 
 
 ## BetterDiscord API
 BetterDiscords full API will **not** be covered here in details.
-You can find additional information on the [BetterDiscord documentation](https://docs.betterdiscord.app/) (still work in progress). 
+You can find additional information in the [BetterDiscord documentation](https://docs.betterdiscord.app/) (some parts work in progress). 
 If you encounter any outdated or unclear parts, you should ask in the [BetterDiscord server](https://discord.gg/0Tmfo5ZbORCRqbAd).
 
 A basic BetterDiscord plugin could look something like this:
@@ -401,7 +401,7 @@ There is three different kinds of patches the [`BdApi.Patcher`](https://docs.bet
 Typically, you will use [`before`](https://docs.betterdiscord.app/api/patcher/#before) patches when you want to intercept and manipulate the incoming function arguments,
 [`after`](https://docs.betterdiscord.app/api/patcher/#after) patches when you want to intercept and manipulate the resulting return value
 and [`instead`](https://docs.betterdiscord.app/api/patcher/#instead) patches when the behaviour should be changed completely or for other complex scenarios.
-v
+
 In React components you typically want to modify the return value of the original in order to change the elements rendered.
 This means we want to create an `after` patch.
 For class components the target function is `Component.prototype.render()` usually.
