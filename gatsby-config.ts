@@ -22,38 +22,7 @@ const config: GatsbyConfig = {
         title: "Zerthox",
         description: "Just a little page.",
         author: "Zerthox",
-        siteUrl: "https://zerthox.github.io",
-        header: [
-            {
-                text: "Home",
-                link: "/"
-            },
-            {
-                text: "Guides",
-                link: "/guides"
-            },
-            {
-                text: "About",
-                link: "/about"
-            }
-        ],
-        footer: {
-            left: [
-                {
-                    text: "Copyright 2021 Zerthox"
-                }
-            ],
-            right: [
-                {
-                    text: "GitHub",
-                    link: "https://github.com/zerthox"
-                },
-                {
-                    text: "Source",
-                    link: "https://github.com/zerthox/zerthox.github.io"
-                }
-            ]
-        }
+        siteUrl: "https://zerthox.github.io"
     },
     plugins: [
         "gatsby-plugin-sitemap",

@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: colors.$gray-medium;
+    background-color: colors.$gray-dark;
     z-index: 1;
     user-select: none;
 }
@@ -21,7 +21,6 @@
     color: #fff;
     font-size: 30px;
     font-weight: 600;
-    text-shadow: 0 0 20px hsla(0, 0%, 100%, .3);
 }
 .name {
     margin-left: 10px;

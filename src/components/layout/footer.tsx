@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "../general";
-import {TextEntry} from "../../hooks/site";
 import * as styles from "./footer.module.scss";
 
 const processEntries = (links: TextEntry[]) => links.map(({text, link}, i) => (
@@ -9,6 +8,11 @@ const processEntries = (links: TextEntry[]) => links.map(({text, link}, i) => (
         {link ? <Link className={styles.link} to={link}>{text}</Link> : text}
     </React.Fragment>
 ));
+
+export interface TextEntry {
+    text: string;
+    link?: string;
+}
 
 export interface FooterProps {
     left: TextEntry[];

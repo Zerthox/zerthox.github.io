@@ -3,11 +3,6 @@
 $min-page-size: 700px;
 $max-content-size: 1000px;
 
-body {
-    background: #000;
-    margin: 0;
-}
-
 .main {
     height: 100vh;
     min-width: $min-page-size;
@@ -15,9 +10,6 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: auto;
     justify-content: stretch;
-    color: hsla(0, 0%, 100%, .7);
-    font-family: sans-serif;
-    line-height: 1.5;
 }
 
 .body {
@@ -25,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: colors.$gray-light;
+    background-color: colors.$black;
 }
 
 .title {
@@ -38,7 +30,7 @@ body {
     font-size: 40px;
     color: #fff;
     text-align: center;
-    text-shadow: 0 0 20px hsla(0, 0%, 100%, .3);
+    text-shadow: 0 0 20px hsla(0, 0%, 100%, .1);
 }
 .info {
     display: flex;

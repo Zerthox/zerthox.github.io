@@ -1,0 +1,8 @@
+@use "colors";
+
+body {
+    background: colors.$black;
+    color: hsla(0, 0%, 100%, .7);
+    font-family: sans-serif;
+    line-height: 1.5;
+}

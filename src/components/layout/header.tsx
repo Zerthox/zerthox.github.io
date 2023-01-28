@@ -1,9 +1,14 @@
 import React from "react";
 import {Link} from "gatsby";
 import {Avatar} from "../user";
-import {useSiteMeta, LinkEntry} from "../../hooks/site";
+import {useSiteMeta} from "../../hooks/site";
 import {useUser} from "../../hooks/users";
 import * as styles from "./header.module.scss";
+
+export interface LinkEntry {
+    text: string;
+    link: string;
+}
 
 export interface HeaderProps {
     links: LinkEntry[];
