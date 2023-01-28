@@ -1,9 +1,10 @@
 .link {
-    margin-top: 5px;
+    margin-top: 15px;
     font-size: 18px;
     color: hsla(0, 0%, 100%, .7);
     text-decoration: none;
     transition: all .15s ease-in-out;
+    cursor: pointer;
     &:hover {
         color: #fff;
     }

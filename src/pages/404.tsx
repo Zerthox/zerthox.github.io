@@ -13,4 +13,4 @@ const PageNotFound = (): JSX.Element => (
 
 export default PageNotFound;
 
-export const Head = (): JSX.Element => <SEO title="404 Page not found"/>;
+export const Head = (): JSX.Element => <SEO title="Nothing here"/>;
