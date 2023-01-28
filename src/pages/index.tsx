@@ -5,7 +5,7 @@ import {Title, SEO} from "../components/layout";
 import * as styles from "./404.module.scss";
 
 const Home = (): JSX.Element => {
-    const goBack = history.length > 1;
+    const goBack = typeof window !== "undefined" && window.history.length > 1;
 
     return (
         <Center>
@@ -15,7 +15,7 @@ const Home = (): JSX.Element => {
                 className={clsx(styles.link, {
                     [styles.disabled]: !goBack
                 })}
-                onClick={goBack ? () => history.back() : null}
+                onClick={goBack ? () => window.history.back() : null}
             >Go back</span>
         </Center>
     );
