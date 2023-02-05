@@ -443,7 +443,7 @@ With a utility function to search the tree for a specific node, appending new el
 
 <CodeTabs names={["JSX", "JS"]}>
 ```jsx
-const findInReactTree = (tree, filter) => Utils.findInTree(tree, filter, {walkable: ["props", "children"]});
+const findInReactTree = (tree, filter) => Utils.findInTree(tree, filter, { walkable: ["props", "children"] });
 
 Patcher.after("MyPluginName", myComponentModule, "myComponentKey", (thisObject, [props], returnValue) => {
     const foundNode = findInReactTree(returnValue, (node) => node?.type === "li");
@@ -459,7 +459,7 @@ Patcher.after("MyPluginName", myComponentModule, "myComponentKey", (thisObject, 
 ```
 
 ```jsx
-const findInReactTree = (tree, filter) => Utils.findInTree(tree, filter, {walkable: ["props", "children"]});
+const findInReactTree = (tree, filter) => Utils.findInTree(tree, filter, { walkable: ["props", "children"] });
 
 Patcher.after("MyPluginName", myComponentModule, "myComponentKey", (thisObject, [props], returnValue) => {
     const foundNode = findInReactTree(returnValue, (node) => node?.type === "li");
