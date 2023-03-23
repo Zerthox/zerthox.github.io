@@ -25,6 +25,7 @@ export const mdxComponents: MDXComponents = {
         return <Codeblock language={language}>{code as string}</Codeblock>;
     },
     code: InlineCode,
+    img: (props) => <img {...props} style={{maxWidth: "100%", ...props.style}}/>,
     Anchor,
     Paragraph,
     Heading,
