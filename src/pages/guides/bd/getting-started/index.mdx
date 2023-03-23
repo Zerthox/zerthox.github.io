@@ -1,7 +1,7 @@
 ---
 title: Getting started with BetterDiscord plugin development
 date: 2022-01-14
-updated: 2022-12-12
+updated: 2022-03-23
 author: Zerthox
 tags: [js, discord, betterdiscord]
 ---
@@ -52,9 +52,10 @@ Then enable the setting in BetterDiscord's developer settings and the dev tools 
 
 ![React dev tools](./react-dev-tools.png)
 
-<Banner type="warn">
-    Since version 4.27.0 React Developer Tools has [issues with Chromium versions older than 102](https://github.com/facebook/react/tree/main/packages/react-devtools#the-issue-with-chrome-v101-and-earlier).
-    As of December 2022, Discord stable is on 91 and Canary is on 98.
+<Banner type="info">
+    Since version 4.27.0 React Developer Tools is [broken in Electron](https://github.com/facebook/react/issues/25843#issuecomment-1406766561).
+    You can create an `extensions` folder next to your BetterDiscord `plugins`/`themes` folders.
+    Then place the Manifest v2 build from the link above or an old version in a subfolder with the React Developer Tools extension id `fmkadmapgofadopljbjfkapdkoienihi` as name.
 </Banner>
 
 ## BetterDiscord API
