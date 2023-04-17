@@ -14,8 +14,8 @@ It mostly focuses on covering topics that are not covered by other resources, li
     like [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions),
     [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
     and [Optional Chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-    as well as the [React](https://reactjs.org) UI library!
-    You can read up on these in [The Modern JavaScript Tutorial](https://javascript.info) and [Learn React](https://beta.reactjs.org/learn).
+    as well as the [React](https://react.dev) UI library!
+    You can read up on these in [The Modern JavaScript Tutorial](https://javascript.info) and [Learn React](https://react.dev/learn).
 </Banner>
 
 ## Environment
@@ -26,7 +26,7 @@ This means our environment is a **browser not [Node.js](https://nodejs.org)!**.
 As of September 2022, BetterDiscord polyfills a small subset of absolutely necessary functions in modules shipped with Node.
 However, this is far from exhaustive.
 
-The UI is created using [React](https://reactjs.org) and all of the data is handled by a custom event system and a custom [Flux](https://facebook.github.io/flux/) implementation.
+The UI is created using [React](https://react.dev) and all of the data is handled by a custom event system and a custom [Flux](https://facebook.github.io/flux/) implementation.
 Discord's source code is written in [TypeScript](https://www.typescriptlang.org), however that is mostly irrelevant for plugin development.
 Everything is transpiled with [SWC](https://swc.rs) and then bundled together using [webpack](https://webpack.js.org).
 
@@ -117,7 +117,7 @@ The [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npm
 [`BdApi.React`](https://docs.betterdiscord.app/api/bdapi#react) and [`BdApi.ReactDOM`](https://docs.betterdiscord.app/api/bdapi#reactdom).
 They are the same instances as the ones used by Discord. Always use these and **do not** bundle your own versions.
 
-<Banner type="info">When using [JSX](https://reactjs.org/docs/introducing-jsx.html) in a plugin, it has to be transpiled.</Banner>
+<Banner type="info">When using [JSX](https://react.dev/learn/writing-markup-with-jsx) in a plugin, it has to be transpiled.</Banner>
 
 <CodeTabs names={["JSX", "JS"]}>
 ```jsx
@@ -429,7 +429,7 @@ The example above is output from a function component.
 The first argument received is the component props just as you would expect with a function component.
 The second argument is an empty object since the component does not forward any refs (or makes use of React's legacy context API).
 
-As to be expected, the return value is what a call to [`React.createElement()`](https://reactjs.org/docs/react-api.html#createelement) returns - a tree of React element nodes.
+As to be expected, the return value is what a call to [`React.createElement()`](https://react.dev/reference/react/createElement) returns - a tree of React element nodes.
 The most interesting properties on these nodes are `type`, which indicates what kind of element or component this tree node is,
 and `props`, which is the props passed to the HTML element or React component.
 Child nodes are found under `props.children`.

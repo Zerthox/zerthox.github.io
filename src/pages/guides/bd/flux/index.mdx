@@ -7,13 +7,13 @@ tags: [js, discord, betterdiscord]
 ---
 
 ## State management in React
-When working with [React](https://reactjs.org), the UI has a state, which determines the elements rendered onscreen.
+When working with [React](https://react.dev), the UI has a state, which determines the elements rendered onscreen.
 Changing said state will cause React to rerender the affected UI components.
 React itself already comes with some tools to manage state:
-the [State API](https://reactjs.org/docs/faq-state.html),
-which can be used via the [`this.setState()`](https://reactjs.org/docs/react-component.html#setstate) method in class components
-and via the newer [`useState()`](https://reactjs.org/docs/hooks-reference.html#usestate) hook in function components.
-For managing global state React also features a lesser known [Context API](https://reactjs.org/docs/context.html) out of the box.
+the [State API](https://react.dev/learn/state-a-components-memory),
+which can be used via the [`this.setState()`](https://react.dev/reference/react/Component#setstate) method in class components
+and via the newer [`useState()`](https://react.dev/reference/react/useState) hook in function components.
+For managing global state React also features a lesser known [Context API](https://react.dev/learn/passing-data-deeply-with-context) out of the box.
 
 However, in large applications state management can prove more difficult or inefficient.
 That's what resulted in the [Flux](https://facebook.github.io/flux/) architecture for managing data flow and application state in React.
@@ -21,7 +21,7 @@ While the original Flux project by Facebook themselves is no longer actively dev
 Popular state management libraries of today like [Redux](https://redux.js.org/) are built upon it.
 
 ![Flux architecture](https://i.stack.imgur.com/vHOJB.png)
-*Source: Facebook'S Flux docs*
+*Source: Facebook's Flux docs*
 
 The Flux pattern traditionally consists of central **Dispatcher**(s), which can receive so-called Actions.
 An **Action** represents a modification of the application's state and has an identifying type (kind) as well as a potential payload of additional data.
@@ -36,7 +36,7 @@ The store data as well as the ability to dispatch actions now has to be made ava
 For the classic class-based components, this used to be typically done with wrapper components,
 which take care of updating and give the inner component access to store data via props or custom methods.
 This API is sometimes also referred to as "Connect" since the name of the function used to wrap a component usually includes the word connect.
-The alternative API for function component would be realized via the newer concept of [hooks](https://reactjs.org/docs/hooks-intro.html).
+The alternative API for function component would be realized via the newer concept of [hooks](https://react.dev/reference/react).
 
 <Banner type="info">
 
