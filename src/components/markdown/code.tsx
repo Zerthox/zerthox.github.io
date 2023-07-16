@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import Highlight, {defaultProps, Language} from "prism-react-renderer";
+import {Highlight, Language} from "prism-react-renderer";
 import {theme} from "./theme";
 import * as styles from "./code.module.scss";
 
@@ -42,7 +42,6 @@ export interface CodeblockProps {
 export const Codeblock = ({language, className, children}: CodeblockProps): JSX.Element => (
     <div className={clsx(className, styles.codeblock)}>
         <Highlight
-            {...defaultProps}
             code={children?.trim() ?? ""}
             language={language}
             theme={theme}
